@@ -1,0 +1,50 @@
+
+# Introduction
+
+Determining the spatial correspondence between imaging domains is frequently a
+critical component in quantitative image analysis workflows.  The evolution of
+image registration theoretical and technological development has led to increasingly
+high quality transformational mappings that have significantly improved performance in related
+processing tasks (e.g., image segmentation via joint label fusion [@Iglesias:2015aa])
+and imaging-based statistical analysis strategies (e.g., sparse canonical correlation
+analysis [@Avants:2010aa]).  Several reviews
+[@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
+have charted this chronology and provided insight into related issues such as algorithmic
+classification, available implementations, relevant evaluation strategies, and speculation
+concerning future directions of the field.  Although prescient in many respects,
+even in later reviews, speculation vis-à-vis deep learning was somewhat limited almost
+certainly due to  its relatively recent and sudden overwhelming of the field in terms
+of popularity and research focus.
+
+Although the foundational concepts that form the basis for modern deep learning
+architectures are historically well-established, it is only recently that
+hardware availability has made sufficient advancements to meet the computational
+requirements of deep learning applications.
+
+back-propagation
+
+
+
+
+
+<!--
+
+* Brief history of deep learning.  Cite the various review articles.
+
+* Available resources
+
+    * The usual packages (tensorflow, theano, Caffe, Lasagne, Flux (Julia), Keras (python and R))
+
+    * NiftyNet
+
+    * ANTsRNet
+
+    * Countless repositories of individual implementations
+
+* Brief history of image registration
+
+* Structure of the review
+
+    * Discussion --- what are some of the challengs specific to image registration?
+
+-->

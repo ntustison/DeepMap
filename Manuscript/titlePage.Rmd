@@ -1,0 +1,44 @@
+
+\begin{centering}
+
+$ $
+
+\vspace{2.0 cm}
+
+\LARGE
+
+{\bf Learning image transformations via convolutional neural networks:  a review}
+
+\vspace{3.0 cm}
+
+\normalsize
+
+Nicholas J. Tustison$^1$,
+Brian B. Avants$^1$,
+James C. Gee$^2$,
+
+\vspace{0.25 cm}
+
+\small
+
+$^1$Department of Radiology and Medical Imaging, University of Virginia, Charlottesville, VA
+
+$^2$Department of Radiology, University of Pennsylvania, Philadelphia, PA
+
+\end{centering}
+
+\vspace{6 cm}
+
+\small
+
+Corresponding author: \
+Nicholas J. Tustison \
+ntustison@virginia.edu
+
+<!--
+\noindent\rule{4cm}{0.4pt}
+ -->
+
+\newpage
+
+\normalsize

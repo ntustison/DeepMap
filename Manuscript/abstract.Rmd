@@ -1,0 +1,22 @@
+
+# Abstract
+
+Recent methodological innovations in deep learning and associated advancements in computational
+hardware have significantly impacted the various core subfields of quantitative medical image
+analysis.  The generalizability, computational efficiency, and open-source
+availability of deep learning algorithms, particularly those utlizing convolutional neural
+networks, have produced paradigm shifts within the field.  This impact is evident from topical prevalance
+in the literature, conference and workshop themes, and winning methodologies in relevant competitions.
+In this work, we review the various state-of-the-art, fully convolutional network approaches
+to learning and predicting image transformations.   Although of primary importance within the
+quantitative imaging domain, image registration algorithmic development, in the context of these
+deep learning strategies, has received comparatively less attention than its counterparts (e.g.,
+image segmentation).  Nevertheless, significant inroads have been made and presented in various
+research venues.  We contextualize these contributions within the broader scope of
+deep learning advancements and, in so doing, attempt to facilitate the leveraging and further
+development of such techniques within the medical imaging research community.
+
+__Key words:__  deep learning, diffeomorphisms, image registration, spatial normalization
+
+
+\clearpage

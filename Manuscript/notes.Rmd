@@ -1,0 +1,707 @@
+
+## Categorization
+
+* Supervised
+
+* Unsupervised
+    * GAN
+
+______________
+
+## Architectures
+
+
+
+## Hardware
+
+* Earlier attempts at speeding up registration focused not on machine learning techniques
+but harnessing the GPUs directly [@Shams:2010aa].
+
+## Figure ideas
+
+# Spatial transformer network architecture diagram
+
+* Image registration vs. image segmentation vs. classification popularity popularity
+
+* After doing the notes, should go back through the articles and see what each article
+says about previous work.
+
+______________
+
+
+# Medical image registration using machine learning-based interest point detector
+
+* Multiple feed-forward neural networks each trained to detect a single feature
+
+* Simple NN classifier consisting of 2 hidden layers each with 60 neurons.
+
+* Each NN classifier focuses on a small intensity window and the output is a probability
+of it containing that feature.
+
+# DeepFlow (Weinzaepfel)
+
+* Early optical flow estimation using matching based on CNNs (2013)
+
+* Like FlowNet, also uses the technique of
+T. Brox and J. Malik. Large displacement optical flow: descriptor matching in
+variational motion estimation. PAMI, 33(3):500–513, 2011.  is used to refine the
+downsampled output to full input resolution.
+
+* However, no "displacement learning" actually takes place.  Features are aggregated
+based on different convolution sizes and those features are matched across scales.
+
+* Small architecture (6 layers)
+
+    * convolutions + max pooling
+
+
+# Learning Descriptors for Object Recognition and 3D Pose Estimation (Wohlhart 2015)
+
+* Use CNNs to learn feature descriptors
+
+* These feature descriptors are then placed in correspondence using Nearest Neighbor
+search methods.
+
+* Similar to Deep Flow in that no learning of transform parameters is actually performed.
+  CNNs are just used to determine object identity and pose.
+
+* Simple CNN with two convolution + max pool layers.
+
+    * Input is a set of samples where each sample is an image, the identity of the object,
+    and the pose.
+
+    * Loss function consists of three terms minimizing 1) triplet interactions, 2) pairwise
+    interactions, and 3) sum-of-squared weights.
+
+
+# Spatial Transformer networks
+
+* Jaderberg 2015
+
+* Key paper in subsequent work for learning transformations
+
+* Any type of image-based intelligent system needs to account for
+  variations in pose and size of object.  Although somewhat translation
+  invariant due to convolution / max pooling layers.  However, the
+  typically small receptive fields limit the spatial invariance of CNNs.
+
+* The spatial transformer network is a layer inserted into a CNN to
+  provide spatial invariance.
+
+* The resulting networks can then apply a learned transformation to
+  a given sample to render that sample in a canonical pose for
+  segmentation, classification, etc.
+
+* The transformation parameters of the spatial transformer network can
+  be trained with standard back propagation.
+
+* In this way, the network achieves spatial invariance by manipulating
+the data rather than the feature extractors.
+
+* Previous work using "region attention" were able to provide translation
+invariance whereas the STN can be applied with any transform.
+
+* The STN layer defines a transform (with optimizable parameters), a
+grid generator, and interpolation scheme (i.e., "sampler").
+
+* Input is a feature map.  Output is the transformation parameters.
+
+* Affine is showcased.  TPS are mentioned but the framework is generally
+applicable.
+
+* From Shan 2017 "Jaderberg et al. [22] propose the spatial transformer net- works (STN) which focuses on class alignment. It shows that spatial transformation parameters (e.g. affine transformation parameters, B-Spline transformation parameters, deformation field, etc) can be implicitly learned without ground-truth supervision by optimizing a specific loss function [22]."
+
+# Deep Diffeomorphic Transformer Networks (Detlefsen)
+
+* Introduced at CVPR 2018
+
+* Extension of STNs to diffeomorphisms
+
+* Utilized CPAB (Continuous Piecewise-Affine-Based) transforms -- flexibility is determined
+via a user-specified tesselation of the image domain.
+
+* Three components to a transformer layer
+
+    * localizaation network
+
+    * grid generator
+
+    * sampler (i.e., interpolator)
+
+* Invertibility is needed to ensure that the back propagation can revert optimization from
+the wrong direction.  The inverse needs to also be differentiable (optimizing non-invertible
+transforms can lead to instability).  These two requirements
+for optimization fit the definition of diffeomorphisms.
+
+* Avaialable at https://github.com/SkafteNicki/libcpab in tensorflow and pytorch
+
+
+# FlowNet (Dosovitskiy)
+
+* Early optical flow estimation using CNNs (2015)
+
+* Focus on the
+
+* Data augmentation using an "unrealistic" data set whereby random background
+chairs are superimposed on various scenes.  :)
+
+* Two architectures (contraction followed by expansion (Figs 2/3):
+
+    * Contraction/Encoding:  FlowNetSimple:
+
+        * Concatenate the two RGB 2-D images as 6 channels as input.
+
+        * "Let the network itself decide how to intelligently process the image pair."
+
+        * A sequence of convolutional + pooling layers filters followed by refinement (later)
+
+    * Contraction/Encoding:  FlowNetCorr:
+
+        * Two inital  branches each with the input being the original RGB channels
+
+        * The initial branches have a couple of convolutional + pooling layers
+
+        * The two initial branches feed into a single branch which is merged by a correlation
+        layer
+
+        * The correlation layer does a patchwise multiplication between the two feature maps
+        that occur at the end of the two initial branches.
+
+
+    * Expansion/Decoding (or "refinement" ) part (same for both FlowNetSimple and FlowNetCorr)
+
+        * deconvolution (or "upconvolutional" or transpose convolution)
+
+        * Upconvolution is performed 4 times such that the output resolution is smaller than
+          the input (in this case, it's 4 times smaller).  The technique of
+          T. Brox and J. Malik. Large displacement optical flow: descriptor matching in
+          variational motion estimation. PAMI, 33(3):500–513, 2011.  is used to refine the
+          downsampled output to full input resolution.
+
+        * Also, there are skip connections between the corresponding contractive part of the network.
+
+* Data augmentation
+
+    * MPI Sintel dataset
+
+    * Add chairs to the foreground
+
+    * For ground truth motion estimation for training, they randomly sample 2-D affine
+      transformation params for the background and chairs.  Those transforms are used
+      to produce the "moving" image.
+
+
+# CNN regression for 2D/3D Registration
+
+* CNN for regression of rigid transform (6) parameters (Figure 1)between 3-D X-ray attenuation map
+  provided by CT and a 2-D digitally reconstructed radiograph (DRR), X-ray image.
+
+* (This paper was hard to parse---need to reread at a different time.)
+
+* Three-component approach
+
+    * Local image residual -- based on $N$ patches.  Each patch corresponds to a single CNN.
+      Each patch/channel CNN consists of 2 convolutional/max-pooling blocks.  Output is a
+      fully connected lyaer.
+
+    * parameter space partitioning --
+
+    * hierarchical parameter regression --
+
+# Quicksilver
+
+* Quicksilver uses a patch-based approach to predict the "momentum" of the LDDMM framework
+in determinining the correspondence relationship between fixed and moving image patch pairs.
+
+    * The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
+      stems from the theoretical foundations underlying diffeomorphic *flows*
+      ([@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998]), or transformations which are
+      differentiable with differentiable inverses.  The collection of *paths* between two
+      images which describe the possible mappings between images is described by the
+      functional (equation here) XX.
+
+    * Computationally efficient algorithms for solving such diffeomorphic flows have been subsequently proposed
+      (e.g., [@Beg:2005aa;@Ashburner:2007aa;@Avants:2008aa;@Vercauteren:2009aa;@Vialard:2012aa;@Zhang:2017aa]).
+
+    * The Euler-Lagrange equation for the functional XX can be written as a system of equations
+      which incorporates a "momentum" term,
+      $m_{t} = Jac\left( \phi^v_{t,1} \right)\left( I \circ \phi_{t,0} - J \circ \phi_{t,1} \right)$.
+      Several algorithms (e.g., [@Beg:2005aa;@Vialard:2012aa]) take advantage of the fact that the initial momentum, $m_0$,
+      completely encodes the optimum path describing the transform between images $I$ and $J$.
+
+    * Following [@Miller:2006aa], the initial momentum is calculated from the equation
+      $m\left(x, 0\right) = \alpha\left(x, 0\right) \nabla I_0$ where $\alpha$ is a time-varying
+      scalar field function and $\nabla I_0$ is the spatial derivative of the image $I$.
+
+    * In costrast to scalar formulations of the momenta (e.g., [@Vialard:2012aa]), a vector formulation
+      is proposed in [@Singh:2013aa], to avoid potential confounding effects of noise in the image
+      gradient (i.e., better behaved numerically).
+
+    * The prediction network is used to estimate the vector momentum
+
+* Network architecture
+
+    * Eencoder/decoder structure for performing voxelwise image regression.
+
+    * There are two separate encoders---one for the fixed image and one for the moving image.
+
+    *
+
+    * $15 \times 15 \times 15$ patches selected at stride = 14.
+
+* Thus, Quicksilver is a supervised approach wherein it uses multiple image pairs
+and the corresponding ground-truth estimations of the momentum scalar maps to perform
+prediction of momentum on unseen image pairs (but patch-based).
+
+* Written in pytorch?  (torch (facebook) in python) and available at
+
+* Misc. notes
+
+    * Initial momentum is not generally smooth so smoothing is applied after prediction
+
+    * Training data employed regular LDDMM shooting results using PyCA (page 385)
+
+    * They also use dropout layers to induce a probabilistic network
+
+    * They also train a correction network (Section 2.3).  THe prediction ---> correction
+      networks is diagrammed in Figure 3.
+
+    * The PyCA LDDMM, prediction, and prediction + correction are included in the evaluation.
+
+    * Preprocessing:
+
+        * Skull-striping (FreeSurfer and AutoSeg)
+
+        * Initial affine registration --- NiftyReg
+
+# Voxel-morph
+
+* Early version published in [@Balakrishnan:2018aa].
+
+    * U-net Architecture with spatial transformer network
+
+    * Input 2 3-D volumes (size: $160 \times 192 \times 224$) as 2 channels
+
+    * Output is the mapping, $\phi$, of size $3 \times 160 \times 192 \times 224$
+
+    * loss function: cross correlation + smoothing
+
+    * Training size:  7329, validation size:  250, and test size:  250
+
+* Later version publisehd in [@Dalca:2018aa].
+
+    * Diffeomorphic (stationary velocity representation)
+
+    * The network is used to predict the stationary velocity field (both mean and
+      standard deviation) that specifies the diffeomorphism.
+
+    * They propose scaling and squaring network layers.
+
+* Available at https://github.com/voxelmorph/voxelmorph
+
+* written in Keras
+
+
+# Weakly-supervised convolutional neural networks for multimodal image registration (Hu 2018)
+
+* Multi-modal (multi-parametric MRI with trans-rectal ultrasound)*
+
+* Use anatomical labels and voxel intensities for training such that only unlabeled
+  image data is required for prediction
+
+    * The trick is to incorporate the one-hot-encoded labels into the Loss function where the
+      loss function is a label similarity measure + a regularization term
+
+* Additional contributions include:
+
+    * multiscale Dice
+
+    * initial work incorporated a separate network for inferring affine transformations.  This
+      work removes that separate network and uses a single network to estimate displacement
+      fields at multiple scales.
+
+    * Had previously proposed "Global-Net" and "Composite-Net" and "Local-Net"  See Figs. 5--7.
+
+* Architecture
+
+    * Denser than U-net
+
+    * Three types of residual shortcuts
+
+        * skip connections at different resolution levels
+
+        * summing two sequential convolution layers
+
+        * trilinear up-sampling layers over the transpose convolution layers.
+
+        * skip connections to the displacement space across resolution levels
+
+    * Implementation in TensorFlow with some contributions from NiftyNet
+
+
+#  Deep Learning based Inter-Modality Image Registration Supervised by Intra-Modality Similarity (Cao 2018)
+
+* Somewhat similar idea to Hu 2018 in which same modalities are used to guide
+  training for prediction using different modalities.  (see Fig. 2) In this
+  case the two modalities are CT and MR.
+
+* Loss function incorporates equal contributions from the CT-to-CT similarity
+  measure and MR-to-MRI similarity measure with a loss based on the regularization.
+  Similarity measure is normalized cross correlation.  Regularization term is
+  the square of the laplacian of the mapping with a small contribution from the
+  square of the mapping itself (Equation 4).
+
+* Architecture
+
+    * Based on U-net.
+
+    * Input MR/CT patches of size $68 \times 68 \times 68$.
+
+    * Output MR/CT patches of size $28 \times 28 \times 28 \times 3$.
+
+    * Spatial transformer layer is required.
+
+* 12 subjects for training (pelvic CT/MR), 1 subject for validation, 2 subjects for testing
+
+* Preprocessing included intra-subject registration with FLIRT with refinement using SyN and Demons.
+
+# Deformable image registration using convolutional neural networks (Eppenhoff 2018)
+
+* 3-D
+
+* Transformation based on thin-plate splines
+
+* Training uses synthetic transformations from a set of representative images.
+
+* Architecture
+
+    * Based on a smaller version of VGG
+
+    * The fixed and moving images are input as channels.
+
+    * Output are the three 3-D scalar maps for the $6 \times 6 \times 6$ TPS grid.
+
+
+# DEEP DEFORMABLE REGISTRATION: ENHANCING ACCURACY BY FULLY CONVOLUTIONAL NEURAL NET  (Ghosal)
+
+* Deep learning is not used to learn the transformation parameters but to infer a heat map, $h(x)$,
+which is incorporated into the SSD simlarity, specifically by adding modified version
+to the fixed image.
+
+* From the authors "a new trend in computer vision and graphics were deep learning tools are
+used only for optimization purposes and not for learning."
+
+* This modification ensures a better local minima in the SSD cost or, creates a tight upper bound
+to the SSD cost (such that it's called the UB-SSD).
+
+
+* Architecture
+
+    * The authors claim that this is a FCNN similar to VGG.  However, it looks mroe like U-net
+      with a compression/encoding branch followed by a explansion/decoding branch with skip
+      connections between corresponding layers.  See Fig. 3.
+
+* It works by choosing a registration algorithm (e.g., Demons).  You then iterate:
+
+    * Fix $h(x)$ and then optimize the transformation parameters.
+
+    * Fix T(x) and optimize for heatmap h(x)
+
+* _I still don't know how this works.  Seems pretty hokey to me.  Look at Fig. 2, there doesn't seem to be any difference between the metrics._
+
+# An Artificial Agent for Robust Image Registration (Liao 2017)
+
+* Reinforcement learning (vs. Supervised/Unsupervised learning)
+
+* Rigid transformation
+
+* The action-value function $Q$ in equation (3) is calculated using a deep CNN
+
+* Multi-hierarchical---input volumes are 64x64x64 but one input is the downsampled
+3-D volume.  Other input are patches ("limited FOV").
+
+
+# Scalable High-Performance Image Registration Framework by Unsupervised Deep Feature Representations Learning
+
+* Uses CNNs to determine features
+
+* Architecture
+
+    * Stacked autoencoder
+
+    * inputs are 3-D image patches selected by an "importance" criteria [11].
+
+    * Each patch has a center point.  When you push a candidate patch through the trained network,
+      the response of the center of the network (blue circles in FIgure 2) provides a feature
+      vector to be used in a feature-based registration algorithm (e.g., HAMMER).
+
+* Evaluation: plug the feature representation into HAMMER and a multi-channel Demons algorithm.
+
+# An unsupervised convolutional neural network-based algorithm for deformable image registration (Kearney 2018)
+
+* Unsupervised but more feature detection followed by regular registration
+
+    * An input image goes through a encoding/decoding architecture---baseically image regression
+
+    * The final two layers are removed during prediction and the low resolution feature maps are
+      fed into SIFT which extracts salient feature points for registration.  These SIFT maps
+      are plugged into a diffeomorphic demons type algorithm for dense interpolation of the
+      final field [Forsberg].
+
+
+* Architecture
+
+    * Encoding branch
+
+    * Decoding branch
+
+* Loss function - MSE
+
+
+# NON-RIGID IMAGE REGISTRATION USING SELF-SUPERVISED FULLY CONVOLUTIONAL NETWORKS WITHOUT TRAINING DATA (Li 2018)
+
+* Unsupervised --- akin to conventional image registration in that it learns a similarity metric
+
+* Loss includes regularization
+
+* NCC similarity metric
+
+* Architecture
+
+    * Fully convolutional network
+
+    * Multi-resolution such that "registration results at certain layers?" are included
+      in the loss function.  See Fig. 1.
+
+
+# A Comparative Analysis of Registration Tools: Traditional vs Deep Learning Approach on High Resolution Tissue Cleared Data  (Nazib 2018)
+
+* Comparison between registration tools (including VoxelMorph)
+
+    * Deep learning:  VoxelMorph
+
+    * Traditional:  ANTs, AIR, IRTK, NiftyReg, Elastix
+
+* Limited--only two reference domains (brain 1 and brain 2)
+
+* Soem of the comparisons don't look right
+
+    * Check out the times in Table III
+
+    * Also, why are they looking at 10% and 15% resolution?  They link to some published
+      study which, based on the title alone, would seem suspect.
+
+# Inverse-Consistent Deep Networks for Unsupervised Deformable Image Registration (Zhang 2018)
+
+* "ICNet"
+
+* Unsupervised
+
+* Architecture
+
+    * Each FCN is U-net like (see Figure 2)
+
+    * Two parallel FCNs --- one registers $A$ to $B$ and the other registers $B$ to $A$.
+
+    * In addition to the parallel FCNs, each mapping $F_{AB}$ goes through an inverse network to estimate the
+      the inverse mapping $F_{BA}$.  These mappings are incorporating into the inverse loss components for the
+      two branches.  (see Equation 2).
+
+    * Total loss (Eq. 7) is composed of a similarity term (SSD-type), smoothing term, and an anti-folding term.
+
+* Implemented in pytorch
+
+# SVF-Net (Rohe 2017)
+
+* Contribution is a novel training strategy --- train on reference deformations (registration of previously segmented
+ROIs) instead of registrations on images.  This is in the context of cardiac matching where one is concerned
+about the alignment of the epicardium and endocardium.
+
+* The deformations of the ROI alignment are encoded by stationary velocity fields (SVF).
+
+* Segmentations are converted to surface meshes.  Surfaces are registered using currents which allows such
+  correspondence without having to define a point correspondence.  The displacement field over the entire
+  image domain is interpolated using elastic body splines.
+
+* Architecture
+
+    * U-net
+
+    * input is moving + fixed images (64 \times 64 \times 16 \times 2)---> size of image times the channel size
+
+# Learning Rigid Image Registration (Sloan 2018)
+
+* Regress rigid transformation parameters with CNN
+
+* both uni and multi-modal registration scenarios.
+
+* Architecture
+
+    * They don't use max pooling because of the fact that max pooling since such operations provide
+      slight spatial invariance (this seems an odd claim.  Max pooling seems to induce features and the
+      spatial invariance would seem to be minimal).
+
+    * Model loss is MSE between true parameters and predicted parameters
+
+* I don't think this paper should be included.  They wrote "This (inverse consistency) constraint has
+  been imposed on a number of problems such as style transfer by (Zhu et al., 2017) and most notably
+  within the registration community by Song et al (Song and Tustison, 2010) which lead to the EMPIRE
+  (Murphy et al., 2011) challenge winning solution."
+
+* They incorporate inverse consistency by switching fixed/moving images during training.
+
+# End-to-End Unsupervised Deformable Image Registration with a Convolutional Neural Network (Vos 2017)
+
+* Called DIRNet
+
+* Architecture --->  Thsi one is pretty unique.  Need to go over this more thorougly (Fig. 1).
+
+    * STN using B-splines
+
+    * Input is concatenated fixed/moving images
+
+    * use average pooling instead of max pooling to reduce translation invariance.
+
+    * Uses spatially corresponding image patches in a convnet regressor
+
+* DIRNet is trained by optimizing an image similarity metric
+
+* Implementation in Theano and Lasagne
+
+* Loss function normalized cross correlation
+
+
+* Unsupervised --- doesn't use training.  Learns to register by optimizing a similarity metric.
+  No iterative optimization---just does a single pass.
+
+# Unsupervised End-to-end Learning for Deformable Medical Image Registration (Shan 2017)
+
+* STN-based
+
+* FCN (encoder + decoder) Fig. 3
+
+* Loss:  MSQ + displacement field smoothness
+
+*
+
+# Data augmentation (Uzunova 2017)
+
+* I don't think this should be included since it's more along the lines of data augmentation for use
+with FlowNet.
+
+* For supervised image registration, ground truth correspondences are rarely
+  available.
+
+* The contribution is to generate a large and diverse data set from a small number
+  of images.
+
+* They test their method on FlowNet
+
+# Nonrigid Image Registration Using Multi-scale 3D Convolutional Neural Networks (Sokooti)
+
+* RegNet
+
+* Also a single shot (no iterations).
+
+* Trained using a large set of simulated displacement fields
+
+* Analyzes 3-d input patches at multiple scales
+
+* Since each input is a fixed and moving image patch, the output
+  is a vector of of three displacements to define the displacement
+  of that patch.
+
+* Loss is the mean reisdual distance between the prediction of RegNet and the
+  ground truth displacement field vector.
+
+* Architecture incorporates the multiple scales (Fig. 1) and combines them downstream.
+
+* Written in Theano and Lasagne.
+
+# A Deep Metric for Multimodal Registration (Simonovsky 2016)
+
+* Learn a multi-modal similarity metric
+
+* The transformation is completetly separate from the metric calculation
+
+* 2-channel convolutional neural network
+
+* Torch, elastix for GPU-based image resampling
+
+# Unsupervised Deformable Image Registration with Fully Connected Generative Neural Network (Sheikhjafari 2018)
+
+* Assumes point correspondences (ie, displacement fields) are low dimensional.  In other words,
+  the method is an implicit regularizer.
+
+* 2-D
+
+* Architecture
+
+    * Fully connected network
+
+    * Input is a low-dimensional (i.e., latent) vector
+
+    * Auto-encoder (encoder/decoder)
+
+    * Output is a 2-D (dx,dy) displacement field
+
+* Loss:  MSQ + square of the sum of the network weightsê
+
+
+# Adverserial approaches
+
+## Adversarial Similarity Network for Evaluating Image Alignment in Deep Learning Based Registration (Fan 2018)
+
+* Architecture
+
+    * Registration network is "trained under the guidance of an image similarity metric" with
+      regularization
+
+        * U-net regression meodel
+
+        * Input are patches $64 \times 64 \times 64$.
+
+        * Output is a deformation field $24 \times 24 \times 24$.  "Smaller than the input to
+        "adapt to the displacement range."
+
+    * Discrimination network which automatically judges if two images are aligned with probability
+
+* Implemented using Caffe
+
+##  Adversarial Deformation Regularization for Training Image Registration Neural Networks (Hu 2018)
+
+* Registration network / discriminator network
+
+* MR/TRUS image registration (Basically the same data set in Weakly-supervised convolutional neural networks for multimodal image registration (Hu 2018))
+
+* Penalizes the difference between registration estimation and an FE-simulated training data.
+
+* Similar to the MedIA paper in that "weak" training is used.
+
+* Architecture (Fig. 1)
+
+    * Registraiton network (3D encoder-decoder architecture)
+
+        * Encoder -- four resnet blocks
+
+        * Decoder -- four reverse resnet blocks
+
+    * Discriminator network shares a similar architecture with a couple changes.  Accepts as
+      input dx, dy, dzand predictors binary classification
+
+* Implemented in TensorFlow using NiftyNet
+
+## DEFORMABLE MEDICAL IMAGE REGISTRATION USING GENERATIVE ADVERSARIAL NETWORKS (Mahapatra 2018)
+
+* Use GAN
+
+* Generator Network and Discriminator Network (Fig. 1)
+
+* Training employs image pairs with corresponding landmarks.
+
+*  Loss:  Content (NMI, SSIM, and VGG similarity measures) + adverserial loss
+
+    * VGG similarity is the L2 distance between the 2 images using 512 feature maps of a predefined network [14]
+
+    * Adversial loss matches the intensities $I^{Trans}$ to $I^{Flt}$.
+
