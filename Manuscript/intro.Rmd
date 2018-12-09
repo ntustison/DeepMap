@@ -10,24 +10,39 @@ and imaging-based statistical analysis strategies (e.g., sparse canonical correl
 analysis [@Avants:2010aa]).  Several reviews
 [@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
 have charted this chronology and provided insight into related issues such as algorithmic
-classification, available implementations, relevant evaluation strategies, and speculation
-concerning future directions of the field.  Although prescient in many respects,
-even in later reviews, speculation vis-à-vis deep learning was somewhat limited almost
-certainly due to  its relatively recent and sudden overwhelming of the field in terms
-of popularity and research focus.
+classification, available implementations, evaluation strategies, and speculation
+concerning future directions of the field.  While prescient in many respects,
+speculation vis-à-vis deep learning was somewhat limited due to deep learning's relatively recent
+and sudden explosion in popularity and research focus.
 
-Although the foundational concepts that form the basis for modern deep learning
-architectures are historically well-established, it is only recently that
-hardware availability has made sufficient advancements to meet the computational
-requirements of deep learning applications.
-
-back-propagation
-
-
+The foundational concepts that form the basis for contemporary deep learning studies
+date back decades [@LeCun:2015aa;@Ivakhnenko:1971aa].  From this historically seminal work,
+major developmental milestones include the *Neocognitron*, an early neural network architecture
+for character recognition [@Fukushima:1980aa], and convolutional neural networks
+(CNN or ConvNets) utilized in speech [@Waibel:1987aa] and visual signal processing
+[@LeCun:1989aa], largely inspired by the visual cell types of the feline visual cortex
+[@Hubel:1962aa].  The common approach to gradient-based optimization of CNNs
+using backpropagation was first performed in [@LeCun:1989aa].  A key event in the
+widespread adoption of CNNs was the 2012
+ImageNet Large Scale Visual Recognition Challenge for object classification.
+The winning entry, an architecture colloquially known as *AlexNet* [@],
+surpassed other entries by significant margins.
 
 
 
 <!--
+
+
+* "deep" refers to many "hidden" layers
+
+* vanishing gradient problem (Hochreiter, S.; et al. (15 January 2001). "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies". In Kolen, John F.; Kremer, Stefan C. A Field Guide to Dynamical Recurrent Networks. John Wiley & Sons. ISBN 978-0-7803-5369-5.)
+
+* backpropagation algorithm
+
+
+* "There are four key ideas behind ConvNets that take advantage of the properties of natural signals: local connections, shared weights, pooling and the use of many layers." (LeCun 2015)
+
+
 
 * Brief history of deep learning.  Cite the various review articles.
 
