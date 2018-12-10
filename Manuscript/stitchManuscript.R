@@ -14,6 +14,7 @@ rmdFiles <- c( formatFile,
 # Figure ideas:
 #  * pubmed query showing citations of image registration vs.
 #     image segmentation vs. image classification
+#  * Convolutional neural network
 #  * spatial transformer network diagram
 #
 

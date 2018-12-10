@@ -24,10 +24,23 @@ for character recognition [@Fukushima:1980aa], and convolutional neural networks
 [@Hubel:1962aa].  The common approach to gradient-based optimization of CNNs
 using backpropagation was first performed in [@LeCun:1989aa].  A key event in the
 widespread adoption of CNNs was the 2012
-ImageNet Large Scale Visual Recognition Challenge for object classification.
-The winning entry, an architecture colloquially known as *AlexNet* [@],
-surpassed other entries by significant margins.
+ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
+The winning entry, an architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
+reduced the error rate by almost half over other entries.  Subsequent years' competitions were
+dominated by CNN variants such as VGG [@Simonyan:2014] and GoogLeNet [@Szegedy:2015].
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
+  \caption{The basic elements of the convolutional neural network.  Following the input layer, }
+\end{figure}
+
+
+
+* Local connections
+* shared weights
+* pooling
+* use of many layers
 
 
 <!--
