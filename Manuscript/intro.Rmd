@@ -6,54 +6,62 @@ critical component in quantitative image analysis workflows.  The evolution of
 image registration theoretical and technological development has led to increasingly
 high quality transformational mappings that have significantly improved performance in related
 processing tasks (e.g., image segmentation via joint label fusion [@Iglesias:2015aa])
-and imaging-based statistical analysis strategies (e.g., sparse canonical correlation
+and imaging-based statistical analyses (e.g., sparse canonical correlation
 analysis [@Avants:2010aa]).  Several reviews
 [@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
 have charted this chronology and provided insight into related issues such as algorithmic
 classification, available implementations, evaluation strategies, and speculation
 concerning future directions of the field.  While prescient in many respects,
-speculation vis-à-vis deep learning was somewhat limited due to deep learning's relatively recent
-and sudden explosion in popularity and research focus.
+speculation vis-à-vis deep learning was somewhat limited due to its sudden explosion
+in popularity and research focus.
 
 The foundational concepts that form the basis for contemporary deep learning studies
-date back decades [@LeCun:2015aa;@Ivakhnenko:1971aa].  From this historically seminal work,
-major developmental milestones include the *Neocognitron*, an early neural network architecture
+date back decades (e.g., [@Ivakhnenko:1971aa]).  Since this early seminal work,
+major developmental milestones include the *Neocognitron*, an early neural network
 for character recognition [@Fukushima:1980aa], and convolutional neural networks
-(CNN or ConvNets) utilized in speech [@Waibel:1987aa] and visual signal processing
+(CNNs or ConvNets) utilized in speech [@Waibel:1987aa] and visual signal processing
 [@LeCun:1989aa], largely inspired by the visual cell types of the feline visual cortex
-[@Hubel:1962aa].  The common approach to gradient-based optimization of CNNs
-using backpropagation was first performed in [@LeCun:1989aa].  A key event in the
-widespread adoption of CNNs was the 2012
-ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
-The winning entry, an architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
-reduced the error rate by almost half over other entries.  Subsequent years' competitions were
-dominated by CNN variants such as VGG [@Simonyan:2014] and GoogLeNet [@Szegedy:2015].
+[@Hubel:1962aa].  The major elements of CNNs are localized connectivity, convolutions, and
+subsampling (or "pooling") [@LeCun:2015aa].  Furthermore, it is the deep, or hidden,
+layering that characterizes modern CNNs and is the reason for the
+extreme performance gains seen with modern architectures.  Such architectures are made
+computationally tractable with gradient-based optimization using backpropagation
+(first performed in [@LeCun:1989aa]) and the advent of GPU-based hardware [@LeCun:2015aa].
+A bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which illustrates
+the core components of convolution and max pooling.  Structural innovations are built upon
+novel arrangements of these core (and other) network components and the connectivities between
+them.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
-  \caption{The basic elements of the convolutional neural network.  Following the input layer, }
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
+\caption{The basic elements of the prop  convolutional neural network.
+        The convolutional layer comprises several filters which
+        are optimized in terms of their responses to various features
+        found in the
+        input layer.  Subsampling, typically some sort of poolin
+        layer
+        }
+\label{fig:convnet}
 \end{figure}
 
+A key event in the widespread adoption of CNNs was the 2012
+ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
+The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
+reduced the error rate by almost half over other entries.  Subsequent years' competitions were
+dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
+ResNet [@He:2015].  Following the 2017 ImageNet challenge, in which the vast majority of
+teams surpassed the 5\% classification error rate threshold, the organizers ceded management
+to the Kaggle community which maintains a running performance assessment in ostensible perpetuity
+[@imageNetKaggle].
+
+Translation to the medical imaging field was immediate.
 
 
-* Local connections
-* shared weights
-* pooling
-* use of many layers
 
 
 <!--
 
-
-* "deep" refers to many "hidden" layers
-
-* vanishing gradient problem (Hochreiter, S.; et al. (15 January 2001). "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies". In Kolen, John F.; Kremer, Stefan C. A Field Guide to Dynamical Recurrent Networks. John Wiley & Sons. ISBN 978-0-7803-5369-5.)
-
-* backpropagation algorithm
-
-
-* "There are four key ideas behind ConvNets that take advantage of the properties of natural signals: local connections, shared weights, pooling and the use of many layers." (LeCun 2015)
 
 
 
