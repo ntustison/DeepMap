@@ -38,9 +38,9 @@ them.
 \caption{The basic elements of the prop  convolutional neural network.
         The convolutional layer comprises several filters which
         are optimized in terms of their responses to various features
-        found in the
-        input layer.  Subsampling, typically some sort of poolin
-        layer
+        found in the input layer.  Pooling is used to extract salient
+        features and reduce computational complexity and passed on to
+        subsequent layers.
         }
 \label{fig:convnet}
 \end{figure}
@@ -48,14 +48,26 @@ them.
 A key event in the widespread adoption of CNNs was the 2012
 ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
 The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
-reduced the error rate by almost half over other entries.  Subsequent years' competitions were
+reduced the error rate by almost half over other entries.  The following years' competitions were
 dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
-ResNet [@He:2015].  Following the 2017 ImageNet challenge, in which the vast majority of
-teams surpassed the 5\% classification error rate threshold, the organizers ceded management
-to the Kaggle community which maintains a running performance assessment in ostensible perpetuity
-[@imageNetKaggle].
+ResNet [@He:2015].  Additional competition outlets including conference-based venues
+(e.g., NeurIPS) and community-based platforms, such as Kaggle[^1], continue to highlight
+the salience of CNNs as paradigmatic solutions to computational problems.  This is in addition
+to the vast number of formal research reports discussed in the same conferences and published
+in dedicated journals.
 
-Translation to the medical imaging field was immediate.
+[^1]: Following the 2017 ImageNet challenge, in which the vast majority of
+teams surpassed the 5\% classification error rate threshold, the ImageNet organizers ceded management
+to the Kaggle community which maintains a running performance assessment in ostensible perpetuity
+[@imageNetKaggle].  * We need to somehow tie in the reviews * [@Lecun:2015aa;Schmidhuber:2015aa]
+
+* Uptake in the medical imaging community.   Used for such things as image segmentation (U-net).
+Reviews specific to medical imaging [@Greenspan:2016aa;@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Ker:2018aa;@Biswas:2019aa]
+
+
+
+
+
 
 
 
