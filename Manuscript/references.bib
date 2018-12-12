@@ -1,12 +1,47 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2018-12-11 13:10:27 -0800 
+%% Created for Nicholas Tustison at 2018-12-11 16:43:57 -0800 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Freifeld:2017aa,
+	Abstract = {We propose novel finite-dimensional spaces of well-behaved transformations. The latter are obtained by (fast and highly-accurate) integration of continuous piecewise-affine velocity fields. The proposed method is simple yet highly expressive, effortlessly handles optional constraints (e.g., volume preservation and/or boundary conditions), and supports convenient modeling choices such as smoothing priors and coarse-to-fine analysis. Importantly, the proposed approach, partly due to its rapid likelihood evaluations and partly due to its other properties, facilitates tractable inference over rich transformation spaces, including using Markov-Chain Monte-Carlo methods. Its applications include, but are not limited to: monotonic regression (more generally, optimization over monotonic functions); modeling cumulative distribution functions or histograms; time-warping; image warping; image registration; real-time diffeomorphic image editing; data augmentation for image classifiers. Our GPU-based code is publicly available.},
+	Author = {Freifeld, Oren and Hauberg, Soren and Batmanghelich, Kayhan and Fisher, Jonn W},
+	Date-Added = {2018-12-11 16:38:50 -0800},
+	Date-Modified = {2018-12-11 16:38:50 -0800},
+	Doi = {10.1109/TPAMI.2016.2646685},
+	Journal = {IEEE Trans Pattern Anal Mach Intell},
+	Journal-Full = {IEEE transactions on pattern analysis and machine intelligence},
+	Month = {Dec},
+	Number = {12},
+	Pages = {2496-2509},
+	Pmc = {PMC5889303},
+	Pmid = {28092517},
+	Pst = {ppublish},
+	Title = {Transformations Based on Continuous Piecewise-Affine Velocity Fields},
+	Volume = {39},
+	Year = {2017},
+	Bdsk-Url-1 = {https://doi.org/10.1109/TPAMI.2016.2646685}}
+
+@inproceedings{Detlefsen:2018aa,
+	Author = {Nicki Skafte Detlefsen and Oren Freifeld and S{\o}ren Hauberg},
+	Booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Conference on Computer Vision and Pattern Recognition},
+	Date-Added = {2018-12-11 16:32:53 -0800},
+	Date-Modified = {2018-12-11 16:38:23 -0800},
+	Title = {Deep Diffeomorphic Transformer Networks},
+	Year = {2018}}
+
+@inproceedings{Rocco:2017aa,
+	Author = {I. Rocco and R. Arandjelovi{\'c} and J. Sivic},
+	Booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	Date-Added = {2018-12-11 13:15:53 -0800},
+	Date-Modified = {2018-12-11 13:18:13 -0800},
+	Title = {Convolutional neural network architecture for geometric matching},
+	Year = {2017}}
 
 @article{Dai:2017aa,
 	Author = {Jifeng Dai and Haozhi Qi and Yuwen Xiong and Yi Li and Guodong Zhang and Han Hu and Yichen Wei},
@@ -69,26 +104,6 @@
 	Title = {Deep Learning Applications in Medical Image Analysis},
 	Volume = {6},
 	Year = {2018}}
-
-@article{Wu:2016ab,
-	Abstract = {Feature selection is a critical step in deformable image registration. In particular, selecting the most discriminative features that accurately and concisely describe complex morphological patterns in image patches improves correspondence detection, which in turn improves image registration accuracy. Furthermore, since more and more imaging modalities are being invented to better identify morphological changes in medical imaging data, the development of deformable image registration method that scales well to new image modalities or new image applications with little to no human intervention would have a significant impact on the medical image analysis community. To address these concerns, a learning-based image registration framework is proposed that uses deep learning to discover compact and highly discriminative features upon observed imaging data. Specifically, the proposed feature selection method uses a convolutional stacked autoencoder to identify intrinsic deep feature representations in image patches. Since deep learning is an unsupervised learning method, no ground truth label knowledge is required. This makes the proposed feature selection method more flexible to new imaging modalities since feature representations can be directly learned from the observed imaging data in a very short amount of time. Using the LONI and ADNI imaging datasets, image registration performance was compared to two existing state-of-the-art deformable image registration methods that use handcrafted features. To demonstrate the scalability of the proposed image registration framework, image registration experiments were conducted on 7.0-T brain MR images. In all experiments, the results showed that the new image registration framework consistently demonstrated more accurate registration results when compared to state of the art.},
-	Author = {Wu, Guorong and Kim, Minjeong and Wang, Qian and Munsell, Brent C and Shen, Dinggang},
-	Date-Added = {2018-12-10 20:19:01 -0800},
-	Date-Modified = {2018-12-10 20:19:01 -0800},
-	Doi = {10.1109/TBME.2015.2496253},
-	Journal = {IEEE Trans Biomed Eng},
-	Journal-Full = {IEEE transactions on bio-medical engineering},
-	Mesh = {Algorithms; Brain; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Unsupervised Machine Learning},
-	Month = {07},
-	Number = {7},
-	Pages = {1505-16},
-	Pmc = {PMC4853306},
-	Pmid = {26552069},
-	Pst = {ppublish},
-	Title = {Scalable High-Performance Image Registration Framework by Unsupervised Deep Feature Representations Learning},
-	Volume = {63},
-	Year = {2016},
-	Bdsk-Url-1 = {https://doi.org/10.1109/TBME.2015.2496253}}
 
 @article{Ginneken:2017aa,
 	Abstract = {Half a century ago, the term "computer-aided diagnosis" (CAD) was introduced in the scientific literature. Pulmonary imaging, with chest radiography and computed tomography, has always been one of the focus areas in this field. In this study, I describe how machine learning became the dominant technology for tackling CAD in the lungs, generally producing better results than do classical rule-based approaches, and how the field is now rapidly changing: in the last few years, we have seen how even better results can be obtained with deep learning. The key differences among rule-based processing, machine learning, and deep learning are summarized and illustrated for various applications of CAD in the chest.},

@@ -1,0 +1,44 @@
+
+## Spatial transformer networks
+
+In 2015 Jaderberg and his fellow co-authors described a powerful new module, known
+as the spatial transformer network (STN) [@Jaderberg:2015aa], which figures prominently
+in many of the image registration approaches that we review below.  Although
+concepotually relatively straightforward, the obvious influence reflected in
+recent work will most likely continue in future research which is why we review
+this important network component.
+
+Generally, STNs enhance CNNs by permiting a flexibility which allows for an explicit spatial
+invariance that goes beyond the implicitly limited translational invariance associated
+with the architecture's pooling layers.  In many image-based tasks
+(e.g., localization or segmentation), designing an
+algorithm that can account for possible pose or geometric variation of the
+object(s) of interest within the image is crucial for maximizing performance.
+The STN is a fully differentiable layer which can be inserted anywhere in the
+CNN to learn the parameters of the transformation of the input feature map (not
+necessarily an image) which renders the output in such a way to optimize the
+network based on the specified loss function.  The added flexibility and the
+fact that there is no manual supervision or special handling required makes
+this module an essential addition for any CNN-based toolkit.
+
+A given STN comprises three principal components:  1) a localization network,
+2) a grid generator, and 3) a sampler (see Figure \ref{fig:stn}).  The localization
+network uses the input feature map to learn/regress the transformation parameters
+which optimize a specified loss function.  In many examples provided, this amounts
+to transforming the input feature map to a quasi-canonical configuration to facilitate,
+for example, classification.  The actual architecture of the localization network is
+fairly flexible and any conventional architecture, such as a fully connected network
+(FCN), is suitable as long as the output maps to the continuous estimate of the
+transformation parameters.  These transformation parameters are then applied to
+the output of the grid generator which are simply the regular coordinates of the input
+image (or some normalized version thereof).  The sampler, or interpolator, is used
+to map the transformed input feature map to the coordinates of the output feature map.
+
+Although discussion of transform generalizability was included in the original STN paper
+[@Jaderberg:2015aa], discussion was limited to
+affine, attention (scaling + translation), and thin-plate spline transforms which are
+fill the requirements of differentiability.  This
+was later extended to encompass a diffeomorphic transformer network (DTN) [@Detlefsen:2018aa]
+based on [@Freifeld:2017aa]
+
+
