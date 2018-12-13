@@ -8,6 +8,8 @@ rmdFiles <- c( formatFile,
                "titlePage.Rmd",
                "abstract.Rmd",
                "intro.Rmd",
+               "stn.Rmd",
+               "imageRegistrationMethods.Rmd",
                "references.Rmd"
    )
 

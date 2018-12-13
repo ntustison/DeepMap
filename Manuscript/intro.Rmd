@@ -27,7 +27,7 @@ layering that characterizes modern CNNs and is the reason for the
 extreme performance gains seen with modern architectures.  Such architectures are made
 computationally tractable with gradient-based optimization using backpropagation
 (first performed in [@LeCun:1989aa]) and the advent of GPU-based hardware [@LeCun:2015aa].
-A bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which illustrates
+An illustration of a bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which illustrates
 the core components of convolution and max pooling.  Structural innovations are built upon
 novel arrangements of these core (and other) network components and the connectivities between
 them.
@@ -59,7 +59,10 @@ in dedicated journals.
 [^1]: Following the 2017 ImageNet challenge, in which the vast majority of
 teams surpassed the 5\% classification error rate threshold, the ImageNet organizers ceded management
 to the Kaggle community which maintains a running performance assessment in ostensible perpetuity
-[@imageNetKaggle].  * We need to somehow tie in the reviews * [@Lecun:2015aa;Schmidhuber:2015aa]
+[@imageNetKaggle].
+
+
+* We need to somehow tie in the reviews [@Lecun:2015aa;Schmidhuber:2015aa]
 
 * Uptake in the medical imaging community.   Used for such things as image segmentation (U-net).
 Reviews specific to medical imaging [@Greenspan:2016aa;@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Ker:2018aa;@Biswas:2019aa]
