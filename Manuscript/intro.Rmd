@@ -67,7 +67,8 @@ to the Kaggle community which maintains a running performance assessment in oste
 * Uptake in the medical imaging community.   Used for such things as image segmentation (U-net).
 Reviews specific to medical imaging [@Greenspan:2016aa;@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Ker:2018aa;@Biswas:2019aa]
 
-
+* Early work in medical image registration with the GPU focused on interfacing wiht the
+hardware directly [@Shams:2010aa].  One of the review papers listed this as well.
 
 
 

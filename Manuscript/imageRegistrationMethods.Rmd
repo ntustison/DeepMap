@@ -9,7 +9,7 @@ in determinining the correspondence relationship between fixed and moving image 
       stems from the theoretical foundations underlying diffeomorphic *flows*
       ([@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998]), or transformations which are
       differentiable with differentiable inverses.  The collection of *paths* between two
-      images which describe the possible mappings between images is described by the
+      images which describe the possible mappings between images is described by the\
       functional (equation here) XX.
 
     * Computationally efficient algorithms for solving such diffeomorphic flows have been subsequently proposed
