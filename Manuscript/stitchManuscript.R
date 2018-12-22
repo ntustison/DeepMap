@@ -9,6 +9,7 @@ rmdFiles <- c( formatFile,
                "abstract.Rmd",
                "intro.Rmd",
                "stn.Rmd",
+               "siamese.Rmd",
                "imageRegistrationMethods.Rmd",
                "references.Rmd"
    )

@@ -1,0 +1,9 @@
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/SiameseNet.pdf}
+\caption{Diagrammatic illustration of the spatial transformer network.
+        }
+\label{fig:stn}
+\end{figure}
