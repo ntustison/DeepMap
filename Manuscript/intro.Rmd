@@ -6,30 +6,31 @@ critical component in quantitative image analysis workflows.  The evolution of
 image registration theoretical and technological development has led to increasingly
 high quality transformational mappings that have significantly improved performance in related
 processing tasks (e.g., image segmentation via joint label fusion [@Iglesias:2015aa])
-and imaging-based statistical analyses (e.g., sparse canonical correlation
-analysis [@Avants:2010aa]).  Several reviews
+and imaging-based statistical analyses involving template-based analysis
+(e.g., sparse canonical correlation analysis [@Avants:2010aa]).  Several reviews
 [@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
 have charted this chronology and provided insight into related issues such as algorithmic
 classification, available implementations, evaluation strategies, and speculation
 concerning future directions of the field.  While prescient in many respects,
-speculation vis-à-vis deep learning was somewhat limited due to its sudden explosion
-in popularity and research focus.
+speculation vis-à-vis the  resurgence of deep learning was understandably
+limited due to its recent explosion in popularity and research focus.
 
-The foundational concepts that form the basis for contemporary deep learning studies
-date back decades (e.g., [@Ivakhnenko:1971aa]).  Since this early seminal work,
+
+The foundational concepts that form the basis for contemporary deep learning research
+dates back decades (e.g., [@Ivakhnenko:1971aa]).  Since this early seminal work,
 major developmental milestones include the *Neocognitron*, an early neural network
 for character recognition [@Fukushima:1980aa], and convolutional neural networks
-(CNNs or ConvNets) utilized in speech [@Waibel:1987aa] and visual signal processing
+("CNNs" or "ConvNets") utilized in speech [@Waibel:1987aa] and visual signal processing
 [@LeCun:1989aa], largely inspired by the visual cell types of the feline visual cortex
-[@Hubel:1962aa].  The major elements of CNNs are localized connectivity, convolutions, and
-subsampling (or "pooling") [@LeCun:2015aa].  Furthermore, it is the deep, or hidden,
+[@Hubel:1962aa].  The major elements of CNNs are localized connections, convolutions, and
+subsampling (or "pooling") [@LeCun:2015aa].  Furthermore, it is the deep, or "hidden,"
 layering that characterizes modern CNNs and is the reason for the
-extreme performance gains seen with modern architectures.  Such architectures are made
-computationally tractable with gradient-based optimization using backpropagation
+extreme performance gains seen with modern architectures.  The training of such architectures is
+made computationally tractable with gradient-based optimization using backpropagation
 (first performed in [@LeCun:1989aa]) and the advent of GPU-based hardware [@LeCun:2015aa].
 An illustration of a bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which illustrates
-the core components of convolution and max pooling.  Structural innovations are built upon
-novel arrangements of these core (and other) network components and the connectivities between
+the core components of convolution and max pooling.  Architectural novelty derives from
+innovative arrangements of these core (and other) network components and the connections between
 them.
 
 \begin{figure}[!htb]
@@ -48,27 +49,57 @@ them.
 A key event in the widespread adoption of CNNs was the 2012
 ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
 The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
-reduced the error rate by almost half over other entries.  The following years' competitions were
+reduced the error rate by almost half over other entries .  The following years' competitions were
 dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
-ResNet [@He:2015].  Additional competition outlets including conference-based venues
+ResNet [@He:2015] with performance ultimately exceeding human performance in 2015
+[@He:2015ab].  Additional competition outlets including conference-based venues
 (e.g., NeurIPS) and community-based platforms, such as Kaggle[^1], continue to highlight
 the salience of CNNs as paradigmatic solutions to computational problems.  This is in addition
-to the vast number of formal research reports discussed in the same conferences and published
-in dedicated journals.
+to the sheer number of formal research reports discussed in the same conferences and published
+in dedicated journals.  Notable reviews by key figures in the field include those of
+Yann LeCun [@LeCun:2015aa] and Jürgen Schmidhuber [@Schmidhuber:2015aa].
 
 [^1]: Following the 2017 ImageNet challenge, in which the vast majority of
 teams surpassed the 5\% classification error rate threshold, the ImageNet organizers ceded management
 to the Kaggle community which maintains a running performance assessment in ostensible perpetuity
 [@imageNetKaggle].
 
+Early work specific to medical imaging date back to the 1990s with classification
+tasks providing the majority of use cases (e.g., lung nodule classification
+[@Lo:1992aa;@Lo:1993aa] and breast tissue differentiation [@Chan:1995aa;@Sahiner:1996aa]).
+Despite the early adoption by certain research groups, widespread uptake did not occur
+until much later.  Although several deep learning overviews specific to medical imaging
+have been recently presented in the research literature:
 
-* We need to somehow tie in the reviews [@Lecun:2015aa;Schmidhuber:2015aa]
+* editorial [@Greenspan:2016aa],
 
-* Uptake in the medical imaging community.   Used for such things as image segmentation (U-net).
-Reviews specific to medical imaging [@Greenspan:2016aa;@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Ker:2018aa;@Biswas:2019aa]
+* specific to generative adverserial networks (GANs) [@Yi:2018aa],
+
+* specific to MRI [@Mazurowski:2018aa],
+
+* applications [@Ker:2018aa], and
+
+* general reviews [@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Biswas:2019aa];
+
+discussion of adoption within the community is limited.  However,
+one can informally gauge this evolution from utilization of alternative
+machine learning techniques to predominately CNN-based approaches from the various
+competitions held simultaneously with medical imaging conferences.  For example,
+the annual Multimodal Brain Tumor Segmentation (BraTS) Challenge has taken
+place under the auspices of the International Conference on Medical Image Computing
+and Computer Assisted Intervention (MICCAI) since 2012 wherein large sets of training
+data are provided to the competitors who attempt to perform a voxelwise labeling
+of the constituent components of tumors from multimodal MR image data.  The winning
+entries from the first two years employed random forest classifiers for segmentation [@Menze:2015aa].
+Although variations of the traditional random forest scheme continued to be well represented
+in the 2014 Challenge, convolutional neural networks made an appearance [@brats2014].
+By 2018, CNN-based pipelines were, by far, the most common [@brats2018]
+with specific preference being that of the U-net architecture [@Ronneberger:2015aa]
+which, as we describe below, features prominently in image registration.
+
 
 * Early work in medical image registration with the GPU focused on interfacing wiht the
-hardware directly [@Shams:2010aa].  One of the review papers listed this as well.
+hardware directly [@Shams:2010aa;@Modat:2010aa].  One of the review papers listed this as well.
 
 
 

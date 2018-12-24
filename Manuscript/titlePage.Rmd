@@ -14,8 +14,8 @@ $ $
 \normalsize
 
 Nicholas J. Tustison$^1$,
-Brian B. Avants$^1$,
-James C. Gee$^2$,
+Brian B. Avants$^1$, and
+James C. Gee$^2$
 
 \vspace{0.25 cm}
 
