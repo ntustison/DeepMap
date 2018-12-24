@@ -1,67 +1,57 @@
 
+# Image Registration with Deep Learning
 
-## Quicksilver
+## Geodesic shooting with Quicksilver
 
-* Quicksilver uses a patch-based approach to predict the "momentum" of the LDDMM framework
-in determinining the correspondence relationship between fixed and moving image patch pairs.
 
-    * The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
-      stems from the theoretical foundations underlying diffeomorphic *flows*
-      ([@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998]), or transformations which are
-      differentiable with differentiable inverses.  The collection of *paths* between two
-      images which describe the possible mappings between images is described by the\
-      functional (equation here) XX.
+The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
+derives from the theoretical foundations underlying diffeomorphic *flows*
+[@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998].  Such diffeomorphisms are sufficiently
+differentiable bijective mappings, or transformations, which have sufficiently
+differentiable inverses. Specifically, the set of possible
+diffeomorphic mappings, $\phi(\mathbf{x}, t)$ ($\mathbf{x} \in \Omega$, $t \in [0,1]$),
+between two images, $I$ and $J$ can be described as the
+collection of *paths* connecting the two images on a manifold determined by
+the equation
 
-    * Computationally efficient algorithms for solving such diffeomorphic flows have been subsequently proposed
-      (e.g., [@Beg:2005aa;@Ashburner:2007aa;@Avants:2008aa;@Vercauteren:2009aa;@Vialard:2012aa;@Zhang:2017aa]).
+\begin{equation}
+\int_{0}^{1} \|v(t)\|^2_L dt + \int_{\Omega} | I \circ \phi^{-1}(x,1) - J|^2 d\Omega.
+\label{eq:lddmm}
+\end{equation}
 
-    * The Euler-Lagrange equation for the functional XX can be written as a system of equations
-      which incorporates a "momentum" term,
-      $m_{t} = Jac\left( \phi^v_{t,1} \right)\left( I \circ \phi_{t,0} - J \circ \phi_{t,1} \right)$.
-      Several algorithms (e.g., [@Beg:2005aa;@Vialard:2012aa]) take advantage of the fact that the initial momentum, $m_0$,
-      completely encodes the optimum path describing the transform between images $I$ and $J$.
+$v$ is a time-dependent smooth field dictated by the functional norm $L$  and determines
+the mapping via the ordinary differential equation
 
-    * Following [@Miller:2006aa], the initial momentum is calculated from the equation
-      $m\left(x, 0\right) = \alpha\left(x, 0\right) \nabla I_0$ where $\alpha$ is a time-varying
-      scalar field function and $\nabla I_0$ is the spatial derivative of the image $I$.
+\begin{equation}
+\frac{d\phi(\mathbf{x},t)}{dt} = v( \phi(\mathbf{x},t), t), \phi( \mathbf{x}, 0) = \mathbf{Id}.
+\end{equation}
 
-    * In costrast to scalar formulations of the momenta (e.g., [@Vialard:2012aa]), a vector formulation
-      is proposed in [@Singh:2013aa], to avoid potential confounding effects of noise in the image
-      gradient (i.e., better behaved numerically).
+The optimal diffeomorphic transformation  between $I$ and $J$ can be described
+as a geodesic [@Beg:2005aa] connecting the two images.  Traditionally, computational approaches to determining
+this geodesic path involve discretization of the velocity field followed by numerical
+integration.  This is performed for a given number of iterations where, presumably,
+convergence implies arrival at this geodesic (i.e., optimal) path.  Alternatively, based on
+the work of [@Miller:2006aa], the Euler-Lagrange equations for Equation (\ref{eq:lddmm})
+can be written as a system incorporating a "momentum" term.  It was further demonstrated
+that the initial momentum determined the entire geodesic path.  This alternative perspective
+engendered a new approach to determining the diffeomorphic solution between two images,
+known as _geodesic shooting_ (e.g., [@Beg:2005aa;@Vialard:2012aa]).  Although initially
+formulated in terms of scalar momenta [@Vialard:2012aa], a vector formulation was proposed
+in [@Singh:2013aa] which tends towards superior numerical behavior.
 
-    * The prediction network is used to estimate the vector momentum
+The supervised deep learning technique of Yang et al. [@Yang:2017aa], known as _Quicksilver_,
+leverages this geodesic shooting/vector momentum optimization approach for determining
+optimal diffeomorphic transformations.  The network architecture consists of two parallel encoders
+for separate fixed/moving image patches ($15 \times 15 \times 15$ voxels)
+feature learning.  The output is then concatenated and sent
+through three identical decoder branches (one for each dimension) which comprises the
+inverse operations as the single encoder branch.  Thus, the output consists of the predicted
+vector momentum map which, as described above, determines the total transformation.  In
+order to improve accuracy of the predicted momentum maps, a follow-on correction network
+is also proposed.  This correction network, trained by inverting the mapping produced
+by the predicted momentum and computing the residual error, is meant to account for
+large deformations across patch boundaries.  Of note, Quicksilver, written in PyTorch [@paszke:2017aa],
+is one of the handful of algorithms surveyed which has been made publicly available[^Q].
 
-* Network architecture
+[^Q]: https://github.com/rkwitt/quicksilver
 
-    * Eencoder/decoder structure for performing voxelwise image regression.
-
-    * There are two separate encoders---one for the fixed image and one for the moving image.
-
-    *
-
-    * $15 \times 15 \times 15$ patches selected at stride = 14.
-
-* Thus, Quicksilver is a supervised approach wherein it uses multiple image pairs
-and the corresponding ground-truth estimations of the momentum scalar maps to perform
-prediction of momentum on unseen image pairs (but patch-based).
-
-* Written in pytorch?  (torch (facebook) in python) and available at
-
-* Misc. notes
-
-    * Initial momentum is not generally smooth so smoothing is applied after prediction
-
-    * Training data employed regular LDDMM shooting results using PyCA (page 385)
-
-    * They also use dropout layers to induce a probabilistic network
-
-    * They also train a correction network (Section 2.3).  THe prediction ---> correction
-      networks is diagrammed in Figure 3.
-
-    * The PyCA LDDMM, prediction, and prediction + correction are included in the evaluation.
-
-    * Preprocessing:
-
-        * Skull-striping (FreeSurfer and AutoSeg)
-
-        * Initial affine registration --- NiftyReg

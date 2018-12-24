@@ -4,10 +4,10 @@
 Recent methodological innovations in deep learning and associated advancements in computational
 hardware have significantly impacted the various core subfields of quantitative medical image
 analysis.  The generalizability, computational efficiency, and open-source
-availability of deep learning algorithms, particularly those utlizing convolutional neural
+availability of deep learning algorithms and related software, particularly those utlizing convolutional neural
 networks, have produced paradigm shifts within the field.  This impact is evident from topical prevalance
 in the literature, conference and workshop themes, and winning methodologies in relevant competitions.
-In this work, we review the various state-of-the-art, approaches to learning and prediction
+In this work, we review the various state-of-the-art approaches to learning and prediction
 and/or optimizing image transformations using convolutional neural networks.   Although of
 primary importance within the
 quantitative imaging domain, image registration algorithmic development, in the context of these

@@ -1,0 +1,106 @@
+
+# Preliminaries
+
+
+
+## Convolutional Neural Networks
+
+
+The major elements of CNNs are localized connections, convolutions, and
+subsampling (or "pooling") [@LeCun:2015aa].
+
+An illustration of a bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which depicts
+the core components of convolution and max pooling.  Architectural novelty derives from
+innovative arrangements of these core (and other) network components and the connections between
+them.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
+\caption{The basic elements of the prop  convolutional neural network.
+        The convolutional layer comprises several filters which
+        are optimized in terms of their responses to various features
+        found in the input layer.  Pooling is used to extract salient
+        features and reduce computational complexity and passed on to
+        subsequent layers.
+        }
+\label{fig:convnet}
+\end{figure}
+
+## Spatial transformer networks
+
+In 2015 Jaderberg and his fellow co-authors described a powerful new module, known
+as the spatial transformer network (STN) [@Jaderberg:2015aa], which figures prominently
+in many of the image registration approaches that we review below.  Although
+concepotually relatively straightforward, the obvious influence reflected in
+recent work will most likely continue in future research which is why we review
+this important network component.
+
+Generally, STNs enhance CNNs by permiting a flexibility which allows for an explicit spatial
+invariance that goes beyond the implicitly limited translational invariance associated
+with the architecture's pooling layers.  In many image-based tasks
+(e.g., localization or segmentation), designing an
+algorithm that can account for possible pose or geometric variation of the
+object(s) of interest within the image is crucial for maximizing performance.
+The STN is a fully differentiable layer which can be inserted anywhere in the
+CNN to learn the parameters of the transformation of the input feature map (not
+necessarily an image) which renders the output in such a way to optimize the
+network based on the specified loss function.  The added flexibility and the
+fact that there is no manual supervision or special handling required makes
+this module an essential addition for any CNN-based toolkit.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/STN.pdf}
+\caption{Diagrammatic illustration of the spatial transformer network.  The STN
+         can be placed anywhere within a CNN to provide spatial invariance for the
+         input feature map.  Core components include the localization network used
+         to learn/predict the parameters which transform the input feature map.
+         The transformed output feature map is generated with the grid generator
+         and sampler.
+        }
+\label{fig:stn}
+\end{figure}
+
+An STN comprises three principal components:  1) a localization network,
+2) a grid generator, and 3) a sampler (see Figure \ref{fig:stn}).  The localization
+network uses the input feature map to learn/regress the transformation parameters
+which optimize a specified loss function.  In many examples provided, this amounts
+to transforming the input feature map to a quasi-canonical configuration to facilitate,
+for example, classification.  The actual architecture of the localization network is
+fairly flexible and any conventional architecture, such as a fully connected network
+(FCN), is suitable as long as the output maps to the continuous estimate of the
+transformation parameters.  These transformation parameters are then applied to
+the output of the grid generator which are simply the regular coordinates of the input
+image (or some normalized version thereof).  The sampler, or interpolator, is used
+to map the transformed input feature map to the coordinates of the output feature map.
+
+## Inverse compositional transformer networks
+
+
+
+[@Lin:2017aa]
+Inspired by the IC-LK algorithm, we advocate an improved extension to the STN
+framework that (a) propagates warp parameters, rather than image intensities
+
+## Diffeomorphic transformer networks
+
+Although discussion of transform generalizability was included in the original STN paper
+[@Jaderberg:2015aa], discussion was limited to affine, attention (scaling + translation),
+and thin-plate spline transforms which all fill the requirements of differentiability.  This
+was later extended to encompass a diffeomorphic transformer network (DTN) [@Detlefsen:2018aa]
+based on continuous piecewise affine-based (CPAB) transformations [@Freifeld:2017aa].
+__This section needs to be expanded__.
+
+
+
+
+## Siamese Networks
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/SiameseNet.jpg}
+\caption{Diagrammatic illustration of the spatial transformer network.
+        }
+\label{fig:stn}
+\end{figure}

@@ -1,0 +1,9 @@
+
+
+\clearpage
+
+__Acknowledgments__
+
+We gratefully acknowledge the support of the NVIDIA Corporation with the donation of two Titan
+Xp GPUs used in support of this research.
+
