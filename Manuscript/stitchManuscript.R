@@ -10,6 +10,7 @@ rmdFiles <- c( formatFile,
                "intro.Rmd",
                "preliminaries.Rmd",
                "imageRegistrationMethods.Rmd",
+               "discussion.Rmd",
                "acknowledgments.Rmd",
                "references.Rmd"
    )

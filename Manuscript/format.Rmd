@@ -4,6 +4,7 @@ output:
     fig_caption: true
     latex_engine: xelatex
     keep_tex: yes
+    toc: true
     number_sections: false
   word_document:
     fig_caption: true
@@ -40,3 +41,7 @@ geometry: margin=1.in
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set( cache=TRUE )
 ```
+
+<!--
+\pagenumbering{gobble}
+-->

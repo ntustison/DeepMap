@@ -1,9 +1,15 @@
 
 
-## Discussion
+# Discussion
 
 In the introduction, we mentioned the relative lack of development in the
 field image registration.  It is natural to ask why this is the case.
 Is it possible that deep learning is reducing the algorithmic contribution
 of image registration and corresponding development?  For example, prior
 to the introduction of segmentation
+
+
+For years, image registration has been an extremely important tool for quantitative
+medical image analysis, in part, due to the role it played in incorporating spatial
+prior information for subsequent processing.  However, deep learning is capable of
+doing many of those things without reference to

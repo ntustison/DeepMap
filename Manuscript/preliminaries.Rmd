@@ -1,15 +1,48 @@
 
 # Preliminaries
 
+Prior to describing the various image registration algorithms that have been recently
+proposed in the literature which incorporate elements of deep learning, we first describe some basic
+architectural components specifically relevant to such a discussion which include:
 
+* convolutional neural networks,
 
-## Convolutional Neural Networks
+* spatial transformer networks,
 
+* diffeomorphic transformer networks, and
 
-The major elements of CNNs are localized connections, convolutions, and
-subsampling (or "pooling") [@LeCun:2015aa].
+* siamese networks.
 
-An illustration of a bare-bones CNN configuration is provided in Figure \ref{fig:convnet} which depicts
+\textcolor{red}{Should we discuss the following?}
+
+* \textcolor{red}{Deformable convolutional networks} [@Dai:2017aa]
+
+* \textcolor{red}{Inverse compositional networks} [@Lin:2017aa]
+
+* \textcolor{red}{encoders/decoders, U-net}
+
+Since all but a small subset of components can be included for discussion, we defer the interested
+reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
+[@Goodfellow:2016aa]) for additional information.
+
+## Convolutional neural networks
+
+The grid-like informational content of certain data structures, such as 2-D and 3-D images, is
+perfectly suited to CNN-based training.  The major elements of CNNs are
+localized convolutions, connections, and pooling [@LeCun:2015aa].
+As indicated by its name, the distinguishing characteristic
+of CNNs is the use of convolution instead of matrix operations in one or more of its constituent
+layers [@Goodfellow:2016aa] where the output are feature maps.  These feature maps are typically
+generated in an hierarchical fashion synthesizing simple
+geometric features at the base convolutional layers (lines, corners, etc.) progressing to more
+abstract features at the apical layers.
+The localized connections and weight-sharing provide a form of regularization while
+simultaneously reducing memory requirements [@Goodfellow:2016aa].  The size of the
+convolution kernel, known as the "receptive field," determines the degree of localized
+connections.  Finally, the accompanying pooling layers are used to subsample the
+convolutional feature maps in a way that statistically summarizes voxel neighborhoods
+within the feature maps.  An illustration of a bare-bones CNN configuration is provided in
+Figure \ref{fig:convnet} which depicts
 the core components of convolution and max pooling.  Architectural novelty derives from
 innovative arrangements of these core (and other) network components and the connections between
 them.
@@ -17,7 +50,7 @@ them.
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
-\caption{The basic elements of the prop  convolutional neural network.
+\caption{The basic elements of the CNN.
         The convolutional layer comprises several filters which
         are optimized in terms of their responses to various features
         found in the input layer.  Pooling is used to extract salient
@@ -30,12 +63,8 @@ them.
 ## Spatial transformer networks
 
 In 2015 Jaderberg and his fellow co-authors described a powerful new module, known
-as the spatial transformer network (STN) [@Jaderberg:2015aa], which figures prominently
-in many of the image registration approaches that we review below.  Although
-concepotually relatively straightforward, the obvious influence reflected in
-recent work will most likely continue in future research which is why we review
-this important network component.
-
+as the spatial transformer network (STN) [@Jaderberg:2015aa] which figures prominently
+in many of the image registration approaches that we review below.
 Generally, STNs enhance CNNs by permiting a flexibility which allows for an explicit spatial
 invariance that goes beyond the implicitly limited translational invariance associated
 with the architecture's pooling layers.  In many image-based tasks
@@ -75,13 +104,6 @@ the output of the grid generator which are simply the regular coordinates of the
 image (or some normalized version thereof).  The sampler, or interpolator, is used
 to map the transformed input feature map to the coordinates of the output feature map.
 
-## Inverse compositional transformer networks
-
-
-
-[@Lin:2017aa]
-Inspired by the IC-LK algorithm, we advocate an improved extension to the STN
-framework that (a) propagates warp parameters, rather than image intensities
 
 ## Diffeomorphic transformer networks
 
@@ -95,7 +117,7 @@ __This section needs to be expanded__.
 
 
 
-## Siamese Networks
+## Siamese networks
 
 \begin{figure}[!htb]
 \centering
