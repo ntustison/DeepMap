@@ -17,8 +17,6 @@ architectural components specifically relevant to such a discussion which includ
 
 * \textcolor{red}{Deformable convolutional networks} [@Dai:2017aa]
 
-* \textcolor{red}{Inverse compositional networks} [@Lin:2017aa]
-
 Since all but a small subset of components can be included for discussion, we defer the interested
 reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
 [@Goodfellow:2016aa]) for additional information.
@@ -112,6 +110,19 @@ the output of the grid generator which are simply the regular coordinates of the
 image (or some normalized version thereof).  The sampler, or interpolator, is used
 to map the transformed input feature map to the coordinates of the output feature map.
 
+Since Jaderberg's original STN formulation, extensions have been proposed such as the
+inverse compositional STN (IC-STN) [@Lin:2017aa] and the diffeomorphic
+transformer network [@Detlefsen:2018aa].  We defer discussion of the latter to the
+next subsection but briefly describe the former.  Two issues with STN include:
+1) potential boundary effects in which learned transforms require sampling outside
+the boundary of the input image which can cause potential learning errors for subsequent
+layers and 2) the single-shot estimate of the learned transform which
+can compromise accuracy for large transformation distances.  The IC-STN address
+both of these issues by 1) propagating transformation parameters instead of
+propagating warped input feature maps until the final transformation layer and
+2) recurrent usage of the localization network for inferring transform
+compositions in the spirt of the inverse compositional Lucas-Kanade algorithm [@Baker2004].
+
 
 ## Diffeomorphic transformer networks
 
@@ -123,10 +134,22 @@ based on continuous piecewise affine-based (CPAB) transformations [@Freifeld:201
 __This section needs to be expanded__.
 
 
-
-
 ## Enhancing CNNs with CoordConv
 
-Although not discussed let alone used in any of the papers reviewed below, the work of
-[@Liu:2018aa] deserves consideration in disucssing image registration due to relevance
-to the related topics of spatial coordinates and CNNs.  The work
+Although not discussed let alone used in any of the papers reviewed below, the insight provided
+in [@Liu:2018aa] deserves consideration due to the subject matter of encoding spatial coordinates
+in CNN layers and its relevance to image registration.  The authors describe a perplexing issue
+encountered during the course of their research.
+Reducing the core issue to toy examples, the authors demonstrate that training CNNs to
+regress cartesian coordinates from sparse, feature map pixel encodings
+(and vice versa) is highly problematic for conventional CNNs.  In order to remedy this
+deficiency, the authors propose _CoordConv_ which involves the modification
+of the conventional CNN layer with the concatenation of additional coordinate channels
+to the input.  By explicitly encoding spatial information at each grid point in the
+input layer of the CNN, the authors improve performance not only in the toy examples
+but also in detection with the MNIST data set and in reinforcement learning scenarios
+involving video game play.  Although not explicitly tested in the image registration
+problem domain, it is possible that such straightforward modifications to
+current architectures would substantially improve performance.
+
+
