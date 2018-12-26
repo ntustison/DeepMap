@@ -19,8 +19,6 @@ architectural components specifically relevant to such a discussion which includ
 
 * \textcolor{red}{Inverse compositional networks} [@Lin:2017aa]
 
-* \textcolor{red}{encoders/decoders, U-net}
-
 Since all but a small subset of components can be included for discussion, we defer the interested
 reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
 [@Goodfellow:2016aa]) for additional information.
@@ -58,6 +56,16 @@ them.
         subsequent layers.
         }
 \label{fig:convnet}
+\end{figure}
+
+## Siamese networks
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/SiameseNet.jpg}
+\caption{Diagrammatic illustration of the spatial transformer network.
+        }
+\label{fig:stn}
 \end{figure}
 
 ## Spatial transformer networks
@@ -117,12 +125,8 @@ __This section needs to be expanded__.
 
 
 
-## Siamese networks
+## Enhancing CNNs with CoordConv
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.95\textwidth]{Figures/SiameseNet.jpg}
-\caption{Diagrammatic illustration of the spatial transformer network.
-        }
-\label{fig:stn}
-\end{figure}
+Although not discussed let alone used in any of the papers reviewed below, the work of
+[@Liu:2018aa] deserves consideration in disucssing image registration due to relevance
+to the related topics of spatial coordinates and CNNs.  The work
