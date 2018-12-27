@@ -13,3 +13,5 @@ For years, image registration has been an extremely important tool for quantitat
 medical image analysis, in part, due to the role it played in incorporating spatial
 prior information for subsequent processing.  However, deep learning is capable of
 doing many of those things without reference to
+
+Although DDTN

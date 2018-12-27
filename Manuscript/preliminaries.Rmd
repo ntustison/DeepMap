@@ -23,6 +23,19 @@ reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
 
 ## Convolutional neural networks
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
+\caption{The basic elements of the CNN.
+        The convolutional layer comprises several filters which
+        are optimized in terms of their responses to various features
+        found in the input layer.  Pooling is used to extract salient
+        features and reduce computational complexity and passed on to
+        subsequent layers.
+        }
+\label{fig:convnet}
+\end{figure}
+
 The grid-like informational content of certain data structures, such as 2-D and 3-D images, is
 perfectly suited to CNN-based training.  The major elements of CNNs are
 localized convolutions, connections, and pooling [@LeCun:2015aa].
@@ -43,30 +56,67 @@ the core components of convolution and max pooling.  Architectural novelty deriv
 innovative arrangements of these core (and other) network components and the connections between
 them.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.95\textwidth]{Figures/ConvNet.pdf}
-\caption{The basic elements of the CNN.
-        The convolutional layer comprises several filters which
-        are optimized in terms of their responses to various features
-        found in the input layer.  Pooling is used to extract salient
-        features and reduce computational complexity and passed on to
-        subsequent layers.
-        }
-\label{fig:convnet}
-\end{figure}
 
 ## Siamese networks
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/SiameseNet.jpg}
-\caption{Diagrammatic illustration of the spatial transformer network.
+\caption{Illustration of a siamese architecture.  Two identical convolutional
+         branches, which traditionally share weights, are used to learn a
+         similarity distance while simultaneously optimizing the input encoding
+         captured in the fully connected layers.
+         }
+\label{fig:siamese}
+\end{figure}
+
+Any discussion of the evolution of image registration as a field would
+be incomplete without mention of the various similarity measures
+which have been proposed over the years (e.g., mutual information
+[@Pluim:2003aa]).  As we report below, these same similarity measures
+are often incorporated into CNNs as the loss function (or some
+component thereof).  However, with deep learning, there are additional
+possibilities involving generating similarity functions
+using the input data without having to resort to basic statistical relationships
+between voxels and possibly their surrounding neighborhoods or
+explicitly designed features such as SIFT [@Lowe2004].
+In terms of architectural elements, such learning
+is possible through so-called siamese networks
+[@Bromley:1994aa;@Chopra:2005aa] illustrated in Figure \ref{fig:siamese}.
+Siamese networks have identical input branches which feed into a decision
+layer involving some form similarity measure, oftentimes calculated from
+the fully connected encoding of input images.
+
+Zagoruyko et al. discuss multiple architectures for comparing
+images (and patches) via CNNs [@Zagoruyko:2015aa], some of which are
+well-represented in the works reviewed below.  The most basic
+architecture involves arrangement of the image pair as two channels
+in the input layer of the network.  This two-channel network is
+reportedly fast to train but can be more computationally burdensome
+for testing.  Both
+siamese and psuedo-siamese networks, respectively differentiated by
+shared vs. non-shared weights in the identical input branches, are also
+used for deep learning-based image registration.
+
+
+
+
+
+
+## Spatial transformer networks
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/STN.pdf}
+\caption{Diagrammatic illustration of the spatial transformer network.  The STN
+         can be placed anywhere within a CNN to provide spatial invariance for the
+         input feature map.  Core components include the localization network used
+         to learn/predict the parameters which transform the input feature map.
+         The transformed output feature map is generated with the grid generator
+         and sampler.
         }
 \label{fig:stn}
 \end{figure}
-
-## Spatial transformer networks
 
 In 2015 Jaderberg and his fellow co-authors described a powerful new module, known
 as the spatial transformer network (STN) [@Jaderberg:2015aa] which figures prominently
@@ -83,19 +133,6 @@ necessarily an image) which renders the output in such a way to optimize the
 network based on the specified loss function.  The added flexibility and the
 fact that there is no manual supervision or special handling required makes
 this module an essential addition for any CNN-based toolkit.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.95\textwidth]{Figures/STN.pdf}
-\caption{Diagrammatic illustration of the spatial transformer network.  The STN
-         can be placed anywhere within a CNN to provide spatial invariance for the
-         input feature map.  Core components include the localization network used
-         to learn/predict the parameters which transform the input feature map.
-         The transformed output feature map is generated with the grid generator
-         and sampler.
-        }
-\label{fig:stn}
-\end{figure}
 
 An STN comprises three principal components:  1) a localization network,
 2) a grid generator, and 3) a sampler (see Figure \ref{fig:stn}).  The localization
