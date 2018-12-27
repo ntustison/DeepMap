@@ -124,15 +124,28 @@ propagating warped input feature maps until the final transformation layer and
 compositions in the spirt of the inverse compositional Lucas-Kanade algorithm [@Baker2004].
 
 
-## Diffeomorphic transformer networks
+## Deep diffeomorphic transformer networks
 
 Although discussion of transform generalizability was included in the original STN paper
 [@Jaderberg:2015aa], discussion was limited to affine, attention (scaling + translation),
 and thin-plate spline transforms which all fill the requirements of differentiability.  This
-was later extended to encompass a diffeomorphic transformer network (DTN) [@Detlefsen:2018aa]
-based on continuous piecewise affine-based (CPAB) transformations [@Freifeld:2017aa].
-__This section needs to be expanded__.
+work was extended to diffeomorphic transforms in [@Detlefsen:2018aa].  The
+computational load associated with generating traditional diffeomorphisms through
+velocity field integration [@Beg:2005aa] motivated the use of continuous piecewise
+affine-based (CPAB) transformations [@Freifeld:2017aa].  The CPAB approach utilizes a
+tesselation of the image domain which translates into faster and more accurate generation
+of the resulting diffeomorphism.  Although this does constrain the flexibility of the
+final transformation, the framework provides an efficient compromise for use in deep
+learning architectures.  Analogous to traditional image registration,  the
+deep diffeomorphic transformer layer can be placed in serial following an affine-based STN layer
+for a global-to-local total transformation estimation.  This is demonstrated
+in the experiments reported in [@Detlefsen:2018aa].
+Similar to the many publicly available implementations of STN, the authors provide
+their own Tensorflow implementation of the diffeomorphic transformer network.[^P1]
+The authors employ CUDA-based calculations for evaluating the CPAB gradients and
+transforms due to speed considerations.
 
+[^P1]: https://github.com/SkafteNicki/ddtn
 
 ## Enhancing CNNs with CoordConv
 
