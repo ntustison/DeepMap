@@ -1,6 +1,17 @@
 
 # Image Registration with Deep Learning
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/overview.pdf}
+\caption{Summary plots for the works reviewed including (a) publications per year, (b)
+         choice of neural network API, (c) anatomy (where applicable), and (d) publishing
+        venue.
+        }
+\label{fig:overview}
+\end{figure}
+
+
 ## Geodesic shooting with Quicksilver
 
 
