@@ -1,5 +1,5 @@
 
-# Image Registration with Deep Learning
+# Image registration with Deep Learning
 
 \begin{figure}[!htb]
 \centering
@@ -10,6 +10,13 @@
         }
 \label{fig:overview}
 \end{figure}
+
+
+## Image registration via feature localization and correspondence
+
+
+## GANs for image registration
+
 
 
 ## Geodesic shooting with Quicksilver

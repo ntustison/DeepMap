@@ -1,5 +1,5 @@
 
-# Preliminaries
+# Background on relevant network architectures
 
 Prior to describing the various image registration algorithms that have been recently
 proposed in the literature which incorporate elements of deep learning, we first describe some basic
@@ -201,5 +201,34 @@ but also in detection with the MNIST data set and in reinforcement learning scen
 involving video game play.  Although not explicitly tested in the image registration
 problem domain, it is possible that such straightforward modifications to
 current architectures would substantially improve performance.
+
+
+## Generative adverserial networks
+
+According to Yann LeCun (in 2016), "adverserial training is the coolest thing
+since slice bread" and "the most interesting idea in the last 10 years in
+[machine learning].[^P2]"  Goodfellow and colleagues introduced generative
+adverserial networks (GANs) in 2014 [@Goodfellow:2014aa] which immediately demonstrated
+significant potential for generative modeling.  Since their introduction,
+GANs have increasingly found traction in addressing many types of deep learning
+problems in the medical imaging domain [@Yi:2018aa] including image registration.
+
+[^P2]: https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-unsupervised-learning
+
+GANs are a special type of network composed of two adverserial sub-networks
+known as the _generator_ (usually characterized by deconvolutional layers)
+and the _discriminator_ (usually a CNN).  These
+work in a minimax fashion to learn data distributions in the absence of
+extensive sample data.  Seeded with a random noise image
+(e.g., sampled from a uniform or Gaussian distribution), the generator
+produces synthetic images which are then evaluated by the discriminator
+as belonging either to the true or synthetic data distributions in terms
+of some probability scalar value.  This
+back-and-forth results in a generator network which continually improves
+its ability to produce data that more closely resembles the true distribution
+while simultaneously enhancing the discriminator's ability to judge between
+true and synthetic data sets.
+
+
 
 
