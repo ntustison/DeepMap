@@ -1,12 +1,156 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2018-12-28 12:58:11 -0800 
+%% Created for Nicholas Tustison at 2018-12-31 14:27:51 -0800 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Shen:2002aa,
+	Abstract = {A new approach is presented for elastic registration of medical images, and is applied to magnetic resonance images of the brain. Experimental results demonstrate very high accuracy in superposition of images from different subjects. There are two major novelties in the proposed algorithm. First, it uses an attribute vector, i.e., a set of geometric moment invariants (GMIs) that are defined on each voxel in an image and are calculated from the tissue maps, to reflect the underlying anatomy at different scales. The attribute vector, if rich enough, can distinguish between different parts of an image, which helps establish anatomical correspondences in the deformation procedure; it also helps reduce local minima, by reducing ambiguity in potential matches. This is a fundamental deviation of our method, referred to as the hierarchical attribute matching mechanism for elastic registration (HAMMER), from other volumetric deformation methods, which are typically based on maximizing image similarity. Second, in order to avoid being trapped by local minima, i.e., suboptimal poor matches, HAMMER uses a successive approximation of the energy function being optimized by lower dimensional smooth energy functions, which are constructed to have significantly fewer local minima. This is achieved by hierarchically selecting the driving features that have distinct attribute vectors, thus, drastically reducing ambiguity in finding correspondence. A number of experiments demonstrate that the proposed algorithm results in accurate superposition of image data from individuals with significant anatomical differences.},
+	Author = {Shen, Dinggang and Davatzikos, Christos},
+	Date-Added = {2018-12-31 14:26:47 -0800},
+	Date-Modified = {2018-12-31 14:26:47 -0800},
+	Doi = {10.1109/TMI.2002.803111},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Aged; Algorithms; Atrophy; Brain; Elasticity; Humans; Image Enhancement; Magnetic Resonance Imaging; Pattern Recognition, Automated; Quality Control; Reproducibility of Results; Sensitivity and Specificity; Stochastic Processes; Subtraction Technique},
+	Month = {Nov},
+	Number = {11},
+	Pages = {1421-39},
+	Pmid = {12575879},
+	Pst = {ppublish},
+	Title = {HAMMER: hierarchical attribute matching mechanism for elastic registration},
+	Volume = {21},
+	Year = {2002},
+	Bdsk-Url-1 = {https://doi.org/10.1109/TMI.2002.803111}}
+
+@article{Wang:2010aa,
+	Abstract = {Groupwise registration has been recently introduced to simultaneously register a group of images by avoiding the selection of a particular template. To achieve this, several methods have been proposed to take advantage of information-theoretic entropy measures based on image intensity. However, simplistic utilization of voxelwise image intensity is not sufficient to establish reliable correspondences, since it lacks important contextual information. Therefore, we explore the notion of attribute vector as the voxel signature, instead of image intensity, to guide the correspondence detection in groupwise registration. In particular, for each voxel, the attribute vector is computed from its multi-scale neighborhoods, in order to capture the geometric information at different scales. The probability density function (PDF) of each element in the attribute vector is then estimated from the local neighborhood, providing a statistical summary of the underlying anatomical structure in that local pattern. Eventually, with the help of Jensen-Shannon (JS) divergence, a group of subjects can be aligned simultaneously by minimizing the sum of JS divergences across the image domain and all attributes. We have employed our groupwise registration algorithm on both real (NIREP NA0 data set) and simulated data (12 pairs of normal control and simulated atrophic data set). The experimental results demonstrate that our method yields better registration accuracy, compared with a popular groupwise registration method.},
+	Author = {Wang, Qian and Wu, Guorong and Yap, Pew-Thian and Shen, Dinggang},
+	Date-Added = {2018-12-31 14:21:13 -0800},
+	Date-Modified = {2018-12-31 14:21:13 -0800},
+	Doi = {10.1016/j.neuroimage.2010.01.040},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Algorithms; Brain; Brain Diseases; Computer Simulation; Databases, Factual; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Probability},
+	Month = {May},
+	Number = {4},
+	Pages = {1485-96},
+	Pmc = {PMC2839051},
+	Pmid = {20097291},
+	Pst = {ppublish},
+	Title = {Attribute vector guided groupwise registration},
+	Volume = {50},
+	Year = {2010},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.01.040}}
+
+@article{Cheng:2016aa,
+	Author = {Xi Cheng and Li Zhang and Yefeng Zheng},
+	Date-Added = {2018-12-31 13:50:24 -0800},
+	Date-Modified = {2018-12-31 13:51:27 -0800},
+	Doi = {10.1080/21681163.2015.1135299},
+	Eprint = {https://doi.org/10.1080/21681163.2015.1135299},
+	Journal = {Computer Methods in Biomechanics and Biomedical Engineering: Imaging \& Visualization},
+	Number = {3},
+	Pages = {248-252},
+	Publisher = {Taylor & Francis},
+	Title = {Deep similarity learning for multimodal medical images},
+	Url = {https://doi.org/10.1080/21681163.2015.1135299},
+	Volume = {6},
+	Year = {2016},
+	Bdsk-Url-1 = {https://doi.org/10.1080/21681163.2015.1135299}}
+
+@article{Glocker:2011aa,
+	Abstract = {This review introduces a novel deformable image registration paradigm that exploits Markov random field formulation and powerful discrete optimization algorithms. We express deformable registration as a minimal cost graph problem, where nodes correspond to the deformation grid, a node's connectivity corresponds to regularization constraints, and labels correspond to 3D deformations. To cope with both iconic and geometric (landmark-based) registration, we introduce two graphical models, one for each subproblem. The two graphs share interconnected variables, leading to a modular, powerful, and flexible formulation that can account for arbitrary image-matching criteria, various local deformation models, and regularization constraints. To cope with the corresponding optimization problem, we adopt two optimization strategies: a computationally efficient one and a tight relaxation alternative. Promising results demonstrate the potential of this approach. Discrete methods are an important new trend in medical image registration, as they provide several improvements over the more traditional continuous methods. This is illustrated with several key examples where the presented framework outperforms existing general-purpose registration methods in terms of both performance and computational complexity. Our methods become of particular interest in applications where computation time is a critical issue, as in intraoperative imaging, or where the huge variation in data demands complex and application-specific matching criteria, as in large-scale multimodal population studies. The proposed registration framework, along with a graphical interface and corresponding publications, is available for download for research purposes (for Windows and Linux platforms) from http://www.mrf-registration.net.},
+	Author = {Glocker, Ben and Sotiras, Aristeidis and Komodakis, Nikos and Paragios, Nikos},
+	Date-Added = {2018-12-31 13:43:53 -0800},
+	Date-Modified = {2018-12-31 13:43:53 -0800},
+	Doi = {10.1146/annurev-bioeng-071910-124649},
+	Journal = {Annu Rev Biomed Eng},
+	Journal-Full = {Annual review of biomedical engineering},
+	Mesh = {Algorithms; Four-Dimensional Computed Tomography; Humans; Image Enhancement; Image Processing, Computer-Assisted; Linear Models; Markov Chains; Pattern Recognition, Automated; Reproducibility of Results; Subtraction Technique; Thorax},
+	Month = {Aug},
+	Pages = {219-44},
+	Pmid = {21568711},
+	Pst = {ppublish},
+	Title = {Deformable medical image registration: setting the state of the art with discrete methods},
+	Volume = {13},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1146/annurev-bioeng-071910-124649}}
+
+@article{Brox:2011aa,
+	Abstract = {Optical flow estimation is classically marked by the requirement of dense sampling in time. While coarse-to-fine warping schemes have somehow relaxed this constraint, there is an inherent dependency between the scale of structures and the velocity that can be estimated. This particularly renders the estimation of detailed human motion problematic, as small body parts can move very fast. In this paper, we present a way to approach this problem by integrating rich descriptors into the variational optical flow setting. This way we can estimate a dense optical flow field with almost the same high accuracy as known from variational optical flow, while reaching out to new domains of motion analysis where the requirement of dense sampling in time is no longer satisfied.},
+	Author = {Brox, Thomas and Malik, Jitendra},
+	Date-Added = {2018-12-31 13:11:40 -0800},
+	Date-Modified = {2018-12-31 13:11:40 -0800},
+	Doi = {10.1109/TPAMI.2010.143},
+	Journal = {IEEE Trans Pattern Anal Mach Intell},
+	Journal-Full = {IEEE transactions on pattern analysis and machine intelligence},
+	Mesh = {Algorithms; Artificial Intelligence; Computer Simulation; Humans; Image Enhancement; Image Interpretation, Computer-Assisted; Imaging, Three-Dimensional; Information Storage and Retrieval; Models, Theoretical; Motion; Pattern Recognition, Automated; Phantoms, Imaging; Sensitivity and Specificity; Signal Processing, Computer-Assisted; Subtraction Technique; Video Recording},
+	Month = {Mar},
+	Number = {3},
+	Pages = {500-13},
+	Pmid = {20714020},
+	Pst = {ppublish},
+	Title = {Large displacement optical flow: descriptor matching in variational motion estimation},
+	Volume = {33},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1109/TPAMI.2010.143}}
+
+@article{Fischler:1981aa,
+	Author = {Martin A. Fischler and Robert C. Bolles},
+	Date-Added = {2018-12-31 13:00:27 -0800},
+	Date-Modified = {2018-12-31 13:01:45 -0800},
+	Journal = {Comm. ACM.},
+	Number = {6},
+	Pages = {381--395},
+	Title = {Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography},
+	Volume = {24},
+	Year = {1981}}
+
+@inproceedings{Hu:2018ac,
+	Author = {Yipeng Hu and Eli Gibson and Nooshin Ghavami and Ester Bonmati and Caroline M. Moore and Mark Emberton and Tom Vercauteren and J. Alison Noble and Dean C. Barratt},
+	Booktitle = {Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention},
+	Date-Added = {2018-12-31 11:11:57 -0800},
+	Date-Modified = {2018-12-31 11:13:12 -0800},
+	Title = {Adversarial Deformation Regularization for Training Image Registration Neural Networks},
+	Year = {2018}}
+
+@article{Wang:2004aa,
+	Abstract = {Objective methods for assessing perceptual image quality traditionally attempted to quantify the visibility of errors (differences) between a distorted image and a reference image using a variety of known properties of the human visual system. Under the assumption that human visual perception is highly adapted for extracting structural information from a scene, we introduce an alternative complementary framework for quality assessment based on the degradation of structural information. As a specific example of this concept, we develop a Structural Similarity Index and demonstrate its promise through a set of intuitive examples, as well as comparison to both subjective ratings and state-of-the-art objective methods on a database of images compressed with JPEG and JPEG2000.},
+	Author = {Wang, Zhou and Bovik, Alan Conrad and Sheikh, Hamid Rahim and Simoncelli, Eero P},
+	Date-Added = {2018-12-31 11:09:31 -0800},
+	Date-Modified = {2018-12-31 11:09:31 -0800},
+	Journal = {IEEE Trans Image Process},
+	Journal-Full = {IEEE transactions on image processing : a publication of the IEEE Signal Processing Society},
+	Mesh = {Algorithms; Data Interpretation, Statistical; Hypermedia; Image Enhancement; Image Interpretation, Computer-Assisted; Information Storage and Retrieval; Models, Statistical; Pattern Recognition, Automated; Quality Control; Reproducibility of Results; Sensitivity and Specificity; Signal Processing, Computer-Assisted; Subtraction Technique},
+	Month = {Apr},
+	Number = {4},
+	Pages = {600-12},
+	Pmid = {15376593},
+	Pst = {ppublish},
+	Title = {Image quality assessment: from error visibility to structural similarity},
+	Volume = {13},
+	Year = {2004}}
+
+@inproceedings{Radford:2016aa,
+	Author = {Alec Radford and Luke Metz and Soumith Chintala},
+	Booktitle = {Proceedings of the International Conference on Learning Representations},
+	Date-Added = {2018-12-31 10:48:32 -0800},
+	Date-Modified = {2018-12-31 10:54:10 -0800},
+	Title = {Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks},
+	Year = {2016}}
+
+@inproceedings{Zhu:2017aa,
+	Author = {Zhu, Jun-Yan and Park, Taesung and Isola, Phillip and Efros, Alexei A},
+	Booktitle = {Computer Vision (ICCV), 2017 IEEE International Conference on},
+	Date-Added = {2018-12-31 08:41:13 -0800},
+	Date-Modified = {2018-12-31 08:41:53 -0800},
+	Title = {Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks},
+	Year = {2017}}
 
 @inproceedings{Goodfellow:2014aa,
 	Author = {Ian J. Goodfellow and Jean Pouget-Abadie and Mehdi Mirza and Bing Xu and David Warde-Farley and Sherjil Ozair and Aaron Courville and Yoshua Bengio},

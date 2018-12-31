@@ -7,6 +7,7 @@ deVos:2017aa,2017,DLMIA,2,MRI,Heart,Lasagne
 Dosovitskiy:2015aa,2015,ICCV,2,NA,NA,Caffe
 Eppenhof:2018aa,2018,SPIE,3,CT,Lungs,Undisclosed
 Fan:2018aa,2018,MICCAI,3,T1w,Brain,Caffe
+Hu:2018aa,2018,MedIA,3,T2w_TRUS,Prostate,Tensorflow
 Hu:2018ab,2018,ISBI,3,T2w_TRUS,Prostate,Tensorflow
 Lv:2018aa,2018,BR J Radiol,3,MRI,Abdomen,Undisclosed
 Mahapatra:2018aa,2018,ISBI,2,Fundus_FluorosceinAngiography,Retina_Heart,Tensorflow
@@ -15,10 +16,14 @@ Nguyen:2018aa,2018,IEEE RA-L,2,NA,NA,Tensorflow
 Nowruzi:2017aa,2017,ICCV,2,NA,NA,Tensorflow
 Rocco:2017aa,2017,CVPR,2,NA,NA,Pytorch
 Rohe:2017aa,2017,MICCAI,3,MRI,Heart,Tensorflow
+Sergeev:2012aa,2012,SPIE,2,CT,Abdomen,Undisclosed
 Shan:2018aa,2018,arxiv,2,CT_MRI,Brain_Liver,Caffe
 Sheikhjafari:2018aa,2018,MIDL,2,MRI,Heart,Tensorflow
+Simonvsky:2016aa,2016,MICCAI,3,T1w_T2w,Brain,Torch
 Sloan:2018aa,2018,BIOSTEC,2,T1w_T2w,Brain,Undisclosed
 Sokooti:2017aa,2017,MICCAI,3,CT,Lungs,Lasagne
 Uzunova:2017aa,2017,MICCAI,2,MRI,Brain_Heart,Undisclosed
+Wu:2016aa,2016,IEEE TBMI,3,MRI,Brain,ConvNet
+Weinzaepfel:2013aa,2013,ICCV,2,NA,NA,Undisclosed
 Yang:2017aa,2017,NeuroImage,3,MRI,Brain,Pytorch
 Zhang:2018aa,2018,arxiv,3,MRI,Brain,Pytorch

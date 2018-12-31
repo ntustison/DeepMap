@@ -17,6 +17,8 @@ architectural components specifically relevant to such a discussion which includ
 
 * \textcolor{red}{Deformable convolutional networks} [@Dai:2017aa]
 
+* \textcolor{red}{U-net} [@Ronneberger:2015aa]
+
 Since all but a small subset of components can be included for discussion, we defer the interested
 reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
 [@Goodfellow:2016aa]) for additional information.
@@ -228,7 +230,9 @@ back-and-forth results in a generator network which continually improves
 its ability to produce data that more closely resembles the true distribution
 while simultaneously enhancing the discriminator's ability to judge between
 true and synthetic data sets.
+Since the original "vanilla" GAN paper, the number of proposed GAN extensions
+have exploded in the literature (see the GAN Zoo[^P3]).  Initial extensions
+included architectural modifications for improved stability in training
+which have since become standard (e.g., deep convolutional GANs [@Radford:2016aa]).
 
-
-
-
+[^P3]: https://github.com/hindupuravinash/the-gan-zoo
