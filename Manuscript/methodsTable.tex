@@ -4,49 +4,52 @@
 \centering
 \caption{}
 \label{table:methods}
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
 \toprule
-\multicolumn{4}{c}{\textbf{Methods reviewed}}    \\
+\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Transform} & \textbf{Supervised?} & \textbf{Similarity} \\
 \midrule
-\multicolumn{4}{l}{\textbf{Feature localization}}
-  \vspace{0.25cm} \\
-  Sergeev et al. [XX] & 2012 & 3-D & Affine \\
-  Weinzaepfel et al. [XX] & 2013 & 3-D & Deformable \\
-  Simonovsky et al. [XX] & 2016 & 3-D & Deformable \\
-  Wu et al. [XX] & 2016 & 3-D & Deformable \\
 \midrule
-\multicolumn{4}{l}{\textbf{Siamese, pseudo-siamese, or two-channel}}
+\multicolumn{6}{c}{\textbf{Feature localization}}
   \vspace{0.25cm} \\
-  Cao et al. [XX] & 2017 & 3-D & Deformable \\
-  Balakrishnan et al. [XX] & 2018 & 3-D & Deformable \\
-  Dalca et al. [XX] & 2018 & 3-D & Diffeomorphic \\
-  DeTone et al. [XX] & 2016 & 2-D & Homography \\
-  deVos et al. [XX] & 2017 & 2-D & B-spline \\
-  Dosovitskiy et al. [XX] & 2015 & 2-D & Optical flow \\
-  Eppenhof et al. [XX] & 2018 & 3-D & TPS \\
-  Hu et al. [XX] & 2018 & 3-D & Deformable \\
-  Lv et al. [XX] & 2018 & 3-D & Deformable \\
-  Miao et al. [XX] & 2016 & 2-D/3-D & Rigid \\
-  Nguyen et al. [XX] & 2018 & 2-D & Homography \\
-  Nowruzi et al. [XX] & 2017 & 2-D & Homography \\
-  Rocco et al. [XX] & 2017 & 2-D & Affine + TPS \\
-  Rohe et al. [XX] & 2017 & 3-D & Diffeomorphic \\
-  Shan et al. [XX] & 2017 & 2-D & Deformable \\
-  Sheikhjafari et al. [XX] & 2018 & 2-D & Deformable \\
-  Sloan et al. [XX] & 2018 & 2-D & Rigid \\
-  Sokooti et al. [XX] & 2017 & 3-D & Deformable \\
-  Uzunova et al. [XX] & 2017 & 2-D & Optical flow \\
-  Zhang et al. [XX] & 2018 & 3-D & IC deformable \\
+  Sergeev et al. [XX] & 2012 & 3-D & Affine & Supervised & CC \\
+  Simonovsky et al. [XX] & 2016 & 3-D & Deformable & Supervised & Learned \\
+  Weinzaepfel et al. [XX] & 2013 & 3-D & Deformable & Supervised & Learned \\
+  Wu et al. [XX] & 2016 & 3-D & Deformable & Supervised & Learned \\
 \midrule
-\multicolumn{4}{l}{\textbf{Generative adverserial networks}}
+\multicolumn{6}{c}{\textbf{Two channel}}
   \vspace{0.25cm} \\
-  Mahapatra et al. [XX] & 2017 & 3-D & Deformable \\
-  Hu et al. [XX] & 2018 & 3-D & Deformable \\
-  Fan et al. [XX] & 2018 & 3-D & Deformable \\
+  Balakrishnan et al. [XX] & 2018 & 3-D & Deformable & Unsupervised & CC \\
+  Cao et al. [XX] & 2017 & 3-D & Deformable & Supervised & NCC \\
+  Dalca et al. [XX] & 2018 & 3-D & Diffeomorphic & Supervised & MSQ \\
+  DeTone et al. [XX] & 2016 & 2-D & Homography & Supervised & MSQ \\
+  deVos et al. [XX] & 2017 & 2-D & B-spline & Supervised & NCC \\
+  Eppenhof et al. [XX] & 2018 & 3-D & TPS & Supervised & None \\       % The loss is trained on the msq difference between the true and predicted displacements
+  Hu et al. [XX] & 2018 & 3-D & Affine + Deformable & Supervised & Dice \\
+  Lv et al. [XX] & 2018 & 3-D & Deformable & Supervised & {} \\
+  Nguyen et al. [XX] & 2018 & 2-D & Homography & Unsupervised & Learned \\
+  Rohe et al. [XX] & 2017 & 3-D & Diffeomorphic & Supervised & None \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
+  Shan et al. [XX] & 2017 & 2-D & Deformable & Unsupervised & MSQ \\
 \midrule
-\multicolumn{4}{l}{\textbf{Miscellaneous}}
+\multicolumn{6}{c}{\textbf{Siamese or pseudo-siamese}}
   \vspace{0.25cm} \\
-  Yang et al. [XX] & 2018 & 3-D & Diffeomorphic \\
+  Dosovitskiy et al. [XX] & 2015 & 2-D & Optical flow & Supervised & Correlation \\
+  Nowruzi et al. [XX] & 2017 & 2-D & Homography & Supervised & MSQ \\
+  Rocco et al. [XX] & 2017 & 2-D & Affine + TPS & Supervised & Learned \\
+  Sloan et al. [XX] & 2018 & 2-D & Rigid & Supervised & None \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
+  Sokooti et al. [XX] & 2017 & 3-D & Deformable & Supervised & Learned \\
+  Yang et al. [XX] & 2018 & 3-D & Diffeomorphic & Supervised & None \\  % The loss is the 1-norm between the predicted and desired momentum
+  Zhang et al. [XX] & 2018 & 3-D & IC deformable & Supervised & MSQ \\
+\midrule
+\multicolumn{6}{c}{\textbf{Generative adverserial networks}}
+  \vspace{0.25cm} \\
+  Fan et al. [XX] & 2018 & 3-D & Deformable & Supervised & Learned \\
+  Mahapatra et al. [XX] & 2017 & 3-D & Deformable & Supervised & NMI/SSIM \\
+  Hu et al. [XX] & 2018 & 3-D & Deformable & Supervised & {} \\
+\midrule
+\multicolumn{6}{c}{\textbf{Miscellaneous}}
+  \vspace{0.25cm} \\
+  Miao et al. [XX] & 2016 & 2-D/3-D & Rigid & Supervised & {} \\
+  Sheikhjafari et al. [XX] & 2018 & 2-D & Deformable & Unsupervised & AbsDiff \\
   \bottomrule
 \end{tabular*}
 \end{table}

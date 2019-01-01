@@ -113,7 +113,8 @@ the mapping via the ordinary differential equation
 \end{equation}
 
 The optimal diffeomorphic transformation  between $I$ and $J$ can be described
-as a geodesic [@Beg:2005aa] connecting the two images.  Traditionally, computational approaches to determining
+as a geodesic [@Beg:2005aa] connecting the two images.  Traditionally,
+computational approaches to determining
 this geodesic path involve discretization of the velocity field followed by numerical
 integration.  This is performed for a given number of iterations where, presumably,
 convergence implies arrival at this geodesic (i.e., optimal) path.  Alternatively, based on
