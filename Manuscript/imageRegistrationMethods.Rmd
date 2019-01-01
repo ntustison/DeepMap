@@ -11,7 +11,9 @@
 \label{fig:overview}
 \end{figure}
 
-## Image registration via feature localization and correspondence
+\input{methodsTable.tex}
+
+## Image registration via feature localization
 
 Much of the early work incorporating deep learning into solving image
 registration problems involved the detection of corresponding features
@@ -87,7 +89,6 @@ displacement field.  The discriminator network takes an image pair as input
 and outputs the similarity probability.
 
 ## Geodesic shooting with Quicksilver
-
 
 The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
 derives from the theoretical foundations underlying diffeomorphic *flows*
