@@ -6,50 +6,50 @@
 \label{table:methods}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
 \toprule
-\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Transform} & \textbf{Supervised?} & \textbf{Similarity} \\
+\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Supervised?} & \textbf{Transform} & \textbf{Similarity} \\
 \midrule
 \midrule
 \multicolumn{6}{c}{\textbf{Feature localization}}
   \vspace{0.25cm} \\
-  Sergeev et al. [XX] & 2012 & 3-D & Affine & Supervised & CC \\
-  Simonovsky et al. [XX] & 2016 & 3-D & Deformable & Supervised & Learned \\
-  Weinzaepfel et al. [XX] & 2013 & 3-D & Deformable & Supervised & Learned \\
-  Wu et al. [XX] & 2016 & 3-D & Deformable & Supervised & Learned \\
+  Sergeev et al. [XX] & 2012 & 3-D & Supervised & Affine & CC \\
+  Simonovsky et al. [XX] & 2016 & 3-D & Supervised & Deformable & Learned \\
+  Weinzaepfel et al. [XX] & 2013 & 3-D & Supervised & Deformable & Learned \\
+  Wu et al. [XX] & 2016 & 3-D & Supervised & Deformable & Learned \\
 \midrule
 \multicolumn{6}{c}{\textbf{Two channel}}
   \vspace{0.25cm} \\
-  Balakrishnan et al. [XX] & 2018 & 3-D & Deformable & Unsupervised & CC \\
-  Cao et al. [XX] & 2017 & 3-D & Deformable & Supervised & NCC \\
-  Dalca et al. [XX] & 2018 & 3-D & Diffeomorphic & Supervised & MSQ \\
-  DeTone et al. [XX] & 2016 & 2-D & Homography & Supervised & MSQ \\
-  deVos et al. [XX] & 2017 & 2-D & B-spline & Supervised & NCC \\
-  Eppenhof et al. [XX] & 2018 & 3-D & TPS & Supervised & None \\       % The loss is trained on the msq difference between the true and predicted displacements
-  Hu et al. [XX] & 2018 & 3-D & Affine + Deformable & Supervised & Dice \\
-  Lv et al. [XX] & 2018 & 3-D & Deformable & Supervised & {} \\
-  Nguyen et al. [XX] & 2018 & 2-D & Homography & Unsupervised & Learned \\
-  Rohe et al. [XX] & 2017 & 3-D & Diffeomorphic & Supervised & None \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
-  Shan et al. [XX] & 2017 & 2-D & Deformable & Unsupervised & MSQ \\
+  Balakrishnan et al. [XX] & 2018 & 3-D & Unsupervised & Deformable & CC \\
+  Cao et al. [XX] & 2017 & 3-D & Supervised & Deformable & NCC \\
+  Dalca et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & MSQ \\
+  DeTone et al. [XX] & 2016 & 2-D & Supervised & Homography & MSQ \\
+  deVos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
+  Eppenhof et al. [XX] & 2018 & 3-D & Supervised & TPS & None \\       % The loss is trained on the msq difference between the true and predicted displacements
+  Hu et al. [XX] & 2018 & 3-D & Supervised & Affine + Deformable & Dice \\
+  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & {} \\
+  Nguyen et al. [XX] & 2018 & 2-D & Unsupervised & Homography & Learned \\
+  Rohe et al. [XX] & 2017 & 3-D & Supervised & Diffeomorphic & None \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
+  Shan et al. [XX] & 2017 & 2-D & Unsupervised & Deformable & MSQ \\
 \midrule
 \multicolumn{6}{c}{\textbf{Siamese or pseudo-siamese}}
   \vspace{0.25cm} \\
-  Dosovitskiy et al. [XX] & 2015 & 2-D & Optical flow & Supervised & Correlation \\
-  Nowruzi et al. [XX] & 2017 & 2-D & Homography & Supervised & MSQ \\
-  Rocco et al. [XX] & 2017 & 2-D & Affine + TPS & Supervised & Learned \\
-  Sloan et al. [XX] & 2018 & 2-D & Rigid & Supervised & None \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
-  Sokooti et al. [XX] & 2017 & 3-D & Deformable & Supervised & Learned \\
-  Yang et al. [XX] & 2018 & 3-D & Diffeomorphic & Supervised & None \\  % The loss is the 1-norm between the predicted and desired momentum
-  Zhang et al. [XX] & 2018 & 3-D & IC deformable & Supervised & MSQ \\
+  Dosovitskiy et al. [XX] & 2015 & 2-D & Supervised & Optical flow & Correlation \\
+  Nowruzi et al. [XX] & 2017 & 2-D & Supervised & Homography & MSQ \\
+  Rocco et al. [XX] & 2017 & 2-D & Supervised & Affine + TPS & Learned \\
+  Sloan et al. [XX] & 2018 & 2-D & Supervised & Rigid & None \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
+  Sokooti et al. [XX] & 2017 & 3-D & Supervised & Deformable & Learned \\
+  Yang et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & None \\  % The loss is the 1-norm between the predicted and desired momentum
+  Zhang et al. [XX] & 2018 & 3-D & Supervised & Deformable & MSQ \\
 \midrule
 \multicolumn{6}{c}{\textbf{Generative adverserial networks}}
   \vspace{0.25cm} \\
-  Fan et al. [XX] & 2018 & 3-D & Deformable & Supervised & Learned \\
-  Mahapatra et al. [XX] & 2017 & 3-D & Deformable & Supervised & NMI/SSIM \\
-  Hu et al. [XX] & 2018 & 3-D & Deformable & Supervised & {} \\
+  Fan et al. [XX] & 2018 & 3-D & Supervised & Deformable & Learned \\
+  Mahapatra et al. [XX] & 2017 & 3-D & Supervised & Deformable & NMI/SSIM \\
+  Hu et al. [XX] & 2018 & 3-D & Supervised & Deformable & {} \\
 \midrule
 \multicolumn{6}{c}{\textbf{Miscellaneous}}
   \vspace{0.25cm} \\
-  Miao et al. [XX] & 2016 & 2-D/3-D & Rigid & Supervised & {} \\
-  Sheikhjafari et al. [XX] & 2018 & 2-D & Deformable & Unsupervised & AbsDiff \\
+  Miao et al. [XX] & 2016 & 2-D/3-D & Supervised & Rigid & {} \\
+  Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & AbsDiff \\
   \bottomrule
 \end{tabular*}
 \end{table}
