@@ -2,11 +2,12 @@
 
 \begin{table}[!htb]
 \centering
-\caption{}
+\caption{Deep learning-based image registration methods discussed in this review. We organize}
 \label{table:methods}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
 \toprule
-\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Supervised?} & \textbf{Transform} & \textbf{Similarity} \\
+\midrule
+\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Supervised?} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Similarity} \\
 \midrule
 \midrule
 \multicolumn{6}{c}{\textbf{Feature localization}}
@@ -38,7 +39,7 @@
   Sloan et al. [XX] & 2018 & 2-D & Supervised & Rigid & None \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
   Sokooti et al. [XX] & 2017 & 3-D & Supervised & Deformable & Learned \\
   Yang et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & None \\  % The loss is the 1-norm between the predicted and desired momentum
-  Zhang et al. [XX] & 2018 & 3-D & Supervised & Deformable & MSQ \\
+  Zhang et al. [XX] & 2018 & 3-D & Supervised & IC Deformable & MSQ \\
 \midrule
 \multicolumn{6}{c}{\textbf{Generative adverserial networks}}
   \vspace{0.25cm} \\
@@ -50,7 +51,18 @@
   \vspace{0.25cm} \\
   Miao et al. [XX] & 2016 & 2-D/3-D & Supervised & Rigid & {} \\
   Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & AbsDiff \\
-  \bottomrule
+\bottomrule
+\multicolumn{6}{l}{
+  \begin{minipage}[t]{0.9\columnwidth}%
+    \footnotesize{$^\dagger$TPS: thin-plate splines, IC: inverse consistent}
+  \end{minipage}
+  } \\
+\multicolumn{6}{l}{
+  \begin{minipage}[t]{0.9\columnwidth}%
+    \footnotesize{$^\ddagger$CC: cross correlation, NCC: normalized CC, MSQ: mean squares,
+      NMI:  normalized mutual information, SSIM:  structural similarity index}
+  \end{minipage}
+  }
 \end{tabular*}
 \end{table}
 
