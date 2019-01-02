@@ -1,5 +1,8 @@
 
-# Abstract
+\Large
+{\bf Abstract}
+
+\normalsize
 
 Recent methodological innovations in deep learning and associated advancements in computational
 hardware have significantly impacted the various core subfields of quantitative medical image

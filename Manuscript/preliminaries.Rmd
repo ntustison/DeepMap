@@ -207,16 +207,19 @@ current architectures would substantially improve performance.
 
 ## Generative adverserial networks
 
+<!--
 According to Yann LeCun (in 2016), "adverserial training is the coolest thing
 since slice bread" and "the most interesting idea in the last 10 years in
-[machine learning].[^P2]"  Goodfellow and colleagues introduced generative
+[machine learning].[^P2]"
+
+[^P2]: https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-unsupervised-learning
+-->
+
+Goodfellow and colleagues introduced generative
 adverserial networks (GANs) in 2014 [@Goodfellow:2014aa] which immediately demonstrated
 significant potential for generative modeling.  Since their introduction,
 GANs have increasingly found traction in addressing many types of deep learning
 problems in the medical imaging domain [@Yi:2018aa] including image registration.
-
-[^P2]: https://www.quora.com/What-are-some-recent-and-potentially-upcoming-breakthroughs-in-unsupervised-learning
-
 GANs are a special type of network composed of two adverserial sub-networks
 known as the _generator_ (usually characterized by deconvolutional layers)
 and the _discriminator_ (usually a CNN).  These

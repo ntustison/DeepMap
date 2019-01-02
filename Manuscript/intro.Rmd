@@ -95,13 +95,8 @@ thus provide an overview of the current state-of-the-art of this burgeoning
 subfield. We first provide a description of key network components that are
 crucial to certain image registration architectures, or perhaps which might
 find utility in future architectures.  Second, we discuss current approaches
-to the deep learning image registration categorized by \ldots
-
-
-
-
-
-
+to the deep learning image registration categorized in terms of these basic
+architectural components.
 
 
 <!--
