@@ -27,10 +27,10 @@
   deVos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
   Eppenhof et al. [XX] & 2018 & 3-D & Supervised & TPS & None \\       % The loss is trained on the msq difference between the true and predicted displacements
   Hu et al. [XX] & 2018 & 3-D & Supervised & Affine + Deformable & Multiscale Dice \\
-  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & --- \\
+%  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & --- \\
   Nguyen et al. [XX] & 2018 & 2-D & Unsupervised & Homography & L1 \\
   Rohe et al. [XX] & 2017 & 3-D & Supervised & Diffeomorphic & None \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
-  Shan et al. [XX] & 2017 & 2-D & Unsupervised & Deformable & MSQ \\
+  Shan et al. [XX] & 2017 & 2-D & Unsupervised & Deformable & L1 \\
 \midrule
 \multicolumn{6}{c}{\textbf{Siamese/pseudo-siamese}}
   \vspace{0.25cm} \\
@@ -51,7 +51,7 @@
 \multicolumn{6}{c}{\textbf{Other}}
   \vspace{0.25cm} \\
   Miao et al. [XX] & 2016 & 2-D/3-D & Supervised & Rigid & {} \\
-  Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & AbsDiff \\
+  Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 \\
 \bottomrule
 \multicolumn{6}{l}{
   \begin{minipage}[t]{0.9\columnwidth}%
