@@ -1,12 +1,89 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2018-12-31 14:27:51 -0800 
+%% Created for Nicholas Tustison at 2019-01-01 19:53:50 -0800 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Rueckert:1999aa,
+	Abstract = {In this paper we present a new approach for the nonrigid registration of contrast-enhanced breast MRI. A hierarchical transformation model of the motion of the breast has been developed. The global motion of the breast is modeled by an affine transformation while the local breast motion is described by a free-form deformation (FFD) based on B-splines. Normalized mutual information is used as a voxel-based similarity measure which is insensitive to intensity changes as a result of the contrast enhancement. Registration is achieved by minimizing a cost function, which represents a combination of the cost associated with the smoothness of the transformation and the cost associated with the image similarity. The algorithm has been applied to the fully automated registration of three-dimensional (3-D) breast MRI in volunteers and patients. In particular, we have compared the results of the proposed nonrigid registration algorithm to those obtained using rigid and affine registration techniques. The results clearly indicate that the nonrigid registration algorithm is much better able to recover the motion and deformation of the breast than rigid or affine registration algorithms.},
+	Author = {Rueckert, D and Sonoda, L I and Hayes, C and Hill, D L and Leach, M O and Hawkes, D J},
+	Date-Added = {2019-01-01 19:53:49 -0800},
+	Date-Modified = {2019-01-01 19:53:49 -0800},
+	Doi = {10.1109/42.796284},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Breast; Female; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging},
+	Month = {Aug},
+	Number = {8},
+	Pages = {712-21},
+	Pmid = {10534053},
+	Pst = {ppublish},
+	Title = {Nonrigid registration using free-form deformations: application to breast MR images},
+	Volume = {18},
+	Year = {1999},
+	Bdsk-Url-1 = {https://doi.org/10.1109/42.796284}}
+
+@article{Klein:2010aa,
+	Abstract = {Medical image registration is an important task in medical image processing. It refers to the process of aligning data sets, possibly from different modalities (e.g., magnetic resonance and computed tomography), different time points (e.g., follow-up scans), and/or different subjects (in case of population studies). A large number of methods for image registration are described in the literature. Unfortunately, there is not one method that works for all applications. We have therefore developed elastix, a publicly available computer program for intensity-based medical image registration. The software consists of a collection of algorithms that are commonly used to solve medical image registration problems. The modular design of elastix allows the user to quickly configure, test, and compare different registration methods for a specific application. The command-line interface enables automated processing of large numbers of data sets, by means of scripting. The usage of elastix for comparing different registration methods is illustrated with three example experiments, in which individual components of the registration method are varied.},
+	Author = {Klein, Stefan and Staring, Marius and Murphy, Keelin and Viergever, Max A and Pluim, Josien P W},
+	Date-Added = {2019-01-01 19:53:07 -0800},
+	Date-Modified = {2019-01-01 19:53:07 -0800},
+	Doi = {10.1109/TMI.2009.2035616},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Diagnostic Imaging; Humans; Image Processing, Computer-Assisted; Models, Biological; Normal Distribution; Software},
+	Month = {Jan},
+	Number = {1},
+	Pages = {196-205},
+	Pmid = {19923044},
+	Pst = {ppublish},
+	Title = {elastix: a toolbox for intensity-based medical image registration},
+	Volume = {29},
+	Year = {2010},
+	Bdsk-Url-1 = {https://doi.org/10.1109/TMI.2009.2035616}}
+
+@article{Woods:1993aa,
+	Abstract = {OBJECTIVE: We have previously reported an automated method for within-modality (e.g., PET-to-PET) image alignment. We now describe modifications to this method that allow for cross-modality registration of MRI and PET brain images obtained from a single subject.
+METHODS: This method does not require fiducial markers and the user is not required to identify common structures on the two image sets. To align the images, the algorithm seeks to minimize the standard deviation of the PET pixel values that correspond to each MRI pixel value. The MR images must be edited to exclude nonbrain regions prior to using the algorithm.
+RESULTS AND CONCLUSION: The method has been validated quantitatively using data from patients with stereotaxic fiducial markers rigidly fixed in the skull. Maximal three-dimensional errors of < 3 mm and mean three-dimensional errors of < 2 mm were measured. Computation time on a SPARCstation IPX varies from 3 to 9 min to align MR image sets with [18F]fluorodeoxyglucose PET images. The MR alignment with noisy H2(15)O PET images typically requires 20-30 min.},
+	Author = {Woods, R P and Mazziotta, J C and Cherry, S R},
+	Date = {1993 Jul-Aug},
+	Date-Added = {2019-01-01 19:51:23 -0800},
+	Date-Modified = {2019-01-01 19:51:23 -0800},
+	Journal = {J Comput Assist Tomogr},
+	Journal-Full = {Journal of computer assisted tomography},
+	Mesh = {Adult; Algorithms; Brain; Deoxyglucose; Epilepsy; Female; Fluorine Radioisotopes; Fluorodeoxyglucose F18; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Male; Time Factors; Tomography, Emission-Computed},
+	Number = {4},
+	Pages = {536-46},
+	Pmid = {8331222},
+	Pst = {ppublish},
+	Title = {MRI-PET registration with automated algorithm},
+	Volume = {17},
+	Year = {1993}}
+
+@article{Avants:2011aa,
+	Abstract = {The United States National Institutes of Health (NIH) commit significant support to open-source data and software resources in order to foment reproducibility in the biomedical imaging sciences. Here, we report and evaluate a recent product of this commitment: Advanced Neuroimaging Tools (ANTs), which is approaching its 2.0 release. The ANTs open source software library consists of a suite of state-of-the-art image registration, segmentation and template building tools for quantitative morphometric analysis. In this work, we use ANTs to quantify, for the first time, the impact of similarity metrics on the affine and deformable components of a template-based normalization study. We detail the ANTs implementation of three similarity metrics: squared intensity difference, a new and faster cross-correlation, and voxel-wise mutual information. We then use two-fold cross-validation to compare their performance on openly available, manually labeled, T1-weighted MRI brain image data of 40 subjects (UCLA's LPBA40 dataset). We report evaluation results on cortical and whole brain labels for both the affine and deformable components of the registration. Results indicate that the best ANTs methods are competitive with existing brain extraction results (Jaccard=0.958) and cortical labeling approaches. Mutual information affine mapping combined with cross-correlation diffeomorphic mapping gave the best cortical labeling results (Jaccard=0.669$\pm$0.022). Furthermore, our two-fold cross-validation allows us to quantify the similarity of templates derived from different subgroups. Our open code, data and evaluation scripts set performance benchmark parameters for this state-of-the-art toolkit. This is the first study to use a consistent transformation framework to provide a reproducible evaluation of the isolated effect of the similarity metric on optimal template construction and brain labeling.},
+	Author = {Avants, Brian B and Tustison, Nicholas J and Song, Gang and Cook, Philip A and Klein, Arno and Gee, James C},
+	Date-Added = {2019-01-01 19:50:12 -0800},
+	Date-Modified = {2019-01-01 19:50:12 -0800},
+	Doi = {10.1016/j.neuroimage.2010.09.025},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Algorithms; Brain; Databases, Factual; Diagnostic Imaging; Head; Humans; Image Processing, Computer-Assisted; Linear Models; Models, Anatomic; Models, Neurological; Population; Reproducibility of Results; Software},
+	Month = {Feb},
+	Number = {3},
+	Pages = {2033-44},
+	Pmc = {PMC3065962},
+	Pmid = {20851191},
+	Pst = {ppublish},
+	Title = {A reproducible evaluation of ANTs similarity metric performance in brain image registration},
+	Volume = {54},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.09.025}}
 
 @article{Shen:2002aa,
 	Abstract = {A new approach is presented for elastic registration of medical images, and is applied to magnetic resonance images of the brain. Experimental results demonstrate very high accuracy in superposition of images from different subjects. There are two major novelties in the proposed algorithm. First, it uses an attribute vector, i.e., a set of geometric moment invariants (GMIs) that are defined on each voxel in an image and are calculated from the tissue maps, to reflect the underlying anatomy at different scales. The attribute vector, if rich enough, can distinguish between different parts of an image, which helps establish anatomical correspondences in the deformation procedure; it also helps reduce local minima, by reducing ambiguity in potential matches. This is a fundamental deviation of our method, referred to as the hierarchical attribute matching mechanism for elastic registration (HAMMER), from other volumetric deformation methods, which are typically based on maximizing image similarity. Second, in order to avoid being trapped by local minima, i.e., suboptimal poor matches, HAMMER uses a successive approximation of the energy function being optimized by lower dimensional smooth energy functions, which are constructed to have significantly fewer local minima. This is achieved by hierarchically selecting the driving features that have distinct attribute vectors, thus, drastically reducing ambiguity in finding correspondence. A number of experiments demonstrate that the proposed algorithm results in accurate superposition of image data from individuals with significant anatomical differences.},

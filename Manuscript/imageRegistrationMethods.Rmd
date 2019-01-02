@@ -1,15 +1,26 @@
 
-# Image registration with Deep Learning
+# Image registration with deep learning
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/overview.pdf}
-\caption{Summary plots for the works reviewed including (a) publications per year, (b)
+\caption{Graphical overview of the works reviewed including (a) publications per year, (b)
          choice of neural network API, (c) anatomy (where applicable), and (d) publishing
         venue.
         }
 \label{fig:overview}
 \end{figure}
+
+The following overview of deep learning image registration methods is loosely categorized
+based on the discussion of network architectures given in the previous section.
+Specifically, we first discuss early work in which transformations were derived
+from CNN-based identification and localization of corresponding features in
+image pairs.  We then review "two channel" approaches in which fixed and moving images
+are concatenated channelwise in the input layer.  This leads to an overview of
+methods involving the related siamese and pseudo-siamese architectures.  The final
+category concerns those adverserial approaches employing GANs.  Other methods which
+do not fit in any of the above categories are also included.  Each method is listed
+in Table 1 with a graphical summary provided in Figure \ref{fig:overview}.
 
 \input{methodsTable.tex}
 
@@ -27,7 +38,6 @@ with 60 neurons where the output is a probability of it containing a specific
 feature at the center of a small image neighborhood.  These detected point correspondences
 are then used to estimate the total affine transformation using the RANSAC
 algorithm [@Fischler:1981aa].
-
 Similarly, DeepFlow [@Weinzaepfel:2013aa] uses CNNs to detect
 matching features (i.e., _deep matching_) which are then used as
 additional information in the large displacement optical flow framework
@@ -41,7 +51,6 @@ developed for input image patches (T1- and T2-weighted brain images).
 A B-spline image registration algorithm developed from the Insight Toolkit
 is used to leverage the output CNN-based similarity measure for comparison
 with an identical registration set-up employing mutual information.
-
 Finally, in the category of feature learning, Wu et al. use stacked auto-encoders
 (SAE) to map patchwise image content to learned feature vectors [@Wu:2016aa].  These
 patches are then subsampled based on the importance criteria outlined in
@@ -50,45 +59,43 @@ such as edges. The SAE-based feature vectors at these image patches are then
 used to drive a HAMMER-based registration [@Shen:2002aa] which is inherently
 a feature-based approach.
 
-## GANs for image registration
+## Two channel architectures for image registration
 
-In order to constrain the mapping between moving and fixed images,
-the adverserial approach outlined in [@Mahapatra:2018aa] combines
-a content loss term (which includes subterms for normalized mutual
-information, structural similarity [@Wang:2004aa], and a VGG-based
-filter feature L2-norm between the two images) with a "cyclical" adverserial
-loss.  This is constructed in the style
-of [@Zhu:2017aa] who proposed this GAN extension, viz., CycleGAN,
-to ensure that
-the normally underconstrained forward intensity mapping is consistent with
-a similarly generated inverse mapping for "image-to-image translation"
-(e.g., converting a Monet painting to a realistic photo or rendering a
-winter nature scene as its summer analog).  However, in this case, the
-cyclical aspect is to ensure a regularized field through forward and
-inverse displacement consistency.
+Voxelmorph was first introduced in [@Balakrishnan:2018aa] which incorporates
+a U-net architecture with spatial transformer network.  The input layer
+consists of the concatenated full fixed and moving image volumes resized
+and cropped to $160 \times 192 \times 224$ voxels. The output is the voxelwise
+displacement field of the same size as the input (times three for each vector
+component).  The loss function for training combines cross correlation and
+regularization.  This was significantly updated in [@Dalca:2018aa] to
+utilize stationary velocity fields for generating diffeomorphic transforms
+which employed novel scaling and squaring network layers.  The underlying
+code has been made available[^V] which has facilitated independent evaluations
+such as [@Nazib:2018aa] to compare performance with traditional algorithms (i.e.,
+IRTK [@Rueckert:1999aa], AIR [@Woods:1993aa], Elastix [@Klein:2010aa],
+ANTs [@Avants:2011aa], and NiftyReg [@Modat:2010aa])
 
-The work of [@Hu:2018ac] employs discriminator training between finite-element
-modeling and generated displacements for the prostate and surrounding tissues
-to regularize the predicted displacement fields.  The generator loss employs
-the weakly supervised learning method proposed by the same authors in [@Hu:2018ab]
-whereby anatomical labels are used to drive registration during training only.
-The generator is constructed from an encoder/decoder architecture based on
-ResNet blocks [@He:2015].
-The prediction framework includes both localized tissue deformation and the
-linear coordinate-system-changes assocated with the ultrasound imaging
-acquisition.
+[^V]: https://github.com/voxelmorph/voxelmorph
 
-In [@Fan:2018aa], the discriminator loss is based on quantification of how
-well two images are aligned where the negative case derives from the registration
-generator
-and the positive cases consist of identical images (plus small perturbations).
-Explicit regularization is added to the total loss for the registration network.
-The registration network consists of a U-net type architecture which takes two
-3-D image patches from the image pair as input and produces a patchwise
-displacement field.  The discriminator network takes an image pair as input
-and outputs the similarity probability.
+Intermodality transformations involving CT and MRI are learned by training on the
+intramodality image pairs in [@Cao:2017aa].  The basic U-net architecture
+using input patches of size $68 \times 68 \times 68$
+incorporates a loss function combining normalized cross correlation (NCC) and
+explicit regularization.  A related idea is developed in [@Hu:2018aa] which
+uses labeled data and intensity information during the training phase such
+that only unlabeled image data is required for prediction.  The architecture
+is a densely connected U-net architecture with three types of residual
+shortcuts.  They also use a
+multiscale Dice function with an explicit regularization term in the loss
+function for estimating both global and local transformations.
 
-## Geodesic shooting with Quicksilver
+
+
+## Siamese and pseudo-siamese architectures for image registration
+
+
+
+### Geodesic shooting with Quicksilver
 
 The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
 derives from the theoretical foundations underlying diffeomorphic *flows*
@@ -141,4 +148,44 @@ large deformations across patch boundaries.  Of note, Quicksilver, written in Py
 is one of the handful of algorithms surveyed which has been made publicly available[^Q].
 
 [^Q]: https://github.com/rkwitt/quicksilver
+
+
+## Adverserial image registration approaches
+
+In order to constrain the mapping between moving and fixed images,
+the GAN-based approach outlined in [@Mahapatra:2018aa] combines
+a content loss term (which includes subterms for normalized mutual
+information, structural similarity [@Wang:2004aa], and a VGG-based
+filter feature L2-norm between the two images) with a "cyclical" adverserial
+loss.  This is constructed in the style
+of [@Zhu:2017aa] who proposed this GAN extension, viz., CycleGAN,
+to ensure that
+the normally underconstrained forward intensity mapping is consistent with
+a similarly generated inverse mapping for "image-to-image translation"
+(e.g., converting a Monet painting to a realistic photo or rendering a
+winter nature scene as its summer analog).  However, in this case, the
+cyclical aspect is to ensure a regularized field through forward and
+inverse displacement consistency.
+
+The work of [@Hu:2018ac] employs discriminator training between finite-element
+modeling and generated displacements for the prostate and surrounding tissues
+to regularize the predicted displacement fields.  The generator loss employs
+the weakly supervised learning method proposed by the same authors in [@Hu:2018ab]
+whereby anatomical labels are used to drive registration during training only.
+The generator is constructed from an encoder/decoder architecture based on
+ResNet blocks [@He:2015].
+The prediction framework includes both localized tissue deformation and the
+linear coordinate-system-changes assocated with the ultrasound imaging
+acquisition.
+
+In [@Fan:2018aa], the discriminator loss is based on quantification of how
+well two images are aligned where the negative case derives from the registration
+generator
+and the positive cases consist of identical images (plus small perturbations).
+Explicit regularization is added to the total loss for the registration network.
+The registration network consists of a U-net type architecture which takes two
+3-D image patches from the image pair as input and produces a patchwise
+displacement field.  The discriminator network takes an image pair as input
+and outputs the similarity probability.
+
 
