@@ -57,7 +57,7 @@ error for the combined loss function.
 
 ### Voxelmorph
 
-Voxelmorph was first introduced in [@Balakrishnan:2018aa] which incorporates
+_Voxelmorph_ was first introduced in [@Balakrishnan:2018aa] which incorporates
 a U-net architecture with spatial transformer network.  The input layer
 consists of the concatenated full fixed and moving image volumes resized
 and cropped to $160 \times 192 \times 224$ voxels. The output is the voxelwise

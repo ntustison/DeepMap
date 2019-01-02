@@ -1,12 +1,50 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2019-01-01 19:53:50 -0800 
+%% Created for Nicholas Tustison at 2019-01-02 12:03:06 -0800 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Christensen:2001aa,
+	Abstract = {This paper presents a new method for image registration based on jointly estimating the forward and reverse transformations between two images while constraining these transforms to be inverses of one another. This approach produces a consistent set of transformations that have less pairwise registration error, i.e., better correspondence, than traditional methods that estimate the forward and reverse transformations independently. The transformations are estimated iteratively and are restricted to preserve topology by constraining them to obey the laws of continuum mechanics. The transformations are parameterized by a Fourier series to diagonalize the covariance structure imposed by the continuum mechanics constraints and to provide a computationally efficient numerical implementation. Results using a linear elastic material constraint are presented using both magnetic resonance and X-ray computed tomography image data. The results show that the joint estimation of a consistent set of forward and reverse transformations constrained by linear-elasticity give better registration results than using either constraint alone or none at all.},
+	Author = {Christensen, G E and Johnson, H J},
+	Date-Added = {2019-01-02 12:03:05 -0800},
+	Date-Modified = {2019-01-02 12:03:05 -0800},
+	Doi = {10.1109/42.932742},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Algorithms; Brain; Fourier Analysis; Humans; Image Interpretation, Computer-Assisted; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Mathematics; Tomography, X-Ray Computed},
+	Month = {Jul},
+	Number = {7},
+	Pages = {568-82},
+	Pmid = {11465464},
+	Pst = {ppublish},
+	Title = {Consistent image registration},
+	Volume = {20},
+	Year = {2001},
+	Bdsk-Url-1 = {https://doi.org/10.1109/42.932742}}
+
+@article{Johnson:2002aa,
+	Abstract = {Two new consistent image registration algorithms are presented: one is based on matching corresponding landmarks and the other is based on matching both landmark and intensity information. The consistent landmark and intensity registration algorithm produces good correspondences between images near landmark locations by matching corresponding landmarks and away from landmark locations by matching the image intensities. In contrast to similar unidirectional algorithms, these new consistent algorithms jointly estimate the forward and reverse transformation between two images while minimizing the inverse consistency error-the error between the forward (reverse) transformation and the inverse of the the reverse (forward) transformation. This reduces the ambiguous correspondence between the forward and reverse transformations associated with large inverse consistency errors. In both algorithms a thin-plate spline (TPS) model is used to regularize the estimated transformations. Two-dimensional (2-D) examples are presented that show the inverse consistency error produced by the traditional unidirectional landmark TPS algorithm can be relatively large and that this error is minimized using the consistent landmark algorithm. Results using 2-D magnetic resonance imaging data are presented that demonstrate that using landmark and intensity information together produce better correspondence between medical images than using either landmarks or intensity information alone.},
+	Author = {Johnson, H J and Christensen, G E},
+	Date-Added = {2019-01-02 12:03:04 -0800},
+	Date-Modified = {2019-01-02 12:03:04 -0800},
+	Doi = {10.1109/TMI.2002.1009381},
+	Journal = {IEEE Trans Med Imaging},
+	Journal-Full = {IEEE transactions on medical imaging},
+	Mesh = {Algorithms; Brain; Computer Simulation; Humans; Image Enhancement; Image Interpretation, Computer-Assisted; Magnetic Resonance Imaging; Reproducibility of Results; Sensitivity and Specificity; Subtraction Technique},
+	Month = {May},
+	Number = {5},
+	Pages = {450-61},
+	Pmid = {12071616},
+	Pst = {ppublish},
+	Title = {Consistent landmark and intensity-based image registration},
+	Volume = {21},
+	Year = {2002},
+	Bdsk-Url-1 = {https://doi.org/10.1109/TMI.2002.1009381}}
 
 @article{Rueckert:1999aa,
 	Abstract = {In this paper we present a new approach for the nonrigid registration of contrast-enhanced breast MRI. A hierarchical transformation model of the motion of the breast has been developed. The global motion of the breast is modeled by an affine transformation while the local breast motion is described by a free-form deformation (FFD) based on B-splines. Normalized mutual information is used as a voxel-based similarity measure which is insensitive to intensity changes as a result of the contrast enhancement. Registration is achieved by minimizing a cost function, which represents a combination of the cost associated with the smoothness of the transformation and the cost associated with the image similarity. The algorithm has been applied to the fully automated registration of three-dimensional (3-D) breast MRI in volunteers and patients. In particular, we have compared the results of the proposed nonrigid registration algorithm to those obtained using rigid and affine registration techniques. The results clearly indicate that the nonrigid registration algorithm is much better able to recover the motion and deformation of the breast than rigid or affine registration algorithms.},

@@ -4,11 +4,66 @@
 
 ### Homography estimation
 
+The homography estimator of [@Nowruzi:2017aa] uses a hierarchical
+composition of subnetwork modules to determine final correspondence.
+The basic architecture is similar to [@DeTone:2016aa]  although the
+initial layers employ a Siamese structure to process the images in
+parallel.  Each successive layer is meant to correct the residual
+transformation error produced by the previous layer.  Similar to
+other homography estimators, the loss function is based on the
+mean-squared error of the homography parameters.
+
 ### Training loss on ground truth transformations
 
-An early seminal paper on
+An early seminal paper described _FlowNet_, a 2-D CNN-based approach to
+optical flow optimization [@Dosovitskiy:2015aa].  Two encoding/decoding
+architectures are actually proposed for comparison for real world RGB
+images where the distinction lies in the encoding component of the network.
+_FlowNetSimple_ is a two channel architecture characterized by a concatenated
+series of contracting convolutional layers.  The pseudo-siamese _FlowNetCorr_
+separates the initial contracting layers to first find meaningful
+corresponding features across the image pair which are combined
+using a correlation layer.
+Although the simple variant reportedly
+generalizes better for one of the data sets, the psuedo-siamese
+construction outperforms on the other two data sets.
+Another unique aspect of this work is
+the data augmentation performed by synthetic image generation which
+involves the addition literal flying chairs to existing
+image scenes.
+
+Consistent with typical workflows in medical image registration, a two-step
+transform hierarchy is proposed using deep learning in [@Rocco:2017aa] where
+the results of an affine CNN regression network is fed into a deformable
+thin-plate spline network.  The supervised training uses the mean squares
+difference between predicted and ground truth transformations as the loss
+function.  Unlike other methods, the transformation-based loss is actually
+calculated by transforming an uniform grid based on the predicted and
+ground-truth transforms and calculating the mean squares distance between
+corresponding grid points.
+A Siamese network for regressing rigid transformation parameters on brain
+images is described in [@Sloan:2018aa].  Inverse consistency considerations
+are made by swapping fixed and moving image pairs during training.  Similar
+to [@deVos:2017aa], max pooling is avoided to minimize translational
+invariance of the operation.  Model loss is quantified via the mean square
+error of the transformation parameters.
+_RegNet_ [@Sokooti:2017aa] is a single-shot transformation estimation approach
+which is trained using a large set of simulated displacement fields.  3-D
+input patches at multiple scales are employed to determine the patchwise
+displacement field.  The network architecture combines the multiscale
+patches downstream where the loss is the mean residual distance between
+predicted and ground truth displacements.
 
 ### Training loss on similarity metrics
+
+_ICNet_  [@Zhang:2017aa]  is motivated by traditional concerns of inverse
+consistency in deformable transformations [@Christensen:2001aa]. Two parallel
+U-net structures are used to determine the initial forward and inverse
+displacements which are then propagated through an inverse network to
+refine the respective mappings.  The loss function comprises
+regularization terms to prevent topological folding and promote smoothness
+in addition to a mean squared intensity term combining both forward and
+inverse mapped images to their respective counterparts.
 
 ### Geodesic shooting with Quicksilver
 

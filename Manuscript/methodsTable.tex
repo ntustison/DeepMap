@@ -8,7 +8,7 @@
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
 \toprule
 \midrule
-\textbf{Reference} & \textbf{Year} & \textbf{Dim.} & \textbf{Supervised?} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
+\textbf{Reference} & \textbf{Year} & \textbf{\textit{n}-D} & \textbf{Supervised?} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
 \midrule
 \midrule
 \multicolumn{6}{c}{\textbf{Feature localization}}
@@ -40,7 +40,7 @@
   Sloan et al. [XX] & 2018 & 2-D & Supervised & Rigid & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
   Sokooti et al. [XX] & 2017 & 3-D & Supervised & Deformable & L1$_T$ \\
   Yang et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & L1$_T$ \\  % The loss is the 1-norm between the predicted and desired momentum
-  Zhang et al. [XX] & 2018 & 3-D & Supervised & IC Deformable & MSQ + ER \\
+  Zhang et al. [XX] & 2018 & 3-D & Unsupervised & IC Deformable & MSQ + ER \\
 \midrule
 \multicolumn{6}{c}{\textbf{Generative adverserial networks}}
   \vspace{0.25cm} \\
