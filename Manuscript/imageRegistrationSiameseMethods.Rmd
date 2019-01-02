@@ -1,4 +1,14 @@
+
+
 ## Siamese and pseudo-siamese architectures for image registration
+
+### Homography estimation
+
+### Training loss on ground truth transformations
+
+An early seminal paper on
+
+### Training loss on similarity metrics
 
 ### Geodesic shooting with Quicksilver
 
