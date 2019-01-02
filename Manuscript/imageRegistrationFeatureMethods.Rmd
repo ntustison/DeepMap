@@ -1,0 +1,35 @@
+
+## Image registration via feature localization
+
+Much of the early work incorporating deep learning into solving image
+registration problems involved the detection of corresponding features
+and then using that information to determine the correspondence relationship
+between the fixed and moving image pair.  For example, just at the start of the
+current era of deep learning in image-related research, [@Sergeev:2012aa]
+proposed point correspondence detection using multiple feed-forward neural
+networks each of which is trained to detect a single feature.  These
+neural networks are relatively simple consisting of two hidden layers each
+with 60 neurons where the output is a probability of it containing a specific
+feature at the center of a small image neighborhood.  These detected point correspondences
+are then used to estimate the total affine transformation using the RANSAC
+algorithm [@Fischler:1981aa].
+Similarly, DeepFlow [@Weinzaepfel:2013aa] uses CNNs to detect
+matching features (i.e., _deep matching_) which are then used as
+additional information in the large displacement optical flow framework
+[@Brox:2011aa].  A relatively small architecture is employed consisting
+of six layers and used to detect features at different convolution sizes
+and then matched across scales.
+
+A similarity measure for multimodal registration is formulated in terms
+of CNNs in the work of [@Simonovsky:2016aa].  A two channel network is
+developed for input image patches (T1- and T2-weighted brain images).
+A B-spline image registration algorithm developed from the Insight Toolkit
+is used to leverage the output CNN-based similarity measure for comparison
+with an identical registration set-up employing mutual information.
+Finally, in the category of feature learning, Wu et al. use stacked auto-encoders
+(SAE) to map patchwise image content to learned feature vectors [@Wu:2016aa].  These
+patches are then subsampled based on the importance criteria outlined in
+[@Wang:2010aa] which tends towards regions of high informational content
+such as edges. The SAE-based feature vectors at these image patches are then
+used to drive a HAMMER-based registration [@Shen:2002aa] which is inherently
+a feature-based, traditional image registration approach.

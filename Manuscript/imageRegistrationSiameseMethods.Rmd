@@ -1,0 +1,57 @@
+## Siamese and pseudo-siamese architectures for image registration
+
+### Geodesic shooting with Quicksilver
+
+The large deformation diffeomorphic metric mappings (LDDMM) framework for image matching
+derives from the theoretical foundations underlying diffeomorphic *flows*
+[@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998].  Such diffeomorphisms are sufficiently
+differentiable bijective mappings, or transformations, which have sufficiently
+differentiable inverses. Specifically, the set of possible
+diffeomorphic mappings, $\phi(\mathbf{x}, t)$ ($\mathbf{x} \in \Omega$, $t \in [0,1]$),
+between two images, $I$ and $J$ can be described as the
+collection of *paths* connecting the two images on a manifold determined by
+the equation
+
+\begin{equation}
+\int_{0}^{1} \|v(t)\|^2_L dt + \int_{\Omega} | I \circ \phi^{-1}(x,1) - J|^2 d\Omega.
+\label{eq:lddmm}
+\end{equation}
+
+$v$ is a time-dependent smooth field dictated by the functional norm $L$  and determines
+the mapping via the ordinary differential equation
+
+\begin{equation}
+\frac{d\phi(\mathbf{x},t)}{dt} = v( \phi(\mathbf{x},t), t), \phi( \mathbf{x}, 0) = \mathbf{Id}.
+\end{equation}
+
+The optimal diffeomorphic transformation  between $I$ and $J$ can be described
+as a geodesic [@Beg:2005aa] connecting the two images.  Traditionally,
+computational approaches to determining
+this geodesic path involve discretization of the velocity field followed by numerical
+integration.  This is performed for a given number of iterations where, presumably,
+convergence implies arrival at this geodesic (i.e., optimal) path.  Alternatively, based on
+the work of [@Miller:2006aa], the Euler-Lagrange equations for Equation (\ref{eq:lddmm})
+can be written as a system incorporating a "momentum" term.  It was further demonstrated
+that the initial momentum determined the entire geodesic path.  This alternative perspective
+engendered a new approach to determining the diffeomorphic solution between two images,
+known as _geodesic shooting_ (e.g., [@Beg:2005aa;@Vialard:2012aa]).  Although initially
+formulated in terms of scalar momenta [@Vialard:2012aa], a vector formulation was proposed
+in [@Singh:2013aa] which tends towards superior numerical behavior.
+
+The supervised deep learning technique of Yang et al. [@Yang:2017aa], known as _Quicksilver_,
+leverages this geodesic shooting/vector momentum optimization approach for determining
+optimal diffeomorphic transformations.  The network architecture consists of two parallel encoders
+for separate fixed/moving image patches ($15 \times 15 \times 15$ voxels)
+feature learning.  The output is then concatenated and sent
+through three identical decoder branches (one for each dimension) which comprises the
+inverse operations as the single encoder branch.  Thus, the output consists of the predicted
+vector momentum map which, as described above, determines the total transformation.  In
+order to improve accuracy of the predicted momentum maps, a follow-on correction network
+is also proposed.  This correction network, trained by inverting the mapping produced
+by the predicted momentum and computing the residual error, is meant to account for
+large deformations across patch boundaries.  Of note, Quicksilver, written in PyTorch [@paszke:2017aa],
+is one of the handful of algorithms surveyed which has been made publicly available[^Q].
+
+[^Q]: https://github.com/rkwitt/quicksilver
+
+

@@ -1,0 +1,40 @@
+
+## Adverserial image registration
+
+In order to constrain the mapping between moving and fixed images,
+the GAN-based approach outlined in [@Mahapatra:2018aa] combines
+a content loss term (which includes subterms for normalized mutual
+information, structural similarity [@Wang:2004aa], and a VGG-based
+filter feature L2-norm between the two images) with a "cyclical" adverserial
+loss.  This is constructed in the style
+of [@Zhu:2017aa] who proposed this GAN extension, viz., CycleGAN,
+to ensure that
+the normally underconstrained forward intensity mapping is consistent with
+a similarly generated inverse mapping for "image-to-image translation"
+(e.g., converting a Monet painting to a realistic photo or rendering a
+winter nature scene as its summer analog).  However, in this case, the
+cyclical aspect is to ensure a regularized field through forward and
+inverse displacement consistency.
+
+The work of [@Hu:2018ac] employs discriminator training between finite-element
+modeling and generated displacements for the prostate and surrounding tissues
+to regularize the predicted displacement fields.  The generator loss employs
+the weakly supervised learning method proposed by the same authors in [@Hu:2018ab]
+whereby anatomical labels are used to drive registration during training only.
+The generator is constructed from an encoder/decoder architecture based on
+ResNet blocks [@He:2015].
+The prediction framework includes both localized tissue deformation and the
+linear coordinate-system-changes assocated with the ultrasound imaging
+acquisition.
+
+In [@Fan:2018aa], the discriminator loss is based on quantification of how
+well two images are aligned where the negative case derives from the registration
+generator
+and the positive cases consist of identical images (plus small perturbations).
+Explicit regularization is added to the total loss for the registration network.
+The registration network consists of a U-net type architecture which takes two
+3-D image patches from the image pair as input and produces a patchwise
+displacement field.  The discriminator network takes an image pair as input
+and outputs the similarity probability.
+
+

@@ -24,13 +24,13 @@
   Cao et al. [XX] & 2017 & 3-D & Supervised & Deformable & NCC + ER \\
   Dalca et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & MSQ \\
   DeTone et al. [XX] & 2016 & 2-D & Supervised & Homography & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
-  deVos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
+  de Vos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
   Eppenhof et al. [XX] & 2018 & 3-D & Supervised & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
   Hu et al. [XX] & 2018 & 3-D & Supervised & Affine/Deformable & Multiscale Dice \\
 %  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & --- \\
   Nguyen et al. [XX] & 2018 & 2-D & Unsupervised & Homography & L1 \\
   Rohe et al. [XX] & 2017 & 3-D & Supervised & Diffeomorphic & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
-  Shan et al. [XX] & 2017 & 2-D & Unsupervised & Deformable & L1 + ER \\
+  Shan et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 + ER \\
 \midrule
 \multicolumn{6}{c}{\textbf{Siamese/pseudo-siamese}}
   \vspace{0.25cm} \\
@@ -64,7 +64,7 @@
       CC: cross correlation, NCC: normalized CC, MSQ: mean squared intensity error,
       MSQ$_T$: mean squared transformation error,
       NMI:  normalized mutual information, SSIM:  structural similarity index,
-      L1:  L1 pixelwise intensityphotometric loss,
+      L1:  L1 intensity error,
       L1$_T$: L1 transformation error, VGG: VGG feature-based}
   \end{minipage}
   }

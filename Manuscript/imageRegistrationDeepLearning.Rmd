@@ -1,0 +1,28 @@
+
+# Image registration with deep learning
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Figures/overview.pdf}
+\caption{Graphical overview of the works reviewed including (a) publications per year, (b)
+         choice of neural network API, (c) anatomy (where applicable), and (d) publishing
+        venue.
+        }
+\label{fig:overview}
+\end{figure}
+
+The following overview of deep learning image registration methods is loosely categorized
+based on the discussion of network architectures given in the previous section.
+Specifically, we first discuss early work in which transformations were derived
+from CNN-based identification and localization of corresponding features in
+image pairs.  We then review "two channel" approaches in which fixed and moving images
+are concatenated channelwise in the input layer.  This leads to an overview of
+methods involving the related siamese and pseudo-siamese architectures.  The final
+category concerns those adverserial approaches employing GANs.  Other methods which
+do not fit in any of the above categories are also included.  Each method is listed
+in Table 1 with a graphical summary provided in Figure \ref{fig:overview}.
+
+\input{methodsTable.tex}
+
+
+

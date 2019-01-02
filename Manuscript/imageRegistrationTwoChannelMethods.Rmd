@@ -1,0 +1,74 @@
+
+## Two channel architectures for image registration
+
+### Homography estimation
+
+Two algorithms for more traditional computer vision applications
+are proposed in [@DeTone:2016aa] and [@Nguyen:2018aa] where both
+are based on the VGG architecture [@Simonyan:2014] for 2-D homography
+estimation.  The former framework includes both a regression network
+for determining corner correspondence and a classification network
+for providing confidence estimates of those predictions.  The work
+in [@Nguyen:2018aa], which is publicly available[^H1], uses patch
+pairs as input and the L1 photometric loss between them to remove
+the need for direct supervision.  A spatial transform layer is
+also adapted for homography transformations.
+
+[^H1]: https://github.com/tynguyen/unsupervisedDeepHomographyRAL2018
+
+### Training loss on ground truth transformations
+
+Instead of training with a loss function based on similarity measures between
+fixed and moving images, the works of [@Rohe:2017aa;@Eppenhof:2018aa] formulate
+the loss in terms of the squared difference between ground-truth and predicted
+transformation parameters.  In terms of network architecture, [@Rohe:2017aa]
+employs a variant of U-net for training/prediction based on
+reference deformations provided by registration of previously segmented
+ROIs for cardiac matching where priority is alignment of the
+epicardium and endocardium.  Displacement fields are parameterized by stationary
+velocity fields.  In contrast, [@Eppenhof:2018aa] uses a smaller version of
+the VGG architecture to learn the $6 \times 6 \times 6$ thin-plate spline grid.
+
+### Training loss on similarity metrics
+
+Intermodality transformations involving CT and MRI are learned by training on the
+intramodality image pairs in [@Cao:2017aa].  The basic U-net architecture
+using input patches of size $68 \times 68 \times 68$
+incorporates a loss function combining normalized cross correlation (NCC) and
+explicit regularization.  A related idea is developed in [@Hu:2018aa] which
+uses labeled data and intensity information during the training phase such
+that only unlabeled image data is required for prediction.  The architecture
+is a densely connected U-net architecture with three types of residual
+shortcuts.  They also use a
+multiscale Dice function with an explicit regularization term in the loss
+function for estimating both global and local transformations.
+
+The unsupervised approach in [@deVos:2017aa], denoted as _DIRNet_, uses NCC
+to optimize a B-spline transform for 2-D images.  Image patches from the fixed
+and moving images are passed through a CNN regression network to infer voxelwise
+displacement vectors which are then converted to B-spline control point displacements
+through a STN layer.  Average pooling instead of max pooling is used to reduce
+the slight translation invariance associated with the latter.  [@Shan:2018aa] is
+another 2-D approach for unupervised medical image registration which also exploits a STN
+layer within the previously proposed FlowNet architecture [@Dosovitskiy:2015aa]
+(discussed in the next section).  An explicit penalty on the deformation field
+gradient promotes smoothing which is combined with an L1 photometric intensity
+error for the combined loss function.
+
+### Voxelmorph
+
+Voxelmorph was first introduced in [@Balakrishnan:2018aa] which incorporates
+a U-net architecture with spatial transformer network.  The input layer
+consists of the concatenated full fixed and moving image volumes resized
+and cropped to $160 \times 192 \times 224$ voxels. The output is the voxelwise
+displacement field of the same size as the input (times three for each vector
+component).  The loss function for training combines cross correlation and
+regularization.  This was significantly updated in [@Dalca:2018aa] to
+utilize stationary velocity fields for generating diffeomorphic transforms
+which employed novel scaling and squaring network layers.  The underlying
+code has been made available[^V] which has facilitated independent evaluations
+such as [@Nazib:2018aa] to compare performance with traditional algorithms (i.e.,
+IRTK [@Rueckert:1999aa], AIR [@Woods:1993aa], Elastix [@Klein:2010aa],
+ANTs [@Avants:2011aa], and NiftyReg [@Modat:2010aa]).
+
+[^V]: https://github.com/voxelmorph/voxelmorph
