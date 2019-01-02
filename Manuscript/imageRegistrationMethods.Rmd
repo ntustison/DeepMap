@@ -121,6 +121,42 @@ shortcuts.  They also use a
 multiscale Dice function with an explicit regularization term in the loss
 function for estimating both global and local transformations.
 
+<!--
+# End-to-End Unsupervised Deformable Image Registration with a Convolutional Neural Network (Vos 2017)
+
+* Called DIRNet
+
+* Architecture --->  Thsi one is pretty unique.  Need to go over this more thorougly (Fig. 1).
+
+    * STN using B-splines
+
+    * Input is concatenated fixed/moving images
+
+    * use average pooling instead of max pooling to reduce translation invariance.
+
+    * Uses spatially corresponding image patches in a convnet regressor
+
+* DIRNet is trained by optimizing an image similarity metric
+
+* Implementation in Theano and Lasagne
+
+* Loss function normalized cross correlation
+
+
+* Unsupervised --- doesn't use training.  Learns to register by optimizing a similarity metric.
+  No iterative optimization---just does a single pass.
+-->
+
+<!--
+# Unsupervised End-to-end Learning for Deformable Medical Image Registration (Shan 2017)
+
+* STN-based
+
+* FCN (encoder + decoder) Fig. 3
+
+* Loss:  MSQ + displacement field smoothness
+
+-->
 
 ## Siamese and pseudo-siamese architectures for image registration
 
