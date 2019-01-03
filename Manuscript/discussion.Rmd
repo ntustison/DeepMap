@@ -2,15 +2,23 @@
 
 # Discussion
 
-For years, image registration has been an important tool for quantitative
-medical image analysis, in part, due to the role it played in incorporating spatial
-prior information for subsequent processing.  However, deep learning is capable of
-doing many of those things without reference to
+The rich history of image registration illustrates the significant role that it has
+played in the field of quantitative medical image analysis.  This history is punctuated
+by many research developments, both small and great, which have resulted in transformations
+of greater accuracy, improved computational efficiency, and
+enlightening theoretical novelty---all of which improves the community's ability to do science.  In
+addition, the open-source emphasis of the current scientific environment has improved
+the didactic quality and availability of these contributions which democratizes
+such technologies and, in effect, acts as a positive feedback loop by leading to future
+methodological advancements.
 
-
-_Maybe discuss the trajectory of traditional image registration and how we
-progressed from the optical flow and elastic matching to large deformations
-with diffeomorphisms.  Discuss the analogy with deep learning_
+The recent resurgence of deep learning and, in particular, its CNN-based applications in medical
+imaging appears to be of paradigmatic significance.  The ability to train networks to perform
+complicated tasks efficiently without the need of hand-tailoring image features has disrupted
+the current research landscape as evidenced by deep learning representation in conference
+presentations and manuscripts.  This significance appears to extend to the
+domain of image registration, although it is still too early to determine the precise nature
+of this impact.
 
 _Discuss deep regression paper here._
 
