@@ -14,6 +14,7 @@ rmdFiles <- c( formatFile,
                "imageRegistrationTwoChannelMethods.Rmd",
                "imageRegistrationSiameseMethods.Rmd",
                "imageRegistrationAdverserialMethods.Rmd",
+               "imageRegistrationOtherMethods.Rmd",
                "discussion.Rmd",
                "acknowledgments.Rmd",
                "references.Rmd"
