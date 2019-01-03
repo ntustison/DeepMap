@@ -14,8 +14,13 @@ with diffeomorphisms.  Discuss the analogy with deep learning_
 
 _Discuss deep regression paper here._
 
+_Discuss availability of packages such as NiftyNet, ANTsRNet_
+
 The recently renewed interest in deep learning has resulted in much progress
 with
+
+
+
 
 In the introduction, we mentioned the relative lack of development in the
 field image registration.  It is natural to ask why this is the case.
