@@ -20,7 +20,7 @@ which has been presented in various research venues.  We contextualize these con
 deep learning advancements and, in so doing, attempt to facilitate the leveraging and further
 development of such techniques within the medical imaging research community.
 
-__Key words:__  deep learning, diffeomorphisms, image registration, spatial normalization
+__Key words:__  deep learning, convnets, image registration, spatial normalization
 
 
 \clearpage

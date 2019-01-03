@@ -1,26 +1,29 @@
 
 # Background on relevant network architectures
 
-Prior to describing the various image registration algorithms that have been recently
-proposed in the literature which incorporate elements of deep learning, we first describe some basic
-architectural components specifically relevant to such a discussion which include:
+Considering the separate developmental histories and resulting distinct technical vocabularies
+for both image registration and deep learning, providing a sufficiently complete background
+necessary for an understanding of both fields is beyond the scope of this review.  We simply
+defer the interested reader to the respective reviews cited earlier in the Introduction.
+However, considering the venue of this discussion
+and the motivation which prompted this review, we provide greater context with respect to
+the deep learning side.  Therefore, prior to describing the various image registration
+algorithms that have been recently proposed in the literature which incorporate elements
+of deep learning, we first describe some basic architectural components specifically
+relevant to such discussion which include:
 
 * convolutional neural networks,
 
 * spatial transformer networks,
 
-* diffeomorphic transformer networks, and
+* diffeomorphic transformer networks,
 
-* siamese networks.
+* siamese networks, and
 
-\textcolor{red}{Should we discuss the following?}
+* U-net.
 
-* \textcolor{red}{Deformable convolutional networks} [@Dai:2017aa]
-
-* \textcolor{red}{U-net} [@Ronneberger:2015aa]
-
-Since all but a small subset of components can be included for discussion, we defer the interested
-reader to the thorough cited earlier in addition to pertinent textbooks (e.g.,
+Since all but a small subset of network components can be included, we defer the interested
+reader to the deep learning reviews cited earlier in addition to pertinent textbooks (e.g.,
 [@Goodfellow:2016aa]) for additional information.
 
 ## Convolutional neural networks
@@ -50,14 +53,16 @@ abstract features at the apical layers.
 The localized connections and weight-sharing provide a form of regularization while
 simultaneously reducing memory requirements [@Goodfellow:2016aa].  The size of the
 convolution kernel, known as the "receptive field," determines the degree of localized
-connections.  Finally, the accompanying pooling layers are used to subsample the
+connections.  The accompanying pooling layers are used to subsample the
 convolutional feature maps in a way that statistically summarizes voxel neighborhoods
 within the feature maps.  An illustration of a bare-bones CNN configuration is provided in
 Figure \ref{fig:convnet} which depicts
 the core components of convolution and max pooling.  Architectural novelty derives from
 innovative arrangements of these core (and other) network components and the connections between
-them.
-
+them.  Although traditional CNNs are characterized by fixed rectilinear receptive fields,
+recent extensions to CNNs include so-called deformable convolutional networks [@Dai:2017aa]
+which permit sampling at non-grid locations dictated by trainable transformation parameters
+internal to the CNNs themselves.
 
 ## Siamese networks
 

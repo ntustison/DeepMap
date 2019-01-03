@@ -36,11 +36,11 @@ The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Kr
 reduced the error rate by almost half over other entries .  The following years' competitions were
 dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
 ResNet [@He:2015] with performance ultimately exceeding human performance in 2015
-[@He:2015ab].  Additional competition outlets including conference-based venues
+[@He:2015ab].  Additional competition outlets, including conference-based venues
 (e.g., NeurIPS) and community-based platforms, such as Kaggle[^1], continue to highlight
 the salience of CNNs as paradigmatic solutions to computational problems.  This is in addition
-to the sheer number of formal research reports discussed in the same conferences and published
-in dedicated journals.  Notable reviews by key figures in the field include those of
+to the sheer number of formal research reports discussed in the same conferences, published
+in dedicated journals, and hosted on online technical repositories.  Notable reviews by key figures in the field include those of
 Yann LeCun, Yoshua Bengio, Geoffrey Hinton [@LeCun:2015aa], and Jürgen Schmidhuber
 [@Schmidhuber:2015aa].
 
@@ -80,7 +80,7 @@ data are provided to the competitors who attempt to perform a voxelwise labeling
 of the constituent components of tumors from multimodal MR image data.  The winning
 entries from the first two years employed random forest classifiers for segmentation [@Menze:2015aa].
 Although variations of the traditional random forest scheme continued to be well represented
-in the 2014 Challenge, convolutional neural networks made an appearance [@brats2014].
+in the 2014 Challenge, CNN-based image segmentation algorithms made an appearance [@brats2014].
 By 2018, CNN-based pipelines were, by far, the most common [@brats2018]
 with specific preference being that of the U-net architecture [@Ronneberger:2015aa;@Falk:2019aa]
 which, as we describe below, features prominently in image registration.
@@ -96,7 +96,8 @@ subfield. We first provide a description of key network components that are
 crucial to certain image registration architectures, or perhaps which might
 find utility in future architectures.  Second, we discuss current approaches
 to the deep learning image registration categorized in terms of these basic
-architectural components.
+architectural components.  Finally, we briefly editorialize concerning
+the current state and future confluence of deep learning and image registration.
 
 
 <!--
