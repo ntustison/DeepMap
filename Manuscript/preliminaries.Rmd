@@ -12,15 +12,20 @@ algorithms that have been recently proposed in the literature which incorporate 
 of deep learning, we first describe some basic architectural components specifically
 relevant to such discussion which include:
 
-* convolutional neural networks,
+* convolutional neural networks [@Waibel:1987aa;@LeCun:1989aa],
 
-* spatial transformer networks,
+* siamese networks [@Bromley:1994aa;@Chopra:2005aa],
 
-* diffeomorphic transformer networks,
+* U-net [@Ronneberger:2015aa;@Falk:2019aa],
 
-* siamese networks, and
+* spatial transformer networks [@Jaderberg:2015aa],
 
-* U-net.
+* diffeomorphic transformer networks [@Detlefsen:2018aa],
+
+* CoordConv [@Liu:2018aa], and
+
+* generative adverserial networks [@Goodfellow:2014aa].
+
 
 Since all but a small subset of network components can be included, we defer the interested
 reader to the deep learning reviews cited earlier in addition to pertinent textbooks (e.g.,
@@ -34,8 +39,9 @@ reader to the deep learning reviews cited earlier in addition to pertinent textb
 \caption{The basic elements of the CNN.
         The convolutional layer comprises several filters which
         are optimized in terms of their responses to various features
-        found in the input layer.  Pooling is used to extract salient
-        features and reduce computational complexity and passed on to
+        derived from the input layer (or previous layers in the case of
+        multiple convoluational layers).  Pooling is used to extract salient
+        features and reduce computational complexity for further processing by
         subsequent layers.
         }
 \label{fig:convnet}
@@ -52,15 +58,15 @@ geometric features at the base convolutional layers (lines, corners, etc.) progr
 abstract features at the apical layers.
 The localized connections and weight-sharing provide a form of regularization while
 simultaneously reducing memory requirements [@Goodfellow:2016aa].  The size of the
-convolution kernel, known as the "receptive field," determines the degree of localized
-connections.  The accompanying pooling layers are used to subsample the
+convolution kernel, known as the "receptive field," determines the degree of
+connectivity.  The accompanying pooling layers are used to subsample the
 convolutional feature maps in a way that statistically summarizes voxel neighborhoods
 within the feature maps.  An illustration of a bare-bones CNN configuration is provided in
 Figure \ref{fig:convnet} which depicts
 the core components of convolution and max pooling.  Architectural novelty derives from
 innovative arrangements of these core (and other) network components and the connections between
 them.  Although traditional CNNs are characterized by fixed rectilinear receptive fields,
-recent extensions to CNNs include so-called deformable convolutional networks [@Dai:2017aa]
+recent extensions to CNNs include deformable convolutional networks [@Dai:2017aa]
 which permit sampling at non-grid locations dictated by trainable transformation parameters
 internal to the CNNs themselves.
 
@@ -85,30 +91,47 @@ are often incorporated into CNNs as the loss function (or some
 component thereof).  However, with deep learning, there are additional
 possibilities involving generating similarity functions
 using the input data without having to resort to basic statistical relationships
-between voxels and possibly their surrounding neighborhoods or
+between voxels and, possibly, their surrounding neighborhoods or
 explicitly designed features such as SIFT [@Lowe2004].
 In terms of architectural elements, such learning
 is possible through so-called siamese networks
 [@Bromley:1994aa;@Chopra:2005aa] illustrated in Figure \ref{fig:siamese}.
 Siamese networks have identical input branches which feed into a decision
-layer involving some form similarity measure, oftentimes calculated from
+layer involving some form of distance measure, oftentimes calculated from
 the fully connected encoding of input images.
-
-Zagoruyko et al. discuss multiple architectures for comparing
+Zagoruyko et al. discuss multiple architectures, including siamese architectures, for comparing
 images (and patches) via CNNs [@Zagoruyko:2015aa], some of which are
 well-represented in the works reviewed below.  The most basic
 architecture involves arrangement of the image pair as two channels
-in the input layer of the network.  This two-channel network is
+in the input layer of the network.  This two channel network is
 reportedly fast to train but can be more computationally burdensome
 for testing.  Both
 siamese and psuedo-siamese networks, respectively differentiated by
 shared vs. non-shared weights in the identical input branches, are also
 used for deep learning-based image registration.
 
+## U-net
 
+An innovative extension to early CNN architectures
+is the fully convolutional network (FCN) described in [@Long:2015aa] in the
+context of (semantic) image segmentation.  The FCN replaces the traditional
+fully connected layers at the end of the network with convolutional layers
+to produce low-resolution heatmaps which indicate the presence of class-specific
+objects.  These are then upsampled using bilinear interpolation and
+deconvolutional layers to produce the dense output corresponding in size to
+the input.
 
-
-
+U-net [@Ronneberger:2015aa;@Falk:2019aa] is a popular variant on the basic
+encoding/decoding strategy of FCNs but
+differs significantly in terms of the decoding branch of the network
+and the leveraging of skip connections inherited from ladder networks [@Valpola:2015aa].
+In the case of U-net, the decoder subnetwork mirrors its encoder analog
+with skip connections concatenating corresponding encoder/decoder levels
+such that the decoder can learn features lost at subsequent encoding levels.
+It has proved remarkably successful at medical image segmentation tasks (e.g., [@brats2018]) and
+its ability to project learned (i.e., encoded) feature vectors back into input
+space makes it suitable for learning registration-related data structures such
+as dense displacement fields.
 
 ## Spatial transformer networks
 
@@ -127,7 +150,7 @@ used for deep learning-based image registration.
 
 In 2015 Jaderberg and his fellow co-authors described a powerful new module, known
 as the spatial transformer network (STN) [@Jaderberg:2015aa] which figures prominently
-in many of the image registration approaches that we review below.
+in many of the image registration methods that we review below.
 Generally, STNs enhance CNNs by permiting a flexibility which allows for an explicit spatial
 invariance that goes beyond the implicitly limited translational invariance associated
 with the architecture's pooling layers.  In many image-based tasks
@@ -145,8 +168,8 @@ An STN comprises three principal components:  1) a localization network,
 2) a grid generator, and 3) a sampler (see Figure \ref{fig:stn}).  The localization
 network uses the input feature map to learn/regress the transformation parameters
 which optimize a specified loss function.  In many examples provided, this amounts
-to transforming the input feature map to a quasi-canonical configuration to facilitate,
-for example, classification.  The actual architecture of the localization network is
+to transforming the input feature map to a quasi-canonical configuration.
+The actual architecture of the localization network is
 fairly flexible and any conventional architecture, such as a fully connected network
 (FCN), is suitable as long as the output maps to the continuous estimate of the
 transformation parameters.  These transformation parameters are then applied to
@@ -193,7 +216,7 @@ transforms due to speed considerations.
 
 ## Enhancing CNNs with CoordConv
 
-Although not discussed let alone used in any of the papers reviewed below, the insight provided
+Although not discussed, let alone used, in any of the papers reviewed below, the insight provided
 in [@Liu:2018aa] deserves consideration due to the subject matter of encoding spatial coordinates
 in CNN layers and its relevance to image registration.  The authors describe a perplexing issue
 encountered during the course of their research.
@@ -225,7 +248,7 @@ adverserial networks (GANs) in 2014 [@Goodfellow:2014aa] which immediately demon
 significant potential for generative modeling.  Since their introduction,
 GANs have increasingly found traction in addressing many types of deep learning
 problems in the medical imaging domain [@Yi:2018aa] including image registration.
-GANs are a special type of network composed of two adverserial sub-networks
+GANs are a special type of network composed of two adverserial subnetworks
 known as the _generator_ (usually characterized by deconvolutional layers)
 and the _discriminator_ (usually a CNN).  These
 work in a minimax fashion to learn data distributions in the absence of

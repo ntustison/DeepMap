@@ -15,21 +15,20 @@ mean-squared error of the homography parameters.
 
 ### Training loss on ground truth transformations
 
-An early seminal paper described _FlowNet_, a 2-D CNN-based approach to
+An early seminal paper introduced _FlowNet_, a 2-D CNN-based approach to
 optical flow optimization [@Dosovitskiy:2015aa].  Two encoding/decoding
-architectures are actually proposed for comparison for real world RGB
+architectures are actually proposed for comparison for alignment of real world RGB
 images where the distinction lies in the encoding component of the network.
 _FlowNetSimple_ is a two channel architecture characterized by a concatenated
-series of contracting convolutional layers.  The pseudo-siamese _FlowNetCorr_
+series of contracting convolutional layers.  The recommended, pseudo-siamese _FlowNetCorr_
 separates the initial contracting layers to first find meaningful
 corresponding features across the image pair which are combined
-using a correlation layer.
-Although the simple variant reportedly
+using a correlation layer. Although the simple variant reportedly
 generalizes better for one of the data sets, the psuedo-siamese
 construction outperforms on the other two data sets.
 Another unique aspect of this work is
 the data augmentation performed by synthetic image generation which
-involves the addition literal flying chairs to existing
+involves the addition of literal flying chairs to existing
 image scenes.
 
 Consistent with typical workflows in medical image registration, a two-step

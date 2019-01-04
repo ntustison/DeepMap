@@ -28,12 +28,12 @@ linear coordinate-system-changes assocated with the ultrasound imaging
 acquisition.
 
 In [@Fan:2018aa], the discriminator loss is based on quantification of how
-well two images are aligned where the negative case derives from the registration
+well two images are aligned where the negative cases derive from the registration
 generator
 and the positive cases consist of identical images (plus small perturbations).
-Explicit regularization is added to the total loss for the registration network.
-The registration network consists of a U-net type architecture which takes two
-3-D image patches from the image pair as input and produces a patchwise
+Explicit regularization is added to the total loss for the registration network
+which consists of a U-net type architecture that extracts two
+3-D image patches as input and produces a patchwise
 displacement field.  The discriminator network takes an image pair as input
 and outputs the similarity probability.
 
