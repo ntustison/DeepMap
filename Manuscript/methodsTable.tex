@@ -1,64 +1,136 @@
 
 
+% \begin{table}[!htb]
+% \centering
+% \caption{Deep learning-based image registration methods organized in terms of basic
+%          network architecture.}
+% \label{table:methods}
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
+% \toprule
+% \midrule
+% \textbf{Reference} & \textbf{Year} & \textbf{\textit{n}-D} & \textbf{Supervised?} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
+% \midrule
+% \midrule
+% \multicolumn{6}{c}{\textbf{Feature localization}}
+%   \vspace{0.25cm} \\
+%   Sergeev et al. [XX] & 2012 & 3-D & Supervised & Affine & --- \\
+%   Simonovsky et al. [XX] & 2016 & 3-D & Supervised & Deformable & --- \\
+%   Weinzaepfel et al. [XX] & 2013 & 3-D & Supervised & Deformable & --- \\
+%   Wu et al. [XX] & 2016 & 3-D & Supervised & Deformable & --- \\
+% \midrule
+% \multicolumn{6}{c}{\textbf{Two channel}}
+%   \vspace{0.25cm} \\
+%   Balakrishnan et al. [XX] & 2018 & 3-D & Unsupervised & Deformable & CC + ER \\
+%   Cao et al. [XX] & 2017 & 3-D & Supervised & Deformable & NCC + ER \\
+%   Dalca et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & MSQ \\
+%   DeTone et al. [XX] & 2016 & 2-D & Supervised & Homography & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
+%   de Vos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
+%   Eppenhof et al. [XX] & 2018 & 3-D & Supervised & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
+%   Hu et al. [XX] & 2018 & 3-D & Supervised & Affine/Deformable & Multiscale Dice \\
+% %  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & --- \\
+%   Nguyen et al. [XX] & 2018 & 2-D & Unsupervised & Homography & L1 \\
+%   Rohe et al. [XX] & 2017 & 3-D & Supervised & Diffeomorphic & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
+%   Shan et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 + ER \\
+% \midrule
+% \multicolumn{6}{c}{\textbf{Siamese/pseudo-siamese}}
+%   \vspace{0.25cm} \\
+%   Dosovitskiy et al. [XX] & 2015 & 2-D & Supervised & Optical flow & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
+%   Nowruzi et al. [XX] & 2017 & 2-D & Supervised & Homography & MSQ$_T$ \\
+%   Rocco et al. [XX] & 2017 & 2-D & Supervised & Affine/TPS & MSQ$_T$ \\
+%   Sloan et al. [XX] & 2018 & 2-D & Supervised & Rigid & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
+%   Sokooti et al. [XX] & 2017 & 3-D & Supervised & Deformable & L1$_T$ \\
+%   Yang et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & L1$_T$ \\  % The loss is the 1-norm between the predicted and desired momentum
+%   Zhang et al. [XX] & 2018 & 3-D & Unsupervised & IC Deformable & MSQ + ER \\
+% \midrule
+% \multicolumn{6}{c}{\textbf{Generative adverserial networks}}
+%   \vspace{0.25cm} \\
+%   Fan et al. [XX] & 2018 & 3-D & Supervised & Deformable & ER \\
+%   Mahapatra et al. [XX] & 2017 & 3-D & Supervised & Deformable & NMI + SSIM + VGG \\
+%   Hu et al. [XX] & 2018 & 3-D & Supervised & Deformable & Multiscale Dice + ER \\
+% \midrule
+% \multicolumn{6}{c}{\textbf{Other}}
+%   \vspace{0.25cm} \\
+%   Miao et al. [XX] & 2016 & 2-D/3-D & Supervised & Rigid & MSQ$_T$ \\
+%   Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 \\
+% \bottomrule
+% \multicolumn{6}{l}{
+%   \begin{minipage}[t]{0.9\columnwidth}%
+%     \footnotesize{$^\dagger$TPS: thin-plate spline, IC: inverse consistent}
+%   \end{minipage}
+%   } \\
+% \multicolumn{6}{l}{
+%   \begin{minipage}[t]{0.92\columnwidth}%
+%     \footnotesize{$^\ddagger$ER:  explicit regularization,
+%       CC: cross correlation, NCC: normalized CC, MSQ: mean squared intensity error,
+%       MSQ$_T$: mean squared transformation error,
+%       NMI:  normalized mutual information, SSIM:  structural similarity index,
+%       L1:  L1 intensity error,
+%       L1$_T$: L1 transformation error, VGG: VGG feature-based}
+%   \end{minipage}
+%   }
+% \end{tabular*}
+% \end{table}
+
+
 \begin{table}[!htb]
 \centering
 \caption{Deep learning-based image registration methods organized in terms of basic
          network architecture.}
 \label{table:methods}
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}ll}
 \toprule
 \midrule
-\textbf{Reference} & \textbf{Year} & \textbf{\textit{n}-D} & \textbf{Supervised?} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
+\textbf{Reference} & \textbf{Year} & \textbf{\textit{n}-D} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
 \midrule
 \midrule
-\multicolumn{6}{c}{\textbf{Feature localization}}
+\multicolumn{5}{c}{\textbf{Feature localization}}
   \vspace{0.25cm} \\
-  Sergeev et al. [XX] & 2012 & 3-D & Supervised & Affine & --- \\
-  Simonovsky et al. [XX] & 2016 & 3-D & Supervised & Deformable & --- \\
-  Weinzaepfel et al. [XX] & 2013 & 3-D & Supervised & Deformable & --- \\
-  Wu et al. [XX] & 2016 & 3-D & Supervised & Deformable & --- \\
+  Sergeev et al. [63] & 2012 & 3-D & Affine & --- \\
+  Weinzaepfel et al. [65] & 2013 & 3-D & Deformable & --- \\
+  Simonovsky et al. [67] & 2016 & 3-D & Deformable & --- \\
+  Wu et al. [69] & 2016 & 3-D & Deformable & --- \\
 \midrule
-\multicolumn{6}{c}{\textbf{Two channel}}
+\multicolumn{5}{c}{\textbf{Two channel}}
   \vspace{0.25cm} \\
-  Balakrishnan et al. [XX] & 2018 & 3-D & Unsupervised & Deformable & CC + ER \\
-  Cao et al. [XX] & 2017 & 3-D & Supervised & Deformable & NCC + ER \\
-  Dalca et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & MSQ \\
-  DeTone et al. [XX] & 2016 & 2-D & Supervised & Homography & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
-  de Vos et al. [XX] & 2017 & 2-D & Supervised & B-spline & NCC \\
-  Eppenhof et al. [XX] & 2018 & 3-D & Supervised & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
-  Hu et al. [XX] & 2018 & 3-D & Supervised & Affine/Deformable & Multiscale Dice \\
-%  Lv et al. [XX] & 2018 & 3-D & Supervised & Deformable & --- \\
-  Nguyen et al. [XX] & 2018 & 2-D & Unsupervised & Homography & L1 \\
-  Rohe et al. [XX] & 2017 & 3-D & Supervised & Diffeomorphic & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
-  Shan et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 + ER \\
+  DeTone et al. [72] & 2016 & 2-D & Homography & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
+  Nguyen et al. [73] & 2018 & 2-D & Homography & L1 \\
+  Rohe et al. [74] & 2017 & 3-D & Diffeomorphic & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
+  Eppenhof et al. [75] & 2018 & 3-D & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
+  Cao et al. [76] & 2017 & 3-D & Deformable & NCC + ER \\
+  Hu et al. [77] & 2018 & 3-D & Affine/Deformable & Multiscale Dice \\
+  de Vos et al. [78] & 2017 & 2-D & B-spline & NCC \\
+  Shan et al. [79] & 2018 & 2-D & Deformable & L1 + ER \\
+  Balakrishnan et al. [81] & 2018 & 3-D & Deformable & CC + ER \\
+  Dalca et al. [82] & 2018 & 3-D & Diffeomorphic & MSQ \\
+%  Lv et al. [XX] & 2018 & 3-D & Deformable & --- \\
 \midrule
-\multicolumn{6}{c}{\textbf{Siamese/pseudo-siamese}}
+\multicolumn{5}{c}{\textbf{Siamese/pseudo-siamese}}
   \vspace{0.25cm} \\
-  Dosovitskiy et al. [XX] & 2015 & 2-D & Supervised & Optical flow & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
-  Nowruzi et al. [XX] & 2017 & 2-D & Supervised & Homography & MSQ$_T$ \\
-  Rocco et al. [XX] & 2017 & 2-D & Supervised & Affine/TPS & MSQ$_T$ \\
-  Sloan et al. [XX] & 2018 & 2-D & Supervised & Rigid & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
-  Sokooti et al. [XX] & 2017 & 3-D & Supervised & Deformable & L1$_T$ \\
-  Yang et al. [XX] & 2018 & 3-D & Supervised & Diffeomorphic & L1$_T$ \\  % The loss is the 1-norm between the predicted and desired momentum
-  Zhang et al. [XX] & 2018 & 3-D & Unsupervised & IC Deformable & MSQ + ER \\
+  Dosovitskiy et al. [80] & 2015 & 2-D & Optical flow & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
+  Nowruzi et al. [90] & 2017 & 2-D & Homography & MSQ$_T$ \\
+  Rocco et al. [91] & 2017 & 2-D & Affine/TPS & MSQ$_T$ \\
+  Sloan et al. [92] & 2018 & 2-D & Rigid & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
+  Sokooti et al. [93] & 2017 & 3-D & Deformable & L1$_T$ \\
+  Zhang [94] & 2018 & 3-D & IC Deformable & MSQ + ER \\
+  Yang et al. [102] & 2018 & 3-D & Diffeomorphic & L1$_T$ \\  % The loss is the 1-norm between the predicted and desired momentum
 \midrule
-\multicolumn{6}{c}{\textbf{Generative adverserial networks}}
+\multicolumn{5}{c}{\textbf{Generative adverserial networks}}
   \vspace{0.25cm} \\
-  Fan et al. [XX] & 2018 & 3-D & Supervised & Deformable & ER \\
-  Mahapatra et al. [XX] & 2017 & 3-D & Supervised & Deformable & NMI + SSIM + VGG \\
-  Hu et al. [XX] & 2018 & 3-D & Supervised & Deformable & Multiscale Dice + ER \\
+  Mahapatra et al. [104] & 2017 & 3-D & Deformable & NMI + SSIM + VGG \\
+  Hu et al. [107] & 2018 & 3-D & Deformable & Multiscale Dice + ER \\
+  Fan et al. [109] & 2018 & 3-D & Deformable & ER \\
 \midrule
-\multicolumn{6}{c}{\textbf{Other}}
+\multicolumn{5}{c}{\textbf{Other}}
   \vspace{0.25cm} \\
-  Miao et al. [XX] & 2016 & 2-D/3-D & Supervised & Rigid & MSQ$_T$ \\
-  Sheikhjafari et al. [XX] & 2018 & 2-D & Unsupervised & Deformable & L1 \\
+  Miao et al. [110] & 2016 & 2-D/3-D & Rigid & MSQ$_T$ \\
+  Sheikhjafari et al. [111] & 2018 & 2-D & Deformable & L1 \\
 \bottomrule
-\multicolumn{6}{l}{
+\multicolumn{5}{l}{
   \begin{minipage}[t]{0.9\columnwidth}%
     \footnotesize{$^\dagger$TPS: thin-plate spline, IC: inverse consistent}
   \end{minipage}
   } \\
-\multicolumn{6}{l}{
+\multicolumn{5}{l}{
   \begin{minipage}[t]{0.92\columnwidth}%
     \footnotesize{$^\ddagger$ER:  explicit regularization,
       CC: cross correlation, NCC: normalized CC, MSQ: mean squared intensity error,
@@ -70,4 +142,5 @@
   }
 \end{tabular*}
 \end{table}
+
 

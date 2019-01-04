@@ -4,7 +4,7 @@ output:
     fig_caption: true
     latex_engine: xelatex
     keep_tex: yes
-    toc: true
+    toc: false
     toc_depth: 3
     number_sections: true
   word_document:

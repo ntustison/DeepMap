@@ -13,7 +13,7 @@ with 60 neurons where the output is a probability of it containing a specific
 feature at the center of a small image neighborhood.  These detected point correspondences
 are then used to estimate the total affine transformation with the RANSAC
 algorithm [@Fischler:1981aa].
-Similarly, DeepFlow [@Weinzaepfel:2013aa] uses CNNs to detect
+Similarly, _DeepFlow_ [@Weinzaepfel:2013aa] uses CNNs to detect
 matching features (called _deep matching_) which are then used as
 additional information in the large displacement optical flow framework
 [@Brox:2011aa].  A relatively small architecture, consisting

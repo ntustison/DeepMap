@@ -55,7 +55,7 @@ predicted and ground truth displacements.
 
 ### Training loss on similarity metrics
 
-_ICNet_  [@Zhang:2017aa]  is motivated by traditional concerns of inverse
+_ICNet_  [@Zhang:2018aa]  is motivated by traditional concerns of inverse
 consistency in deformable transformations [@Christensen:2001aa]. Two parallel
 U-net structures are used to determine the initial forward and inverse
 displacements which are then propagated through an inverse network to

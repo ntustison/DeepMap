@@ -1,12 +1,60 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2019-01-03 21:17:54 -0800 
+%% Created for Nicholas Tustison at 2019-01-04 09:19:58 -0800 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Tustison:2018aa,
+	Abstract = {RATIONALE AND OBJECTIVES: We propose an automated segmentation pipeline based on deep learning for proton lung MRI segmentation and ventilation-based quantification which improves on our previously reported methodologies in terms of computational efficiency while demonstrating accuracy and robustness. The large data requirement for the proposed framework is made possible by a novel template-based data augmentation strategy. Supporting this work is the open-source ANTsRNet-a growing repository of well-known deep learning architectures first introduced here.
+MATERIALS AND METHODS: Deep convolutional neural network (CNN) models were constructed and trained using a custom multilabel Dice metric loss function and a novel template-based data augmentation strategy. Training (including template generation and data augmentation) employed 205 proton MR images and 73 functional lung MRI. Evaluation was performed using data sets of size 63 and 40 images, respectively.
+RESULTS: Accuracy for CNN-based proton lung MRI segmentation (in terms of Dice overlap) was left lung: 0.93 $\pm$ 0.03, right lung: 0.94 $\pm$ 0.02, and whole lung: 0.94 $\pm$ 0.02. Although slightly less accurate than our previously reported joint label fusion approach (left lung: 0.95 $\pm$ 0.02, right lung: 0.96 $\pm$ 0.01, and whole lung: 0.96 $\pm$ 0.01), processing time is <1 second per subject for the proposed approach versus ∼30 minutes per subject using joint label fusion. Accuracy for quantifying ventilation defects was determined based on a consensus labeling where average accuracy (Dice multilabel overlap of ventilation defect regions plus normal region) was 0.94 for the CNN method; 0.92 for our previously reported method; and 0.90, 0.92, and 0.94 for expert readers.
+CONCLUSION: The proposed framework yields accurate automated quantification in near real time. CNNs drastically reduce processing time after offline model construction and demonstrate significant future potential for facilitating quantitative analysis of functional lung MRI.},
+	Author = {Tustison, Nicholas J and Avants, Brian B and Lin, Zixuan and Feng, Xue and Cullen, Nicholas and Mata, Jaime F and Flors, Lucia and Gee, James C and Altes, Talissa A and Mugler Iii, John P and Qing, Kun},
+	Date-Added = {2019-01-04 09:19:08 -0800},
+	Date-Modified = {2019-01-04 09:19:08 -0800},
+	Doi = {10.1016/j.acra.2018.08.003},
+	Journal = {Acad Radiol},
+	Journal-Full = {Academic radiology},
+	Keywords = {ANTsRNet; Advanced Normalization Tools; Hyperpolarized gas imaging; Neural networks; Proton lung MRI; U-net},
+	Month = {Sep},
+	Pmid = {30195415},
+	Pst = {aheadofprint},
+	Title = {Convolutional Neural Networks with Template-Based Data Augmentation for Functional Lung Image Quantification},
+	Year = {2018},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.acra.2018.08.003}}
+
+@inproceedings{niftynet18,
+	Author = {Eli Gibson and Wenqi Li and Carole Sudre and Lucas Fidon and Dzhoshkun I. Shakir and Guotai Wang and Zach Eaton-Rosen and Robert Gray and Tom Doel and Yipeng Hu and Tom Whyntie and Parashkev Nachev and Marc Modat and Dean C. Barratt and S{\'e}bastien Ourselin and M. Jorge Cardoso and Tom Vercauteren},
+	Date-Added = {2019-01-04 09:18:44 -0800},
+	Date-Modified = {2019-01-04 09:18:44 -0800},
+	Doi = {https://doi.org/10.1016/j.cmpb.2018.01.025},
+	Issn = {0169-2607},
+	Journal = {Computer Methods and Programs in Biomedicine},
+	Title = {NiftyNet: a deep-learning platform for medical imaging},
+	Url = {https://www.sciencedirect.com/science/article/pii/S0169260717311823},
+	Year = {2018},
+	Bdsk-Url-1 = {https://www.sciencedirect.com/science/article/pii/S0169260717311823},
+	Bdsk-Url-2 = {https://doi.org/10.1016/j.cmpb.2018.01.025}}
+
+@article{Zhang:2018aa,
+	Archiveprefix = {arXiv},
+	Author = {Jun Zhang},
+	Bibsource = {dblp computer science bibliography, https://dblp.org},
+	Biburl = {https://dblp.org/rec/bib/journals/corr/abs-1809-03443},
+	Date-Added = {2019-01-04 09:02:52 -0800},
+	Date-Modified = {2019-01-04 09:03:08 -0800},
+	Eprint = {1809.03443},
+	Journal = {CoRR},
+	Timestamp = {Fri, 05 Oct 2018 11:34:52 +0200},
+	Title = {Inverse-Consistent Deep Networks for Unsupervised Deformable Image Registration},
+	Url = {http://arxiv.org/abs/1809.03443},
+	Volume = {abs/1809.03443},
+	Year = {2018},
+	Bdsk-Url-1 = {http://arxiv.org/abs/1809.03443}}
 
 @article{Arsigny:2006aa,
 	Abstract = {In this article, we focus on the computation of statistics of invertible geometrical deformations (i.e., diffeomorphisms), based on the generalization to this type of data of the notion of principal logarithm. Remarkably, this logarithm is a simple 3D vector field, and is well-defined for diffeomorphisms close enough to the identity. This allows to perform vectorial statistics on diffeomorphisms, while preserving the invertibility constraint, contrary to Euclidean statistics on displacement fields. We also present here two efficient algorithms to compute logarithms of diffeomorphisms and exponentials of vector fields, whose accuracy is studied on synthetic data. Finally, we apply these tools to compute the mean of a set of diffeomorphisms, in the context of a registration experiment between an atlas an a database of 9 T1 MR images of the human brain.},

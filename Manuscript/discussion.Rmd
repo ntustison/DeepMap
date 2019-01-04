@@ -5,7 +5,7 @@
 The rich history of image registration illustrates the significant role that it has
 played in the field of quantitative medical image analysis.  This history is punctuated
 by many research developments, both small and great, which have resulted in transformations
-of greater accuracy, improved computational efficiency, and
+of greater accuracy, improved computational efficiency and
 enlightening theoretical novelty---all of which improves the community's ability to do science.  In
 addition, the open-source emphasis of the current scientific environment has improved
 the didactic quality and availability of these contributions which democratizes
@@ -19,25 +19,65 @@ the current research landscape as evidenced by deep learning representation in c
 presentations and manuscripts.  This significance appears to extend to the
 domain of image registration, although it is still too early to determine the precise nature of this impact.
 
-Concrete advancement in other domains of machine learning has been driven by definitive, public evaluation challenges.  In contrast, the field of medical image registration has not arrived at a consensus forum through which to benchmark progress year to year.  This is partly due to the lack of high-resolution ground truth datasets generated specifically for image registration evaluation goals.  This shortcoming, combined with other factors discussed below, prevent a clear assessment of the specific deep learning contributions to performance gains, computational speed notwithstanding.
+Concrete advancement in other domains of machine learning has been driven by definitive,
+public evaluation challenges.  In contrast, the field of medical image registration has
+not arrived at a consensus forum through which to benchmark progress year to year.  This
+is partly due to the lack of high-resolution ground truth datasets generated specifically
+for image registration evaluation goals.  This shortcoming, combined with other factors
+discussed below, prevent a clear assessment of the specific deep learning contributions
+to performance gains, computational speed notwithstanding.
 
-New strategies for generating gold or silver standard data specifically for the purposes of evaluating biomedical image registration are needed. The majority of medical image registration evaluation papers remain focused on measuring the degree of overlap between anatomical structures.  A good registration result should improve such metrics.  However, given the success of deep learning-based segmentation methods -- which directly solve this problem without the need for registration -- one may question whether registration is necessary at all.  Indeed, augmentation strategies used when training segmentation networks typically *add* transformation-based variability into datasets.  This is the inverse of how transformations are typically employed in the more traditional biomedical image analysis paradigm.
+New strategies for generating gold or silver standard data specifically for the purposes
+of evaluating biomedical image registration are needed. The majority of medical image
+registration evaluation papers remain focused on measuring the degree of overlap between
+anatomical structures.  A good registration result should improve such metrics.  However,
+given the success of deep learning-based segmentation methods---which directly solve this
+problem without the need for registration---one may question whether registration is
+necessary at all.  Indeed, augmentation strategies used when training segmentation networks
+typically *add* transformation-based variability into datasets.  This is the inverse of
+how transformations are typically employed in the more traditional biomedical image analysis paradigm.
 
-An additional, related challenge to assessing the literature of biomedical image registration is that the majority of technical papers do not report enough methodological detail to enable readers to understand why performance differences exist.  In the context of public challenges hosted by Kaggle, participants work off of common baseline datasets, share all code as a prerequisite to involvement and are evaluated against hidden datasets provided by challenge organizers.  Data, preprocessing, networks, postprocessing and results are transparent.  In the context of the biomedical image registration literature, such transparency in terms of evaluation and development source code -- and use of truly hidden data -- is rarely present.
+An additional, related challenge to assessing the literature of biomedical image
+registration is that the majority of technical papers do not report enough methodological
+detail to enable readers to understand why performance differences exist.  In the
+context of public challenges hosted by Kaggle, participants work off of common baseline
+datasets, share all code as a prerequisite to involvement and are evaluated against
+hidden datasets provided by challenge organizers.  Data, preprocessing, networks,
+postprocessing and results are transparent.  In the context of the biomedical image
+registration literature, such transparency in terms of evaluation and development
+source code---and use of truly hidden data---is rarely present.
 
-A recent review of "deep regression" [@Lathuiliere:2018aa] provides guidance on how such issues might be resolved in published work.  The paper uses three public ground truth datasets that represent different forms of correspondence problems.  The authors evaluate well-known VGG and ResNet regression architectures on these reference datasets.  Notably, the authors of this paper are not promoting any particular architecture or method under evaluation.  Common parameter variations of these networks are carefully explored and results are reported in terms of the impact on confidence intervals.  This study suggests that differences in performance due to preprocessing may exceed differences attributable to changes in network architecture.  This finding, the objective approach and the reporting methods in this paper should be kept in mind when researchers and reviewers are considering new methodological efforts.
+A recent review of "deep regression" [@Lathuiliere:2018aa] provides guidance on how
+such issues might be resolved in published work.  The paper uses three public ground
+truth datasets that represent different forms of correspondence problems.  The authors
+evaluate well-known VGG and ResNet regression architectures on these reference datasets.
+Notably, the authors of this paper are not promoting any particular architecture or
+method under evaluation.  Common parameter variations of these networks are carefully
+explored and results are reported in terms of the impact on confidence intervals.
+This study suggests that differences in performance due to preprocessing may exceed
+differences attributable to changes in network architecture.  This finding, the objective
+approach and the reporting methods in this paper should be kept in mind when researchers
+and reviewers are considering new methodological efforts.
 
 
-An additional challenge is the relatively immature state of medical imaging focused deep learning software frameworks.  For instance, many tensorflow layers that work effortlessly in 2D are not yet translated to three dimensions.  Furthermore, the traditional, carefully-defined concepts of patient orientation, patient physical space and well-defined transformations of these spaces in 2, 3 and 4 dimensions are lacking in existing deep learning frameworks.  Facile workarounds to these issues exist.  However, it is our hope that some of the deep testing and software engineering from medical imaging focused frameworks such as the Insight ToolKit eventually influence the construction of deep learning systems.
+An additional challenge is the relatively immature state of medical imaging focused
+deep learning software frameworks.  For instance, many Tensorflow layers that work
+effortlessly in 2-D are not yet translated to 3-D.  Furthermore, the traditional,
+carefully-defined concepts of patient orientation, patient physical space and
+well-defined transformations of these spaces in two, three and four dimensions are
+lacking in existing deep learning frameworks.  Facile workarounds to these issues
+exist.  However, it is our hope that some of the deep testing and software engineering
+from medical imaging focused frameworks such as the Insight ToolKit eventually
+influence the construction of deep learning systems.
 
-Despite these technical issues, low barrier to entry, medical-imaging focused collections of pre-trained networks and reusable code are beginning to emerge. Packages such as NiftyNet (in python) and ANTsRNet (in R) seek to build a bridge between deep learning knowledge domains that goes beyond segmentation or registration alone to solve a collection of problems via common underlying architectures, consistent interfaces and with the systematic use of best practices known to medical imaging researchers.  While powerful, these systems, like most work in deep learning for medical image registration, have yet to run the gauntlet of use in real-world systems which necessitates adaptation, testing and debugging in broad ranges of application areas.
+Despite these technical issues, low barrier to entry, medical-imaging focused
+collections of pre-trained networks and reusable code are beginning to emerge.
+Packages such as NiftyNet [@niftynet18] (in python) and ANTsRNet [@Tustison:2018aa] (in R) seek to build a bridge
+between deep learning knowledge domains that goes beyond segmentation or registration
+alone to solve a collection of problems via common underlying architectures, consistent
+interfaces and with the systematic use of best practices known to medical imaging
+researchers.  While powerful, these systems, like most work in deep learning for
+medical image registration, have yet to run the gauntlet of use in real-world
+systems which necessitates adaptation, testing and debugging in broad ranges of
+application areas.
 
-The recently renewed interest in deep learning has resulted in much progress
-with
-
-
-In the introduction, we mentioned the relative lack of development in the
-field image registration.  It is natural to ask why this is the case.
-Is it possible that deep learning is reducing the algorithmic contribution
-of image registration and corresponding development?  For example, prior
-to the introduction of segmentation
