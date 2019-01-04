@@ -67,6 +67,6 @@ yield diffeomorphic transformations based on stationary velocity fields (SVFs)
 code has been made available[^V] which has facilitated independent evaluations
 such as [@Nazib:2018aa] to compare performance with traditional algorithms (i.e.,
 IRTK [@Rueckert:1999aa], AIR [@Woods:1993aa], Elastix [@Klein:2010aa],
-ANTs [@Avants:2011aa], and NiftyReg [@Modat:2010aa]).
+ANTs [@Avants:2011aa] and NiftyReg [@Modat:2010aa]).
 
 [^V]: https://github.com/voxelmorph/voxelmorph

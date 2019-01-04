@@ -79,5 +79,7 @@ interfaces and with the systematic use of best practices known to medical imagin
 researchers.  While powerful, these systems, like most work in deep learning for
 medical image registration, have yet to run the gauntlet of use in real-world
 systems which necessitates adaptation, testing and debugging in broad ranges of
-application areas.
+application areas.  However, despite the number of issues which remain to be
+addressed by the community, deep learning has opened an entirely new vista for
+exploration by current and future generations of medical imaging scientists.
 

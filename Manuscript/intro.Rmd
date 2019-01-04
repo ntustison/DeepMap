@@ -10,7 +10,7 @@ and imaging-based statistical analysis involving template-based normalization
 (e.g., voxel-based morphometry [@Ashburner:2000aa] and sparse canonical correlation analysis [@Avants:2010aa]).  Several reviews
 [@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
 have charted this chronology and provided insight into related issues such as algorithmic
-classification, available implementations, evaluation strategies, and speculation
+classification, available implementations, evaluation strategies and speculation
 concerning possible future directions of the field.  While prescient in many respects,
 such speculation vis-à-vis the  resurgence of deep learning is understandably
 limited due to its recent explosion in popularity and research focus.
@@ -33,16 +33,18 @@ neural network open-source software platforms (e.g., Tensorflow [@tensorflow] an
 A key event in the widespread adoption of CNNs was the 2012
 ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
 The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
-reduced the error rate by almost half over other entries .  The following years' competitions were
+reduced the error rate by almost half over other entries.  Subsequent years' competitions were
 dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
 ResNet [@He:2015] with performance ultimately exceeding human performance in 2015
 [@He:2015ab].  Additional competition outlets, including conference-based venues
-(e.g., NeurIPS) and community-based platforms, such as Kaggle[^1], continue to highlight
-the salience of CNNs as paradigmatic solutions to computational problems.  This is in addition
+(e.g., NeurIPS[^0]) and community-based platforms, such as Kaggle[^1], continue to highlight
+the utility of CNNs as comprehensive approaches to computer vision problems.  This is in addition
 to the sheer number of formal research reports discussed in the same conferences, published
-in dedicated journals, and hosted on online technical repositories.  Notable reviews by key figures in the field include those of
+in dedicated journals and hosted on online technical repositories.  Notable reviews by key figures in the field include those of
 Yann LeCun, Yoshua Bengio, Geoffrey Hinton [@LeCun:2015aa], and Jürgen Schmidhuber
 [@Schmidhuber:2015aa].
+
+[^0]: https://nips.cc
 
 [^1]: Following the 2017 ImageNet challenge, in which the vast majority of
 teams surpassed the 5\% classification error rate threshold, the ImageNet organizers ceded management
@@ -77,7 +79,7 @@ the annual Multimodal Brain Tumor Segmentation (BraTS) Challenge has taken
 place under the auspices of the International Conference on Medical Image Computing
 and Computer Assisted Intervention (MICCAI) since 2012 wherein large sets of training
 data are provided to the competitors who attempt to perform a voxelwise labeling
-of the constituent components of tumors from multimodal MR image data.  The winning
+of the constituent components of brain tumors from multimodal MR image data.  The winning
 entries from the first two years employed random forest classifiers for segmentation [@Menze:2015aa].
 Although variations of the traditional random forest scheme continued to be well represented
 in the 2014 Challenge, CNN-based image segmentation algorithms made an appearance [@brats2014].
@@ -95,9 +97,9 @@ thus provide an overview of the current state-of-the-art of this burgeoning
 subfield. We first provide a description of key network components that are
 crucial to certain image registration architectures, or perhaps which might
 find utility in future architectures.  Second, we discuss current approaches
-to the deep learning image registration categorized in terms of these basic
+to deep learning image registration categorized in terms of these basic
 architectural components.  Finally, we briefly editorialize concerning
-the current state and future confluence of deep learning and image registration.
+the present and continued future confluence of deep learning and image registration.
 
 
 <!--

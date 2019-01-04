@@ -7,7 +7,7 @@ necessary for an understanding of both fields is beyond the scope of this review
 defer the interested reader to the respective reviews cited earlier in the Introduction.
 However, considering the venue of this discussion
 and the motivation which prompted this review, we provide greater context with respect to
-the deep learning side.  Therefore, prior to describing the various image registration
+the deep learning aspect.  Therefore, prior to describing the various image registration
 algorithms that have been recently proposed in the literature which incorporate elements
 of deep learning, we first describe some basic architectural components specifically
 relevant to such discussion which include:
@@ -29,7 +29,7 @@ relevant to such discussion which include:
 
 Since all but a small subset of network components can be included, we defer the interested
 reader to the deep learning reviews cited earlier in addition to pertinent textbooks (e.g.,
-[@Goodfellow:2016aa]) for additional information.
+[@Goodfellow:2016aa]) for more information.
 
 ## Convolutional neural networks
 
@@ -49,12 +49,12 @@ reader to the deep learning reviews cited earlier in addition to pertinent textb
 
 The grid-like informational content of certain data structures, such as 2-D and 3-D images, is
 perfectly suited to CNN-based training.  The major elements of CNNs are
-localized convolutions, connections, and pooling [@LeCun:2015aa].
-As indicated by its name, the distinguishing characteristic
+localized convolutions, connections and pooling [@LeCun:2015aa].
+As indicated by nomenclature, the distinguishing characteristic
 of CNNs is the use of convolution instead of matrix operations in one or more of its constituent
 layers [@Goodfellow:2016aa] where the output are feature maps.  These feature maps are typically
 generated in an hierarchical fashion synthesizing simple
-geometric features at the base convolutional layers (lines, corners, etc.) progressing to more
+geometric features at the base convolutional layers (lines, corners, etc.) and progressing to more
 abstract features at the apical layers.
 The localized connections and weight-sharing provide a form of regularization while
 simultaneously reducing memory requirements [@Goodfellow:2016aa].  The size of the
@@ -194,7 +194,7 @@ compositions in the spirt of the inverse compositional Lucas-Kanade algorithm [@
 ## Deep diffeomorphic transformer networks
 
 Although discussion of transform generalizability was included in the original STN paper
-[@Jaderberg:2015aa], discussion was limited to affine, attention (scaling + translation),
+[@Jaderberg:2015aa], discussion was limited to affine, attention (scaling + translation)
 and thin-plate spline transforms which all fill the requirements of differentiability.  This
 work was extended to diffeomorphic transforms in [@Detlefsen:2018aa].  The
 computational load associated with generating traditional diffeomorphisms through
