@@ -9,6 +9,7 @@ Eppenhof:2018aa,2018,SPIE,3,CT,Lungs,Undisclosed
 Fan:2018aa,2018,MICCAI,3,T1w,Brain,Caffe
 Hu:2018aa,2018,MedIA,3,T2w_TRUS,Prostate,Tensorflow
 Hu:2018ab,2018,ISBI,3,T2w_TRUS,Prostate,Tensorflow
+Kelb:2018aa,2018,MICCAI,3,T1w,Heart,Keras
 Lv:2018aa,2018,BR J Radiol,3,MRI,Abdomen,Undisclosed
 Mahapatra:2018aa,2018,ISBI,2,Fundus_FluorosceinAngiography,Retina_Heart,Tensorflow
 Miao:2016aa,2016,TMI,2/3,3DXrayAttenuationMapFromCT_2DXray,Knee,Undisclosed

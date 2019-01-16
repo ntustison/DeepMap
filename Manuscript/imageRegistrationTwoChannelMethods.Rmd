@@ -43,17 +43,23 @@ shortcuts.  The authors also use a
 multiscale Dice function with an explicit regularization term in the loss
 function for estimating both global and local transformations.
 
-The unsupervised approach in [@deVos:2017aa], denoted as _DIRNet_, uses NCC
-to optimize a B-spline transform for 2-D images.  Image patches from the fixed
+\textcolor{blue}{The unsupervised approach described in} [@Vos:2018aa]\textcolor{blue}{,
+denoted as {\it Deep Learning Image Registration}} \textcolor{blue}{({\it DLIR})},
+\textcolor{blue}{uses NCC to optimize a B-spline transform for 3-D images.  This extension of
+the methodology first described in} [@deVos:2017aa] \textcolor{blue}{ complements a
+patch-based B-spline two-channel network with a pseudo-siamese affine registration network.
+For the deformable component,} image patches from the fixed
 and moving images are passed through a CNN regression network to infer voxelwise
 displacement vectors which are then converted to B-spline control point parameters
 through a STN layer.  Average pooling instead of max pooling is used to reduce
 the slight translation invariance associated with the latter.  [@Shan:2018aa] is
-another 2-D approach for unupervised medical image registration which also exploits a STN
+a 2-D approach for unsupervised medical image registration which also exploits a STN
 layer within the previously proposed FlowNet architecture [@Dosovitskiy:2015aa]
 (discussed in the next section).  An explicit penalty on the deformation field
 gradient promotes smoothing which is combined with an L1 photometric intensity
 error for the combined loss function.
+
+### Probabilistic generative models
 
 _Voxelmorph_ was first introduced in [@Balakrishnan:2018aa] which incorporates
 a U-net architecture with a spatial transformer network.  The input layer
@@ -61,12 +67,24 @@ consists of the concatenated full fixed and moving image volumes resized
 and cropped to $160 \times 192 \times 224$ voxels. The output consists of the voxelwise
 displacement field of the same size as the input (times three for each vector
 component).  The loss function for training combines cross correlation and
-explicit regularization.  This was modified in [@Dalca:2018aa] to
+explicit regularization.  This was extended to a generative approach in [@Dalca:2018aa] to
 yield diffeomorphic transformations based on stationary velocity fields (SVFs)
-[@Arsigny:2006aa] using novel scaling and squaring network layers.  The underlying
+[@Arsigny:2006aa] using novel scaling and squaring network layers.   \textcolor{blue}{
+A U-net style architecture is used to estimate the distribution parameters of the
+velocity fields of the training data.  A new imaging pair can then be registered by
+sampling from this learned distribution, computing the resulting diffeomorphic transformation,
+and then warping the moving image.}  The underlying
 code has been made available[^V] which has facilitated independent evaluations
 such as [@Nazib:2018aa] to compare performance with traditional algorithms (i.e.,
 IRTK [@Rueckert:1999aa], AIR [@Woods:1993aa], Elastix [@Klein:2010aa],
 ANTs [@Avants:2011aa] and NiftyReg [@Modat:2010aa]).
 
 [^V]: https://github.com/voxelmorph/voxelmorph
+
+\textcolor{blue}{Another generative image registration approach is that of} [@Krebs:2018aa]
+\textcolor{blue}{which uses a conditional variational autoencoder} [@Sohn:2015aa], \textcolor{blue}{an
+extension of the variational autoencoder}[@Kingma:2014aa] \textcolor{blue}{which permits incorporation of
+additional information for latent inference modeling.  This multi-scale
+generative framework encodes the stationary velocity fields which are
+converted to the total transformation field in a similar fashion as} [@Dalca:2018aa].
+\textcolor{blue}{A comparison with ANTs (SyN)} [@Avants:2011aa], LCC-Demons [@Lorenzi:2013aa],  and Voxelmorph [@Dalca:2018aa].

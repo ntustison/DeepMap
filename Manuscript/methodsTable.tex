@@ -74,7 +74,7 @@
 
 \begin{table}[!htb]
 \centering
-\caption{Deep learning-based image registration methods organized in terms of basic
+\caption{\textcolor{red}{(Need to re-number)}.  Deep learning-based image registration methods organized in terms of basic
          network architecture.}
 \label{table:methods}
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}ll}
@@ -98,17 +98,18 @@
   Eppenhof et al. [75] & 2018 & 3-D & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
   Cao et al. [76] & 2017 & 3-D & Deformable & NCC + ER \\
   Hu et al. [77] & 2018 & 3-D & Affine/Deformable & Multiscale Dice \\
-  de Vos et al. [78] & 2017 & 2-D & B-spline & NCC \\
+  de Vos et al. [78] & 2019 & 2-D & Affine + B-spline & NCC + ER \\
   Shan et al. [79] & 2018 & 2-D & Deformable & L1 + ER \\
   Balakrishnan et al. [81] & 2018 & 3-D & Deformable & CC + ER \\
   Dalca et al. [82] & 2018 & 3-D & Diffeomorphic & MSQ \\
+  \textcolor{blue}{Krebs et al. [XX]} & 2018 & 3-D & Diffeomorphic & LCC \\
 %  Lv et al. [XX] & 2018 & 3-D & Deformable & --- \\
 \midrule
 \multicolumn{5}{c}{\textbf{Siamese/pseudo-siamese}}
   \vspace{0.25cm} \\
   Dosovitskiy et al. [80] & 2015 & 2-D & Optical flow & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
   Nowruzi et al. [90] & 2017 & 2-D & Homography & MSQ$_T$ \\
-  Rocco et al. [91] & 2017 & 2-D & Affine/TPS & MSQ$_T$ \\
+  Rocco et al. [91] & 2017 & 2-D & Affine + TPS & MSQ$_T$ \\
   Sloan et al. [92] & 2018 & 2-D & Rigid & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted transformation parameters
   Sokooti et al. [93] & 2017 & 3-D & Deformable & L1$_T$ \\
   Zhang [94] & 2018 & 3-D & IC Deformable & MSQ + ER \\
@@ -134,7 +135,7 @@
   \begin{minipage}[t]{0.92\columnwidth}%
     \footnotesize{$^\ddagger$ER:  explicit regularization,
       CC: cross correlation, NCC: normalized CC, MSQ: mean squared intensity error,
-      MSQ$_T$: mean squared transformation error,
+      MSQ$_T$: mean squared transformation error, LCC:  local NCC,
       NMI:  normalized mutual information, SSIM:  structural similarity index,
       L1:  L1 intensity error,
       L1$_T$: L1 transformation error, VGG: VGG feature-based}

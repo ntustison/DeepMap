@@ -10,7 +10,7 @@ $ $
 
 \LARGE
 
-{\bf Learning image-based spatial transformations via convolutional neural networks:  a review}
+{\bf Learning image-based \textcolor{blue}{spatial} transformations via convolutional neural networks:  a review}
 
 \vspace{3.0 cm}
 
