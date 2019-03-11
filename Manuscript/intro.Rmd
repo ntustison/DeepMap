@@ -68,7 +68,7 @@ have been presented in the recent research literature
 
 * concentrating on applications [@Ker:2018aa]; and
 
-* as general reviews [@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Anwar:2018aa;@Biswas:2019aa].
+* as general reviews [@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Anwar:2018aa;@Biswas:2019aa;@Altaf:2019aa].
 
 Despite the thorough treatment contained in these reviews, discussion of chronological
 adoption within the community is limited.  Regardless,
