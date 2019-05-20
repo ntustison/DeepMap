@@ -17,27 +17,28 @@ mean-squared error of the homography parameters.
 
 An early seminal paper introduced _FlowNet_, a 2-D CNN-based approach to
 optical flow optimization [@Dosovitskiy:2015aa].  Two encoding/decoding
-architectures are actually proposed for comparison for alignment of real world RGB
-images where the distinction lies in the encoding component of the network.
+configurations are actually proposed for comparison for alignment of real world RGB
+images where the architectural distinction lies in the encoding component of the network.
 _FlowNetSimple_ is a two channel architecture characterized by a concatenated
-series of contracting convolutional layers.  The recommended, pseudo-siamese _FlowNetCorr_
-separates the initial contracting layers to first find meaningful
-corresponding features across the image pair which are combined
+series of contracting convolutional layers.  Alternatively, the recommended
+pseudo-siamese _FlowNetCorr_
+separates the initial contracting layers to find meaningful
+corresponding features across the image pair which are subsequently combined
 using a correlation layer. Although the simple variant reportedly
 generalizes better for one of the data sets, the psuedo-siamese
-construction outperforms on the other two data sets.
+construction outperforms on the other two evaluation data sets.
 Another unique aspect of this work is
-the data augmentation performed by synthetic image generation which
-involves the addition of literal flying chairs to existing
+the data augmentation performed by synthetic image generation which literally
+involves the addition of flying chairs to existing
 image scenes.
 
 Consistent with typical workflows in medical image registration, a two-step
 transform hierarchy is proposed using deep learning in [@Rocco:2017aa] where
-the results of an affine CNN regression network is fed into a deformable
-thin-plate spline network.  The supervised training uses the mean squares
+the results of an affine CNN regression network are fed into a deformable
+thin-plate spline network.  Supervised training uses the mean squares
 difference between predicted and ground truth transformations as the loss
 function.  Unlike other methods, the transformation-based loss is actually
-calculated by transforming an uniform grid based on the predicted and
+calculated by transforming a uniform grid based on the predicted and
 ground-truth transforms and calculating the mean squares distance between
 corresponding grid points.
 A Siamese network for regressing rigid transformation parameters on brain
@@ -59,9 +60,9 @@ _ICNet_  [@Zhang:2018aa]  is motivated by traditional concerns of inverse
 consistency in deformable transformations [@Christensen:2001aa]. Two parallel
 U-net structures are used to determine the initial forward and inverse
 displacements which are then propagated through an inverse network to
-refine the respective mappings.  The loss function comprises
-regularization terms to prevent topological folding and promote smoothness
-in addition to a mean squared intensity term combining both forward and
+refine the respective mappings.  The loss function comprises multiple
+regularization terms to prevent topological folding and promote displacement field
+smoothness in addition to a mean squared intensity term combining both forward and
 inverse mapped images to their respective counterparts.
 
 ### Geodesic shooting with Quicksilver
@@ -71,17 +72,17 @@ derives from the theoretical foundations underlying diffeomorphic *flows*
 [@Trouve:1995aa;@Christensen:1996aa;@Dupuis:1998].  Such diffeomorphisms are sufficiently
 differentiable bijective mappings, or transformations, which have sufficiently
 differentiable inverses. Specifically, the set of possible
-diffeomorphic mappings, $\phi(\mathbf{x}, t)$ ($\mathbf{x} \in \Omega$, $t \in [0,1]$),
-between two images, $I$ and $J$ can be described as the
-collection of *paths* connecting the two images on a manifold determined by
+diffeomorphic mappings, $\phi(\mathbf{x}, t)$ $\left( \mathbf{x} \in \Omega, t \in [0,1] \right)$,
+between two images $I$ and $J$ can be described as the
+collection of paths connecting the two images determined by
 the equation
 
 \begin{equation}
-\int_{0}^{1} \|v(t)\|^2_L dt + \int_{\Omega} | I \circ \phi^{-1}(x,1) - J|^2 d\Omega.
+\int_{0}^{1} \|v(t)\|^2_L dt + \int_{\Omega} | I \circ \phi^{-1}(x,1) - J|^2 d\Omega
 \label{eq:lddmm}
 \end{equation}
 
-$v$ is a time-dependent smooth field dictated by the functional norm $L$  and determines
+where $v$ is a time-dependent smooth field dictated by the functional norm $L$ and determines
 the mapping via the ordinary differential equation
 
 \begin{equation}
@@ -89,15 +90,15 @@ the mapping via the ordinary differential equation
 \end{equation}
 
 The optimal diffeomorphic transformation  between $I$ and $J$ can be described
-as a geodesic [@Beg:2005aa] connecting the two images.  Traditionally,
+as a geodesic path [@Beg:2005aa] connecting the two images.  Traditionally,
 computational approaches to determining
-this geodesic path involve discretization of the velocity field followed by numerical
+this optimal geodesic path involve discretization of the velocity field followed by numerical
 integration.  This is performed for a given number of iterations where, presumably,
-convergence implies arrival at this geodesic (i.e., optimal) path.  Alternatively, based on
+convergence implies arrival at the optimal solution (i.e., geodesic path).  Alternatively, based on
 the work of [@Miller:2006aa], the Euler-Lagrange equations for Equation (\ref{eq:lddmm})
-can be written as a system incorporating a "momentum" term.  It was further demonstrated
-that the initial momentum determined the entire geodesic path.  This alternative perspective
-engendered a new approach to determining the diffeomorphic solution between two images,
+can be written as a system incorporating a "momentum" term.  This work further demonstrated
+that the initial momentum determines the entire geodesic path.  This alternative perspective
+engendered a new approach to determining the diffeomorphic solution between two images
 known as _geodesic shooting_ (e.g., [@Beg:2005aa;@Vialard:2012aa]).  Although initially
 formulated in terms of scalar momenta [@Vialard:2012aa], a vector formulation was proposed
 in [@Singh:2013aa] which tends towards superior numerical behavior.
@@ -105,16 +106,15 @@ in [@Singh:2013aa] which tends towards superior numerical behavior.
 The supervised deep learning technique of Yang et al. [@Yang:2017aa], known as _Quicksilver_,
 leverages this geodesic shooting/vector momentum optimization approach for determining
 optimal diffeomorphic transformations.  The network architecture consists of two parallel encoders
-for separate fixed/moving image patches ($15 \times 15 \times 15$ voxels)
-feature learning.  The output is then concatenated and sent
-through three identical decoder branches (one for each dimension) which comprises the
-inverse operations as the single encoder branch.  Thus, the output consists of the predicted
+for separate fixed/moving image patches ($15 \times 15 \times 15$ voxels).
+The output of these parallel branches is concatenated and sent
+through three identical decoder branches (one for each dimension).  Thus, the output consists of the predicted
 vector momentum map which, as described above, determines the total transformation.  In
 order to improve accuracy of the predicted momentum maps, a follow-on correction network
 is also proposed.  This correction network, trained by inverting the mapping produced
 by the predicted momentum and computing the residual error, is meant to account for
 large deformations across patch boundaries.  Of note, Quicksilver, written in PyTorch [@paszke:2017aa],
-is one of the handful of algorithms surveyed which has been made publicly available[^Q].
+is one of the handful of algorithms surveyed which has been made publicly available.[^Q]
 
 [^Q]: https://github.com/rkwitt/quicksilver
 

@@ -26,10 +26,10 @@ developed for input image patches (T1- and T2-weighted brain images).
 A B-spline image registration algorithm developed from the Insight Toolkit [@Yoo:2005aa]
 is used to leverage the output CNN-based similarity measure for comparison
 with an identical registration set-up employing mutual information.
-Finally, in the category of feature learning, Wu et al. use stacked auto-encoders
-(SAE) to map patchwise image content to learned feature vectors [@Wu:2016aa].  These
+Finally, in the category of feature learning, Wu et al. use nested auto-encoders (AE)
+to map patchwise image content to learned feature vectors [@Wu:2016aa].  These
 patches are then subsampled based on the importance criteria outlined in
 [@Wang:2010aa] which tends towards regions of high informational content
-such as edges. The SAE-based feature vectors at these image patches are then
+such as edges. The AE-based feature vectors at these image patches are then
 used to drive a HAMMER-based registration [@Shen:2002aa] which is inherently
 a feature-based, traditional image registration approach.

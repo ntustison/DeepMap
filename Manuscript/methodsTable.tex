@@ -74,10 +74,11 @@
 
 \begin{table}[!htb]
 \centering
+\small
 \caption{\textcolor{red}{(Need to re-number)}.  Deep learning-based image registration methods organized in terms of basic
          network architecture.}
 \label{table:methods}
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}ll}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
 \toprule
 \midrule
 \textbf{Reference} & \textbf{Year} & \textbf{\textit{n}-D} & $^\dagger$\textbf{Transform} & $^\ddagger$\textbf{Loss} \\
@@ -93,14 +94,14 @@
 \multicolumn{5}{c}{\textbf{Two channel}}
   \vspace{0.25cm} \\
   DeTone et al. [72] & 2016 & 2-D & Homography & MSQ$_T$ \\ % The loss is trained on the msq difference between the true and predicted displacement vectors
-  Nguyen et al. [73] & 2018 & 2-D & Homography & L1 \\
+  Nguyen et al. [73] & 2018 & 2-D & Homography & L1, MSQ$_T$ \\ % L1 on unsupervised, MSQ$_T$ on supervised
   Rohe et al. [74] & 2017 & 3-D & Diffeomorphic & MSQ$_T$ \\  % The loss is trained on the msq difference between the true and predicted SVF parameterization
   Eppenhof et al. [75] & 2018 & 3-D & TPS & MSQ$_T$ \\       % The loss is trained on the msq difference between the true and predicted displacements
   Cao et al. [76] & 2017 & 3-D & Deformable & NCC + ER \\
   Hu et al. [77] & 2018 & 3-D & Affine/Deformable & Multiscale Dice \\
   de Vos et al. [78] & 2019 & 2-D & Affine + B-spline & NCC + ER \\
   Shan et al. [79] & 2018 & 2-D & Deformable & L1 + ER \\
-  Balakrishnan et al. [81] & 2018 & 3-D & Deformable & CC + ER \\
+  Balakrishnan et al. [81] & 2018 & 3-D & Deformable & LCC + ER \\
   Dalca et al. [82] & 2018 & 3-D & Diffeomorphic & MSQ \\
   \textcolor{blue}{Krebs et al. [XX]} & 2018 & 3-D & Diffeomorphic & LCC \\
 %  Lv et al. [XX] & 2018 & 3-D & Deformable & --- \\
@@ -128,17 +129,21 @@
 \bottomrule
 \multicolumn{5}{l}{
   \begin{minipage}[t]{0.9\columnwidth}%
-    \footnotesize{$^\dagger$TPS: thin-plate spline, IC: inverse consistent}
+    \footnotesize{$^\dagger$TPS: thin-plate spline, IC: inverse consistent.}
   \end{minipage}
   } \\
 \multicolumn{5}{l}{
-  \begin{minipage}[t]{0.92\columnwidth}%
+  \begin{minipage}[t]{0.9\columnwidth}%
     \footnotesize{$^\ddagger$ER:  explicit regularization,
-      CC: cross correlation, NCC: normalized CC, MSQ: mean squared intensity error,
-      MSQ$_T$: mean squared transformation error, LCC:  local NCC,
-      NMI:  normalized mutual information, SSIM:  structural similarity index,
+      NCC: normalized cross correlation,
+      MSQ: mean squared intensity error,
+      MSQ$_T$: mean squared transformation error,
+      LCC:  local cross correlation,
+      NMI:  normalized mutual information,
+      SSIM:  structural similarity index,
       L1:  L1 intensity error,
-      L1$_T$: L1 transformation error, VGG: VGG feature-based}
+      L1$_T$: L1 transformation error, and
+      VGG: VGG feature-based.}
   \end{minipage}
   }
 \end{tabular*}

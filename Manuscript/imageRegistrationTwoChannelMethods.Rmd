@@ -11,8 +11,7 @@ for determining corner correspondence and a classification network
 for providing confidence estimates of those predictions.  The work
 in [@Nguyen:2018aa], which is publicly available[^H1], uses image patch
 pairs in the input layer and the L1 photometric loss between them to remove
-the need for direct supervision.  The spatial transform layer is
-also adapted for homography transformations.
+the need for direct supervision.
 
 [^H1]: https://github.com/tynguyen/unsupervisedDeepHomographyRAL2018
 
@@ -26,7 +25,7 @@ employs a variant of U-net for training/prediction based on
 reference deformations provided by registration of previously segmented
 ROIs for cardiac matching where priority is alignment of the
 epicardium and endocardium.  Displacement fields are parameterized by stationary
-velocity fields.  In contrast, [@Eppenhof:2018aa] uses a smaller version of
+velocity fields [@Arsigny:2006aa].  In contrast, [@Eppenhof:2018aa] uses a smaller version of
 the VGG architecture to learn the parameters of a $6 \times 6 \times 6$ thin-plate spline grid.
 
 ### Training loss on similarity metrics
@@ -35,11 +34,12 @@ Intermodality transformations involving CT and MRI are learned by training on th
 intramodality image pairs in [@Cao:2017aa].  The basic U-net architecture,
 using input patches of size $68 \times 68 \times 68$ voxels,
 incorporates a loss function combining normalized cross correlation (NCC) and
-explicit regularization.  A related idea is developed in [@Hu:2018aa] which
+explicit regularization for enforcing smoothness of the displacement field.
+A related idea is developed in [@Hu:2018aa] which
 uses labeled data and intensity information during the training phase such
 that only unlabeled image data is required for prediction.  The latter architecture
 is a densely connected U-net architecture with three types of residual
-shortcuts.  The authors also use a
+shortcuts [@He:2015].  The authors also use a
 multiscale Dice function with an explicit regularization term in the loss
 function for estimating both global and local transformations.
 
@@ -55,23 +55,24 @@ through a STN layer.  Average pooling instead of max pooling is used to reduce
 the slight translation invariance associated with the latter.  [@Shan:2018aa] is
 a 2-D approach for unsupervised medical image registration which also exploits a STN
 layer within the previously proposed FlowNet architecture [@Dosovitskiy:2015aa]
-(discussed in the next section).  An explicit penalty on the deformation field
+(discussed in the next section).  An explicit penalty on the displacement field
 gradient promotes smoothing which is combined with an L1 photometric intensity
 error for the combined loss function.
 
 ### Probabilistic generative models
 
 _Voxelmorph_ was first introduced in [@Balakrishnan:2018aa] which incorporates
-a U-net architecture with a spatial transformer network.  The input layer
+a U-net architecture with a STN.  The input layer
 consists of the concatenated full fixed and moving image volumes resized
 and cropped to $160 \times 192 \times 224$ voxels. The output consists of the voxelwise
-displacement field of the same size as the input (times three for each vector
+displacement field of the same size as the input (times three---one for each vector
 component).  The loss function for training combines cross correlation and
-explicit regularization.  This was extended to a generative approach in [@Dalca:2018aa] to
-yield diffeomorphic transformations based on stationary velocity fields (SVFs)
+a diffusion regularizer on the spatial gradients of the displacement field.
+This was extended to a generative approach in [@Dalca:2018aa] to
+yield diffeomorphic transformations based on SVFs
 [@Arsigny:2006aa] using novel scaling and squaring network layers.   \textcolor{blue}{
-A U-net style architecture is used to estimate the distribution parameters of the
-velocity fields of the training data.  A new imaging pair can then be registered by
+The U-net architecture is used to estimate the distribution parameters of the
+velocity fields encapsulated by training data.  A new imaging pair can then be registered by
 sampling from this learned distribution, computing the resulting diffeomorphic transformation,
 and then warping the moving image.}  The underlying
 code has been made available[^V] which has facilitated independent evaluations
@@ -83,8 +84,10 @@ ANTs [@Avants:2011aa] and NiftyReg [@Modat:2010aa]).
 
 \textcolor{blue}{Another generative image registration approach is that of} [@Krebs:2018aa]
 \textcolor{blue}{which uses a conditional variational autoencoder} [@Sohn:2015aa], \textcolor{blue}{an
-extension of the variational autoencoder}[@Kingma:2014aa] \textcolor{blue}{which permits incorporation of
+extension of the variational autoencoder} [@Kingma:2014aa] \textcolor{blue}{which permits incorporation of
 additional information for latent inference modeling.  This multi-scale
-generative framework encodes the stationary velocity fields which are
+generative framework encodes the SVFs which are ultimately
 converted to the total transformation field in a similar fashion as} [@Dalca:2018aa].
-\textcolor{blue}{A comparison with ANTs (SyN)} [@Avants:2011aa], LCC-Demons [@Lorenzi:2013aa],  and Voxelmorph [@Dalca:2018aa].
+\textcolor{blue}{A comparison with ANTs (SyN)} [@Avants:2011aa]\textcolor{blue}{,
+LCC-Demons} [@Lorenzi:2013aa]\textcolor{blue}{,
+and Voxelmorph} [@Dalca:2018aa]\textcolor{blue}{ is also performed.}

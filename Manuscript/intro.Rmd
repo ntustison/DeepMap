@@ -23,12 +23,13 @@ for character recognition [@Fukushima:1980aa], and convolutional neural networks
 ("CNNs" or "ConvNets") utilized in speech [@Waibel:1987aa] and visual signal processing
 [@LeCun:1989aa], largely inspired by the visual cell types of the feline visual cortex
 [@Hubel:1962aa].  Historical neural networks are differentiated from their modern progeny
-by the deep, or "hidden," layering that characterizes current architectures and is the reason for the
-extreme performance gains seen in the contemporary literature.  The training of such architectures is
-made computationally tractable with gradient-based optimization using backpropagation
-(first performed in [@LeCun:1989aa]) and the advent of GPU-based hardware [@LeCun:2015aa].
-Uptake by both industry and academia alike is further facilitated through the various
-neural network open-source software platforms (e.g., Tensorflow [@tensorflow] and Keras [@keras]).
+by the deep, or "hidden," layering that characterizes current architectures and is one of the
+principal reasons for the
+extreme performance gains seen in the contemporary literature.  The training of modern architectures is
+made computationally tractable with innovations such as gradient-based optimization using backpropagation
+(first performed in [@LeCun:1989aa]) and advances in hardware [@LeCun:2015aa].
+Uptake by both industry and academia alike is further facilitated through various
+neural network open-source platforms (e.g., Tensorflow [@tensorflow] and Keras [@keras]).
 
 A key event in the widespread adoption of CNNs was the 2012
 ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
@@ -40,7 +41,8 @@ ResNet [@He:2015] with performance ultimately exceeding human performance in 201
 (e.g., NeurIPS[^0]) and community-based platforms, such as Kaggle[^1], continue to highlight
 the utility of CNNs as comprehensive approaches to computer vision problems.  This is in addition
 to the sheer number of formal research reports discussed in the same conferences, published
-in dedicated journals and hosted on online technical repositories.  Notable reviews by key figures in the field include those of
+in dedicated journals and hosted in online technical repositories.  Notable reviews
+by key figures in the field include those of
 Yann LeCun, Yoshua Bengio, Geoffrey Hinton [@LeCun:2015aa], and Jürgen Schmidhuber
 [@Schmidhuber:2015aa].
 
@@ -56,17 +58,17 @@ tasks providing the majority of use cases (e.g., lung nodule classification
 [@Lo:1992aa;@Lo:1993aa] and breast tissue differentiation [@Chan:1995aa;@Sahiner:1996aa]).
 Despite the early adoption by certain research groups, widespread uptake did not occur
 until much later.  Several deep learning overviews specific to medical imaging
-have been presented in the recent research literature
+have been presented in the recent literature
 
 * in editorial form [@Greenspan:2016aa];
 
 * specific to generative adverserial networks (GANs) [@Yi:2018aa];
 
-* focusing on MRI [@Mazurowski:2018aa] and specific to neuro applications [@Bernal:2018aa];
+* related to MRI [@Mazurowski:2018aa] with specific focus on neuro applications [@Bernal:2018aa];
 
 * for issues related to radiation therapy [@Sahiner:2018aa];
 
-* concentrating on applications [@Ker:2018aa]; and
+* surveying various medical imaging applications [@Ker:2018aa]; and
 
 * as general reviews [@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Anwar:2018aa;@Biswas:2019aa;@Altaf:2019aa].
 
@@ -101,30 +103,3 @@ to deep learning image registration categorized in terms of these basic
 architectural components.  Finally, we briefly editorialize concerning
 the present and continued future confluence of deep learning and image registration.
 
-
-<!--
-
-* Early work in medical image registration with the GPU focused on interfacing wiht the
-hardware directly [@Shams:2010aa;@Modat:2010aa].  One of the review papers listed this as well.
-
-
-
-* Brief history of deep learning.  Cite the various review articles.
-
-* Available resources
-
-    * The usual packages (tensorflow, theano, Caffe, Lasagne, Flux (Julia), Keras (python and R))
-
-    * NiftyNet
-
-    * ANTsRNet
-
-    * Countless repositories of individual implementations
-
-* Brief history of image registration
-
-* Structure of the review
-
-    * Discussion --- what are some of the challengs specific to image registration?
-
--->

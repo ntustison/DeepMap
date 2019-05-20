@@ -7,12 +7,12 @@ for estimation of 2-D/3-D rigid image alignment of
 corresponding 2-D digitally reconstructed (DRR) X-ray images.
 The transformation space is partitioned into distinct zones where each
 zone corresponds to a CNN-based regressor which learns transformation
-parameters in an hierarchical fashion.  The loss function is the
+parameters in a hierarchical fashion.  The loss function is the
 means squares error on the transformation parameters.
 
 A novel deep learning perspective is given in [@Sheikhjafari:2018aa] where
-displacement fields are assumed to form low dimensional manifolds and
-represented in the proposed fully connected network as low dimensional
+displacement fields are assumed to form low-dimensional manifolds and
+are represented in the proposed fully connected network as low-dimensional
 vectors.  From the input vector, the network generates a
 2-D displacement field used to warp the moving image using bilinear
 interpolation.  The absolute intensity difference is used to optimize

@@ -4,7 +4,7 @@
 In order to constrain the mapping between moving and fixed images,
 the GAN-based approach outlined in [@Mahapatra:2018aa] combines
 a content loss term (which includes subterms for normalized mutual
-information, structural similarity [@Wang:2004aa], and a VGG-based
+information, structural similarity [@Wang:2004aa] and a VGG-based
 filter feature L2-norm between the two images) with a "cyclical" adverserial
 loss.  This is constructed in the style
 of [@Zhu:2017aa] who proposed this GAN extension, viz., CycleGAN,

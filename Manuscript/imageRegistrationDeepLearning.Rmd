@@ -19,10 +19,7 @@ image pairs.  We then review two channel approaches in which fixed and moving im
 are concatenated channelwise in the input layer.  This segues to
 methods involving the related siamese and pseudo-siamese architectures.  The final
 category concerns those adverserial approaches employing GANs.  Other methods which
-do not fit in any of the above categories are also discussed.  Each method is listed
-in Table 1 with a graphical summary provided in Figure \ref{fig:overview}.
-
-\input{methodsTable.tex}
+do not fit in any of the above categories are also discussed.
 
 
 

@@ -14,10 +14,12 @@ methodological advancements.
 
 The recent resurgence of deep learning and, in particular, its CNN-based applications in medical
 imaging appears to be of paradigmatic significance.  The ability to train networks to perform
-complicated tasks efficiently without the need of hand-tailoring image features has disrupted
-the current research landscape as evidenced by deep learning representation in conference
+complicated tasks efficiently without the need of hand-tailoring image features has positively
+disrupted the current research landscape as evidenced by deep learning representation in conference
 presentations and manuscripts.  This significance appears to extend to the
 domain of image registration, although it is still too early to determine the precise nature of this impact.
+
+## Improving evaluation
 
 Concrete advancement in other domains of machine learning has been driven by definitive,
 public evaluation challenges.  In contrast, the field of medical image registration has
@@ -37,9 +39,11 @@ necessary at all.  Indeed, augmentation strategies used when training segmentati
 typically *add* transformation-based variability into datasets.  This is the inverse of
 how transformations are typically employed in the more traditional biomedical image analysis paradigm.
 
+## Rethinking methodological reporting
+
 An additional, related challenge to assessing the literature of biomedical image
 registration is that the majority of technical papers do not report enough methodological
-detail to enable readers to understand why performance differences exist.  In the
+detail to enable readers' understanding of performance differences.  In the
 context of public challenges hosted by Kaggle, participants work off of common baseline
 datasets, share all code as a prerequisite to involvement and are evaluated against
 hidden datasets provided by challenge organizers.  Data, preprocessing, networks,
@@ -59,6 +63,7 @@ differences attributable to changes in network architecture.  This finding, the 
 approach and the reporting methods in this paper should be kept in mind when researchers
 and reviewers are considering new methodological efforts.
 
+## Tailoring deep learning tools for medical imaging
 
 An additional challenge is the relatively immature state of medical imaging focused
 deep learning software frameworks.  For instance, many Tensorflow layers that work
