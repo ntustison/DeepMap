@@ -1,0 +1,57 @@
+
+# Background
+
+## Image registration and loss functions
+
+\textcolor{blue}{
+Given two images, denoted by $I$ and $J$, pairwise image registration is
+the process of establishing spatial correspondence, or a transformation $T$,
+between the two domain representations.  Such transformations are frequently
+generated through the optimization of an objective function, $E(I, J, T)$,
+typically of the form:}
+
+\begin{equation}
+\label{eq:E}
+E(I, J, T) = \mathcal{S}(I, J \circ T) + \mathcal{R}( T )
+\end{equation}
+
+\textcolor{blue}{
+where $T$ represents the spatial transformation between ``fixed'' (or ``source'')
+image $I$ and ``moving'' (or ``target'') image $J$, $\mathcal{S}$ corresponds to a similarity measure
+between the fixed and warped moving images, and $\mathcal{R}$ denotes a
+regularization term quantifying certain constraints on transformation
+flexibility.  Image registration, as a field of methodological development, can be largely
+characterized as a thorough exploration of various aspects of this functional
+relationship.}
+
+\textcolor{blue}{
+Casting the optimization function described by Equation (\ref{eq:E}) within a deep learning
+paradigm is fairly straightforward with the so-called deep learning ``loss function'' often
+comprising similar terms as more traditional formulations.  For example,
+the following are a sampling of common similarity measures which have a long history
+within the community}
+[@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Sotiras:2013aa;@Viergever:2016aa;@Keszei:2017aa]:
+
+* \textcolor{blue}{Normalized cross correlation (NCC):  $1 - \Big\langle  \frac{I - \mu_I}{ \| I - \mu_I \|_2}, \frac{J - \mu_J}{ \| J - \mu_J \|_2}  \Big\rangle$},
+* \textcolor{blue}{L1 or photometric difference: $\| I - J \|$},
+* \textcolor{blue}{Mean squared intensity error (MSQ): $\| I - J \|^2$},
+* \textcolor{blue}{Normalized mutual information (NMI)} [@Rueckert:1999aa;@Pluim:2003aa]\textcolor{blue}{: $\frac{H(I) + H(J)}{H(I,J)}$ where $H$ is the Shannon Entropy},
+* \textcolor{blue}{Structural similarity index (SSIM)} [@Wang:2004aa]\textcolor{blue}{:  $\frac{(2\mu_I\mu_J + c_1)(2\sigma_{IJ} + c_2)}{(\mu_I^2 + \mu_J^2 + c_1)(\sigma_I^2 + \sigma_J^2 + c_2)}$}, and
+* \textcolor{blue}{Local cross correlation (LCC)} [@Avants:2011aa]\textcolor{blue}{: $\frac{\sum_{x_i \in \mathcal{N}} \left( \left( I(x_i) - \mu_{I(x)} \right) \left( J(x_i) - \mu_{J(x)} \right) \right)^2}{\sum_{x_i \in \mathcal{N}} \left( I(x_i) - \mu_{I(x)} \right)^2 \sum_{x_i \in \mathcal{N}} \left( J(x_i) - \mu_{J(x)} \right)^2}$}, and
+* \textcolor{blue}{Dice label overlap} [@Crum:2006aa]\textcolor{blue}{: $\frac{\sum_l| I_l \cap J_l|}{\sum_l| I_l \cup J_l|}$}.
+
+\textcolor{blue}{
+and continue to be relevant as loss functions with current deep learning trends (see Table 1).  This is in
+addition to the incorporation of common explicit regularization terms derived from physical or geometric
+modeling.
+}
+
+\textcolor{blue}{
+Deep learning also provides opportunities for new perspectives with possibilities of
+training on loss functions that penalize deviations from the ``true'' transformations
+contained within the training data.   This includes possibilities ranging from
+the L1-norm on the set of quaternary points defining a homology to the L2-norm of
+the true and predicted vectors defining a dense displacement field.  There is also
+significant potential for leveraging the learned feature maps generated within the
+network architectures for optimizing these spatial transforms.
+}

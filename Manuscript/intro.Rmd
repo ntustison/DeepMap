@@ -8,7 +8,7 @@ high quality transformational mappings that have significantly improved performa
 processing tasks (e.g., image segmentation via joint label fusion [@Iglesias:2015aa])
 and imaging-based statistical analysis involving template-based normalization
 (e.g., voxel-based morphometry [@Ashburner:2000aa] and sparse canonical correlation analysis [@Avants:2010aa]).  Several reviews
-[@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Viergever:2016aa;@Keszei:2017aa]
+[@Brown:1992;@Maintz:1998aa;@Pluim:2003aa;@Gholipour:2007aa;@Sotiras:2013aa;@Viergever:2016aa;@Keszei:2017aa]
 have charted this chronology and provided insight into related issues such as algorithmic
 classification, available implementations, evaluation strategies and speculation
 concerning possible future directions of the field.  While prescient in many respects,
@@ -87,7 +87,8 @@ Although variations of the traditional random forest scheme continued to be well
 in the 2014 Challenge, CNN-based image segmentation algorithms made an appearance [@brats2014].
 By 2018, CNN-based pipelines were, by far, the most common [@brats2018]
 with specific preference being that of the U-net architecture [@Ronneberger:2015aa;@Falk:2019aa]
-which, as we describe below, features prominently in image registration.
+which, as we describe below, features prominently in deep learning-based
+image registration.
 
 Conspicuously, coverage of the topic of deep learning-based image registration,
 relative to the related algorithmic categories of image classification and segmentation,
@@ -96,10 +97,20 @@ the broader research literature.  This disparity seems to be similarly
 reflected in the quantity of published research for those respective categories
 [@Litjens:2017aa;@Yi:2018aa].  This review is meant to address this disparity and
 thus provide an overview of the current state-of-the-art of this burgeoning
-subfield. We first provide a description of key network components that are
-crucial to certain image registration architectures, or perhaps which might
-find utility in future architectures.  Second, we discuss current approaches
-to deep learning image registration categorized in terms of these basic
-architectural components.  Finally, we briefly editorialize concerning
-the present and continued future confluence of deep learning and image registration.
+subfield.
+
+\textcolor{blue}{
+Given the prospective readership of this review, we only briefly sketch
+background material traditionally associated with image registration.
+This permits a follow-up introduction to generic differences (traditional
+vs. deep learning) including supervised vs. unsupervised optimization
+and various key network elements
+that characterize certain deep learning-based image registration architectures
+and which might be less familiar to the reader.  Within this
+subsection, we also include additional network innovations which might
+find utility in future architectures.  Based on these considerations
+of readership and topical familiarity, we organize discussion of current
+techniques based on an architectural classification (versus a more traditional categorization
+based on, for example, similarity metric).  Finally, we briefly editorialize concerning
+the present and continued future confluence of deep learning and image registration.}
 

@@ -1,12 +1,12 @@
 
-# Background on relevant network architectures
+## Relevant network architectures
 
 Considering the separate developmental histories and resulting distinct technical vocabularies
 for both image registration and deep learning, providing a sufficiently complete background
-necessary for an understanding of both fields is beyond the scope of this review.  We simply
-defer the interested reader to the respective reviews cited earlier in the Introduction.
+necessary for an understanding of both fields is beyond the scope of this review.  We
+refer the interested reader to the respective reviews cited earlier in the Introduction.
 However, considering the venue of this discussion
-and the motivation which prompted this review, we provide greater context with respect to
+and the motivation which prompted this review, we emphasize
 the deep learning aspect.  Therefore, prior to describing the various image registration
 algorithms that have been recently proposed in the literature which incorporate elements
 of deep learning, we first describe some basic architectural components specifically
@@ -22,9 +22,10 @@ relevant to such discussion which include:
 
 * diffeomorphic transformer networks [@Detlefsen:2018aa],
 
-* CoordConv [@Liu:2018aa], and
+* generative adverserial networks [@Goodfellow:2014aa], and
 
-* generative adverserial networks [@Goodfellow:2014aa].
+* CoordConv [@Liu:2018aa].
+
 
 \textcolor{blue}{Although not exhaustive, many of these core networks feature prominently
 in the research reviewed below.  Other networks and/or network components
@@ -33,7 +34,7 @@ For additional information}, we refer the interested
 reader to the deep learning reviews cited earlier in addition to pertinent textbooks (e.g.,
 [@Goodfellow:2016aa]).
 
-## Convolutional neural networks
+### Convolutional neural networks
 
 \begin{figure}[!htb]
 \centering
@@ -72,7 +73,7 @@ recent extensions to CNNs include deformable convolutional networks [@Dai:2017aa
 which permit sampling at non-grid locations dictated by trainable transformation parameters
 internal to the CNNs themselves.
 
-## Siamese, pseudo-siamese and two-channel networks
+### Siamese, pseudo-siamese and two-channel networks
 
 \begin{figure}[!htb]
 \centering
@@ -112,7 +113,7 @@ in the input layer of the network.  This two channel network is
 reportedly fast to train but can be more computationally burdensome
 for testing.
 
-## U-net
+### U-net
 
 An innovative extension to early CNN architectures
 is the fully convolutional network (FCN) described in [@Long:2015aa] in the
@@ -135,7 +136,7 @@ its ability to project learned (i.e., encoded) feature vectors back into input
 space makes it suitable for learning registration-related data structures such
 as dense displacement fields.
 
-## Spatial transformer networks
+### Spatial transformer networks
 
 \begin{figure}[!htb]
 \centering
@@ -193,7 +194,7 @@ propagating warped input feature maps until the final transformation layer and
 compositions in the spirt of the inverse compositional Lucas-Kanade algorithm [@Baker2004].
 
 
-## Deep diffeomorphic transformer networks
+### Deep diffeomorphic transformer networks
 
 Although discussion of transform generalizability was included in the original STN paper
 [@Jaderberg:2015aa], discussion was limited to affine, attention (scaling + translation)
@@ -216,26 +217,7 @@ transforms due to speed considerations.
 
 [^P1]: https://github.com/SkafteNicki/ddtn
 
-## Enhancing CNNs with CoordConv
-
-Although not discussed, let alone used, in any of the papers reviewed below, the insight provided
-in [@Liu:2018aa] deserves consideration due to the subject matter of encoding spatial coordinates
-in CNN layers and its relevance to image registration.  The authors describe a perplexing issue
-encountered during the course of their research.
-Reducing the core issue to toy examples, the authors demonstrate that training CNNs to
-regress cartesian coordinates from sparse, feature map pixel encodings
-(and vice versa) is highly problematic for conventional CNNs.  In order to remedy this
-deficiency, the authors propose _CoordConv_ which involves the modification
-of the conventional CNN layer with the concatenation of additional coordinate channels
-to the input.  By explicitly encoding spatial information at each grid point in the
-input layer of the CNN, the authors improve performance not only in the toy examples
-but also in detection with the MNIST data set and in reinforcement learning scenarios
-involving video game play.  Although not explicitly tested in the image registration
-problem domain, it is possible that such straightforward modifications to
-current architectures would substantially improve performance.
-
-
-## Generative adverserial networks
+### Generative adverserial networks
 
 <!--
 According to Yann LeCun (in 2016), "adverserial training is the coolest thing
@@ -269,3 +251,24 @@ included architectural modifications for improved stability in training
 which have since become standard (e.g., deep convolutional GANs [@Radford:2016aa]).
 
 [^P3]: https://github.com/hindupuravinash/the-gan-zoo
+
+### Enhancing CNNs with CoordConv
+
+Although not discussed, let alone used, in any of the papers reviewed below, the insight provided
+in [@Liu:2018aa] deserves consideration due to the subject matter of encoding spatial coordinates
+in CNN layers and its relevance to image registration.  The authors describe a perplexing issue
+encountered during the course of their research.
+Reducing the core issue to toy examples, the authors demonstrate that training CNNs to
+regress cartesian coordinates from sparse, feature map pixel encodings
+(and vice versa) is highly problematic for conventional CNNs.  In order to remedy this
+deficiency, the authors propose _CoordConv_ which involves the modification
+of the conventional CNN layer with the concatenation of additional coordinate channels
+to the input.  By explicitly encoding spatial information at each grid point in the
+input layer of the CNN, the authors improve performance not only in the toy examples
+but also in detection with the MNIST data set and in reinforcement learning scenarios
+involving video game play.  Although not explicitly tested in the image registration
+problem domain, it is possible that such straightforward modifications to
+current architectures would substantially improve performance.
+
+
+\input{methodsTable.tex}

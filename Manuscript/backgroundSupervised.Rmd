@@ -1,0 +1,41 @@
+
+## Supervised vs. unsupervised image registration
+
+\textcolor{blue}{
+The distinction between supervised and unsupervised methods is particularly
+salient within the deep learning community, the former characterized by
+training data that contains both inputs and desired outputs which is lacking
+in the latter.  Traditional image registration can be generally viewed as an
+unsupervised perspective of transform optimization with deep learning expanding
+possibilities to include both supervised and unsupervised learning of spatial
+correspondence.  Both are represented in the proposed techniques surveyed below.
+}
+
+\textcolor{blue}{
+Supervised image registration within the context of deep learning entails the
+employment of sufficiently large training data sets of input fixed and moving
+image pairs with their corresponding transformations.  These data are used to
+train a designated network to learn those transformation parameters based on
+features discovered through the training process.  The loss function
+quantifies the discrepancy between the predicted and input transformation
+parameters.  Possibilities for obtaining the desired transformations used in the
+training data include output from traditional image registration algorithms as well as
+synthetically derived data sets.
+}
+
+\textcolor{blue}{
+Unsupervised deep learning-based approaches are more closely related to their traditional
+analogs in that they lack of the use of input transformation data.  Optimization
+is driven via loss functions which incorporate intensity-based similarity quantification
+in learning the correspondence between the fixed and moving images.  This is
+conceptually analogous to the classic neural network example of unsupervised
+learning---the autoencoder (cf
+}[@Hinton:1993aa])\textcolor{blue}{
+---where differences between the
+input and the network-generated predicted version of the input are used to learn
+latent features characterizing the data.  In the case of unsupervised image registration,
+the optimal transformation is that which maximizes the similarity (as determined by
+the user-selected similarity loss function) between the input, specifically the
+fixed image, and the network-generated predicted version of the input, specifically
+the warped moving image as determined by the concomitantly derived transform.
+}

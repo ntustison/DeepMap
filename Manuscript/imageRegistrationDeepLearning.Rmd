@@ -1,19 +1,21 @@
 
+
 # Image registration with deep learning
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/overview.pdf}
-\caption{\textcolor{red}{(Need to recompile.)}Graphical overview of the works reviewed including (a) publications per year, (b)
+\caption{\textcolor{red}{(Need to recompile.)} Graphical overview of the works reviewed including (a) publications per year, (b)
          choice of neural network API, (c) anatomy (where applicable) and (d) publishing
         venue.
         }
 \label{fig:overview}
 \end{figure}
 
-The following overview of deep learning image registration methods is loosely categorized
-based on the discussion of network architectures given in the previous section.
-Specifically, we first discuss early work in which transformations were derived
+The following overview of deep learning image registration methods is categorized
+based on the discussion of network architectures given in the previous section
+with subgranularity provided in terms of loss function.
+We first discuss early work in which transformations were derived
 from CNN-based identification and localization of corresponding features in
 image pairs.  We then review two channel approaches in which fixed and moving images
 are concatenated channelwise in the input layer.  This segues to
