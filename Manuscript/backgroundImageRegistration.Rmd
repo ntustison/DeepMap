@@ -5,7 +5,7 @@
 
 \textcolor{blue}{
 Given two images, denoted by $I$ and $J$, pairwise image registration is
-the process of establishing spatial correspondence, or a transformation $T$,
+the process of establishing spatial correspondence
 between the two domain representations.  Such transformations are frequently
 generated through the optimization of an objective function, $E(I, J, T)$,
 typically of the form:}
@@ -43,12 +43,12 @@ within the community}
 \textcolor{blue}{
 and continue to be relevant as loss functions with current deep learning trends (see Table 1).  This is in
 addition to the incorporation of common explicit regularization terms derived from physical or geometric
-modeling.
+models.
 }
 
 \textcolor{blue}{
-Deep learning also provides opportunities for new perspectives with possibilities of
-training on loss functions that penalize deviations from the ``true'' transformations
+Deep learning also provides opportunities for new perspectives such as
+training on loss functions which penalize deviations from the ``true'' transformations
 contained within the training data.   This includes possibilities ranging from
 the L1-norm on the set of quaternary points defining a homology to the L2-norm of
 the true and predicted vectors defining a dense displacement field.  There is also

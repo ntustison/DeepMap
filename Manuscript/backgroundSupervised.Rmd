@@ -6,7 +6,7 @@ The distinction between supervised and unsupervised methods is particularly
 salient within the deep learning community, the former characterized by
 training data that contains both inputs and desired outputs which is lacking
 in the latter.  Traditional image registration can be generally viewed as an
-unsupervised perspective of transform optimization with deep learning expanding
+unsupervised approach to transform optimization with deep learning expanding
 possibilities to include both supervised and unsupervised learning of spatial
 correspondence.  Both are represented in the proposed techniques surveyed below.
 }

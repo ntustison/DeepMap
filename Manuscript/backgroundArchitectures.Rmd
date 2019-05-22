@@ -1,13 +1,17 @@
 
 ## Relevant network architectures
 
+<!--
 Considering the separate developmental histories and resulting distinct technical vocabularies
 for both image registration and deep learning, providing a sufficiently complete background
 necessary for an understanding of both fields is beyond the scope of this review.  We
 refer the interested reader to the respective reviews cited earlier in the Introduction.
 However, considering the venue of this discussion
 and the motivation which prompted this review, we emphasize
-the deep learning aspect.  Therefore, prior to describing the various image registration
+the deep learning aspect.
+-->
+
+Prior to describing the various image registration
 algorithms that have been recently proposed in the literature which incorporate elements
 of deep learning, we first describe some basic architectural components specifically
 relevant to such discussion which include:
@@ -55,7 +59,7 @@ perfectly suited to CNN-based training.  The major elements of CNNs are
 localized convolutions, connections and pooling [@LeCun:2015aa].
 As indicated by nomenclature, the distinguishing characteristic
 of CNNs is the use of convolution instead of matrix operations in one or more of its constituent
-layers [@Goodfellow:2016aa] where the output are feature maps.  These feature maps are typically
+layers where the output are feature maps.  These feature maps are typically
 generated in a hierarchical fashion synthesizing simple
 geometric features at the base convolutional layers (lines, corners, etc.) and progressing to more
 abstract features at the apical layers.
@@ -86,6 +90,7 @@ internal to the CNNs themselves.
 \label{fig:siamese}
 \end{figure}
 
+<!--
 Any discussion of the evolution of image registration as a field would
 be incomplete without mention of the various similarity measures
 which have been proposed over the years (e.g., mutual information
@@ -96,6 +101,7 @@ possibilities involving generating similarity functions
 using the input data without resorting to basic statistical relationships
 between voxels and, possibly, their surrounding neighborhoods or
 explicitly designed features such as SIFT [@Lowe2004].
+-->
 
 Zagoruyko et al. thoroughly discuss architectural categorization for directly
 learning similarity functions from images (and patches) via CNNs
@@ -111,7 +117,7 @@ siamese and pseudo-siamese configurations, a perhaps more basic
 architecture involves arrangement of the image pair as two channels
 in the input layer of the network.  This two channel network is
 reportedly fast to train but can be more computationally burdensome
-for testing.
+for testing [@Zagoruyko:2015aa].
 
 ### U-net
 
@@ -228,9 +234,8 @@ since slice bread" and "the most interesting idea in the last 10 years in
 -->
 
 Goodfellow and colleagues introduced generative
-adverserial networks (GANs) in 2014 [@Goodfellow:2014aa] which immediately demonstrated
-significant potential for generative modeling.  Since their introduction,
-GANs have increasingly found traction in addressing many types of deep learning
+adverserial networks (GANs) in 2014 [@Goodfellow:2014aa] and
+have increasingly found traction in addressing many types of deep learning
 problems in the medical imaging domain [@Yi:2018aa] including image registration.
 GANs are a special type of network composed of two adverserial subnetworks
 known as the _generator_ (usually characterized by deconvolutional layers)

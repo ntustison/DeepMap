@@ -39,9 +39,9 @@ A related idea is developed in [@Hu:2018aa] which
 uses labeled data and intensity information during the training phase such
 that only unlabeled image data is required for prediction.  The latter architecture
 is a densely connected U-net architecture with three types of residual
-shortcuts [@He:2015].  The authors also use a
-multiscale Dice function with an explicit regularization term in the loss
-function for estimating both global and local transformations.
+shortcuts [@He:2015].  For the loss function, the authors use a
+multiscale Dice function with an explicit regularization term
+for estimating both global and local transformations.
 
 \textcolor{blue}{The unsupervised approach described in} [@deVos:2019aa]\textcolor{blue}{,
 denoted as {\it Deep Learning Image Registration}} \textcolor{blue}{({\it DLIR})},
@@ -57,12 +57,12 @@ a 2-D approach for unsupervised medical image registration which also exploits a
 layer within the previously proposed FlowNet architecture [@Dosovitskiy:2015aa]
 (discussed in the next section).  An explicit penalty on the displacement field
 gradient promotes smoothing which is combined with an L1 photometric intensity
-error for the combined loss function.
+error for the loss function.
 
 ### Probabilistic generative models
 
-_Voxelmorph_ was first introduced in [@Balakrishnan:2018aa] which incorporates
-a U-net architecture with a STN.  The input layer
+_Voxelmorph_ was first introduced in [@Balakrishnan:2018aa].  This method incorporates
+a U-net architecture with a STN where the input layer
 consists of the concatenated full fixed and moving image volumes resized
 and cropped to $160 \times 192 \times 224$ voxels. The output consists of the voxelwise
 displacement field of the same size as the input (times three---one for each vector
@@ -89,5 +89,5 @@ additional information for latent inference modeling.  This multi-scale
 generative framework encodes the SVFs which are ultimately
 converted to the total transformation field in a similar fashion as} [@Dalca:2018aa].
 \textcolor{blue}{A comparison with
-LCC-Demons} [@Lorenzi:2013aa]\textcolor{blue}{
+LCC-Demons} [@Lorenzi:2013aa] \textcolor{blue}{
 and Voxelmorph} [@Dalca:2018aa] \textcolor{blue}{is performed.}

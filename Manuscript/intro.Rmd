@@ -35,7 +35,7 @@ A key event in the widespread adoption of CNNs was the 2012
 ImageNet Large Scale Visual Recognition Challenge for object classification [@Russakovsky:2015aa].
 The winning entry, a CNN-based architecture colloquially known as *AlexNet* [@Krizhevsky:2012],
 reduced the error rate by almost half over other entries.  Subsequent years' competitions were
-dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015], and
+dominated by CNN variants such as VGG [@Simonyan:2014], GoogLeNet [@Szegedy:2015] and
 ResNet [@He:2015] with performance ultimately exceeding human performance in 2015
 [@He:2015ab].  Additional competition outlets, including conference-based venues
 (e.g., NeurIPS[^0]) and community-based platforms, such as Kaggle[^1], continue to highlight
@@ -60,19 +60,19 @@ Despite the early adoption by certain research groups, widespread uptake did not
 until much later.  Several deep learning overviews specific to medical imaging
 have been presented in the recent literature
 
-* in editorial form [@Greenspan:2016aa];
+* in editorial form [@Greenspan:2016aa],
 
-* specific to generative adverserial networks (GANs) [@Yi:2018aa];
+* specific to generative adverserial networks (GANs) [@Yi:2018aa],
 
-* related to MRI [@Mazurowski:2018aa] with specific focus on neuro applications [@Bernal:2018aa];
+* related to MRI [@Mazurowski:2018aa] with specific focus on neuro applications [@Bernal:2018aa],
 
-* for issues related to radiation therapy [@Sahiner:2018aa];
+* for issues related to radiation therapy [@Sahiner:2018aa],
 
-* surveying various medical imaging applications [@Ker:2018aa]; and
+* surveying various medical imaging applications [@Ker:2018aa], and
 
 * as general reviews [@Suzuki:2017aa;@Shen:2017aa;@Litjens:2017aa;@Anwar:2018aa;@Biswas:2019aa;@Altaf:2019aa].
 
-Despite the thorough treatment contained in these reviews, discussion of chronological
+Despite the thorough treatment of the topic contained in these reviews, discussion of chronological
 adoption within the community is limited.  Regardless,
 one can informally gauge this evolution from utilization of alternative
 machine learning techniques to predominately CNN-based approaches from the various
@@ -105,8 +105,8 @@ background material traditionally associated with image registration.
 This permits a follow-up introduction to generic differences (traditional
 vs. deep learning) including supervised vs. unsupervised optimization
 and various key network elements
-that characterize certain deep learning-based image registration architectures
-and which might be less familiar to the reader.  Within this
+that characterize certain deep learning-based image registration architectures.
+Within this
 subsection, we also include additional network innovations which might
 find utility in future architectures.  Based on these considerations
 of readership and topical familiarity, we organize discussion of current

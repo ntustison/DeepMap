@@ -5,7 +5,7 @@ Much of the early work incorporating deep learning into solving image
 registration problems involved the detection of corresponding features
 and then using that information to determine the correspondence relationship
 between spatial domains.  For example, at the start of the
-current era of deep learning in image-related research, [@Sergeev:2012aa]
+current era of deep learning in image-related research, the authors of [@Sergeev:2012aa]
 proposed point correspondence detection using multiple feed-forward neural
 networks each of which is trained to detect a single feature.  These
 neural networks are relatively simple consisting of two hidden layers each
