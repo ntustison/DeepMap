@@ -12,10 +12,12 @@ deepMapBrief <- read.csv( "./DeepMapBrief.csv" )
 yearPlot <- ggplot( deepMapBrief, aes( YearPublished ) ) +
   geom_bar( aes( fill = factor( YearPublished ) ) ) +
   ggtitle( "Publications per year" ) +
+  scale_x_continuous( "Year", breaks = seq( 2012, 2019, by = 1 ), labels = seq( 2012, 2019, by = 1 ) ) +
   scale_y_continuous( "Count", breaks = seq( 0, 12, by = 2 ), labels = seq( 0, 12, by = 2 ) ) +
   scale_fill_brewer( palette = "Spectral" ) +
-  theme_wsj( color = "white" ) +
-  theme( legend.position = "none" )
+  theme_wsj( color = "white" )  +
+  theme( legend.position = "none",
+         axis.text.x = element_text( angle = 45, hjust = 1 ) )
 
 ggsave( yearPlot, filename = paste0( './Figures/yearPlot.pdf' ),
   width = 6, height = 8, units = 'in' )

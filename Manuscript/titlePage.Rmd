@@ -6,13 +6,13 @@
 
 $ $
 
-\vspace{2.0 cm}
+\vspace{5.5 cm}
 
 \LARGE
 
 {\bf Learning image-based \textcolor{blue}{spatial} transformations via convolutional neural networks:  a review}
 
-\vspace{3.0 cm}
+\vspace{2.0 cm}
 
 \normalsize
 
@@ -34,13 +34,11 @@ $^2$Department of Radiology, University of Pennsylvania, Philadelphia, PA
 
 \small
 
+\noindent\rule{4cm}{0.4pt}
+
 Corresponding author: \
 Nicholas J. Tustison \
 ntustison@virginia.edu
-
-<!--
-\noindent\rule{4cm}{0.4pt}
- -->
 
 \newpage
 

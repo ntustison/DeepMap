@@ -1,6 +1,9 @@
 ---
 output:
   pdf_document:
+    pandoc_args: [
+          "-V", "classoption=onecolumn"
+        ]
     fig_caption: true
     latex_engine: xelatex
     keep_tex: yes
@@ -25,7 +28,7 @@ header-includes:
    - \usepackage[final]{changes}
    - \usepackage[font={small},labelfont=bf,labelsep=colon]{caption}
    - \usepackage[nodisplayskipstretch]{setspace}
-   - \setstretch{1.5}
+   - \setstretch{1.2}
    - \usepackage{enumitem}
    - \usepackage{tikz}
    - \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
@@ -36,7 +39,7 @@ bibliography:
 csl: national-science-foundation-grant-proposals.csl
 fontsize: 12pt
 mainfont: Georgia
-geometry: margin=1.in
+geometry: margin=1.0in
 ---
 
 ```{r setup, include=FALSE}

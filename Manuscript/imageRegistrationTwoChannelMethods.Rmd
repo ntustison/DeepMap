@@ -43,7 +43,7 @@ shortcuts [@He:2015].  The authors also use a
 multiscale Dice function with an explicit regularization term in the loss
 function for estimating both global and local transformations.
 
-\textcolor{blue}{The unsupervised approach described in} [@Vos:2018aa]\textcolor{blue}{,
+\textcolor{blue}{The unsupervised approach described in} [@deVos:2019aa]\textcolor{blue}{,
 denoted as {\it Deep Learning Image Registration}} \textcolor{blue}{({\it DLIR})},
 \textcolor{blue}{uses NCC to optimize a B-spline transform for 3-D images.  This extension of
 the methodology first described in} [@deVos:2017aa] \textcolor{blue}{ complements a
@@ -88,6 +88,6 @@ extension of the variational autoencoder} [@Kingma:2014aa] \textcolor{blue}{whic
 additional information for latent inference modeling.  This multi-scale
 generative framework encodes the SVFs which are ultimately
 converted to the total transformation field in a similar fashion as} [@Dalca:2018aa].
-\textcolor{blue}{A comparison with ANTs (SyN)} [@Avants:2011aa]\textcolor{blue}{,
-LCC-Demons} [@Lorenzi:2013aa]\textcolor{blue}{,
-and Voxelmorph} [@Dalca:2018aa]\textcolor{blue}{ is also performed.}
+\textcolor{blue}{A comparison with
+LCC-Demons} [@Lorenzi:2013aa]\textcolor{blue}{
+and Voxelmorph} [@Dalca:2018aa] \textcolor{blue}{is performed.}

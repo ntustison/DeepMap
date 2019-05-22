@@ -5,7 +5,7 @@
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.95\textwidth]{Figures/overview.pdf}
-\caption{\textcolor{red}{(Need to recompile.)} Graphical overview of the works reviewed including (a) publications per year, (b)
+\caption{Graphical overview of the works reviewed including (a) publications per year, (b)
          choice of neural network API, (c) anatomy (where applicable) and (d) publishing
         venue.
         }

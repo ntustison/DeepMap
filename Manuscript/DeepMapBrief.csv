@@ -2,8 +2,10 @@ ID,YearPublished,Venue,Dimensionality,Modality,Anatomy,DeepLearningPlatform
 Balakrishnan:2018aa,2018,CVPR,3,T1w,Brain,Keras
 Cao:2017aa,2017,MICCAI,3,CT_MRI,Pelvis,Pytorch
 Dalca:2018aa,2018,MICCAI,3,T1w,Brain,Keras
+Krebs:2018aa,2018,MICCAI,3,MRI,Heart,Keras
 DeTone:2016aa,2016,arxiv,2,NA,NA,Caffe
 deVos:2017aa,2017,DLMIA,2,MRI,Heart,Lasagne
+deVos:2019aa,2019,MedIA,2/3,CT_MRI,Lungs_Heart,Undisclosed
 Dosovitskiy:2015aa,2015,ICCV,2,NA,NA,Caffe
 Eppenhof:2018aa,2018,SPIE,3,CT,Lungs,Undisclosed
 Fan:2018aa,2018,MICCAI,3,T1w,Brain,Caffe

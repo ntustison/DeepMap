@@ -1,12 +1,39 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Nicholas Tustison at 2019-05-21 11:26:44 -0700 
+%% Created for Nicholas Tustison at 2019-05-21 22:20:16 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{deVos:2019aa,
+	Abstract = {Image registration, the process of aligning two or more images, is the core technique of many (semi-)automatic medical image analysis tasks. Recent studies have shown that deep learning methods, notably convolutional neural networks (ConvNets), can be used for image registration. Thus far training of ConvNets for registration was supervised using predefined example registrations. However, obtaining example registrations is not trivial. To circumvent the need for predefined examples, and thereby to increase convenience of training ConvNets for image registration, we propose the Deep Learning Image Registration (DLIR) framework for unsupervised affine and deformable image registration. In the DLIR framework ConvNets are trained for image registration by exploiting image similarity analogous to conventional intensity-based image registration. After a ConvNet has been trained with the DLIR framework, it can be used to register pairs of unseen images in one shot. We propose flexible ConvNets designs for affine image registration and for deformable image registration. By stacking multiple of these ConvNets into a larger architecture, we are able to perform coarse-to-fine image registration. We show for registration of cardiac cine MRI and registration of chest CT that performance of the DLIR framework is comparable to conventional image registration while being several orders of magnitude faster.},
+	Author = {de Vos, Bob D and Berendsen, Floris F and Viergever, Max A and Sokooti, Hessam and Staring, Marius and I{\v s}gum, Ivana},
+	Date-Added = {2019-05-21 15:33:27 -0700},
+	Date-Modified = {2019-05-21 15:33:59 -0700},
+	Doi = {10.1016/j.media.2018.11.010},
+	Journal = {Med Image Anal},
+	Journal-Full = {Medical image analysis},
+	Keywords = {Affine image registration; Cardiac cine MRI; Chest CT; Deep learning; Deformable image registration; Unsupervised learning},
+	Month = {02},
+	Pages = {128-143},
+	Pmid = {30579222},
+	Pst = {ppublish},
+	Title = {A deep learning framework for unsupervised affine and deformable image registration},
+	Volume = {52},
+	Year = {2019},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.media.2018.11.010}}
+
+@inproceedings{Krebs:2018aa,
+	Author = {Julian Krebs and Tommaso Mansi and Boris Mailh{\'{e}} and Nicholas Ayache and Herv{\'{e}} Delingette},
+	Booktitle = {Proceedings of the 4th {I}nternational {W}orkshop, {DLMIA} and 8th {I}nternational {W}orkshop, {ML-CDS}},
+	Date-Added = {2019-05-21 15:03:33 -0700},
+	Date-Modified = {2019-05-21 21:49:58 -0700},
+	Month = {September},
+	Title = {Unsupervised Probabilistic Deformation Modeling for Robust Diffeomorphic Registration},
+	Year = {2018}}
 
 @article{Tustison:2013aa,
 	Author = {Tustison, Nicholas J and Johnson, Hans J and Rohlfing, Torsten and Klein, Arno and Ghosh, Satrajit S and Ibanez, Luis and Avants, Brian B},
@@ -25,16 +52,15 @@
 	Year = {2013},
 	Bdsk-Url-1 = {https://doi.org/10.3389/fnins.2013.00162}}
 
-@incollection{Hinton:1993aa,
+@inproceedings{Hinton:1993aa,
 	Author = {Hinton, Geoffrey E and Richard S. Zemel},
-	Booktitle = {Advances in Neural Information Processing Systems 6},
+	Booktitle = {Advances in {N}eural {I}nformation {P}rocessing {S}ystems},
 	Date-Added = {2019-05-21 10:29:03 -0700},
-	Date-Modified = {2019-05-21 10:29:13 -0700},
+	Date-Modified = {2019-05-21 22:09:38 -0700},
 	Editor = {J. D. Cowan and G. Tesauro and J. Alspector},
 	Pages = {3--10},
 	Publisher = {Morgan-Kaufmann},
-	Title = {Autoencoders, Minimum Description Length and Helmholtz Free Energy},
-	Url = {http://papers.nips.cc/paper/798-autoencoders-minimum-description-length-and-helmholtz-free-energy.pdf},
+	Title = {Autoencoders, Minimum Description Length and {H}elmholtz Free Energy},
 	Year = {1994},
 	Bdsk-Url-1 = {http://papers.nips.cc/paper/798-autoencoders-minimum-description-length-and-helmholtz-free-energy.pdf}}
 
@@ -172,32 +198,31 @@
 
 @inproceedings{Kingma:2014aa,
 	Author = {Diederik P. Kingma and Max Welling},
-	Booktitle = {Proceedings of the 2nd International Conference on Learning Representations (ICLR)},
+	Booktitle = {Proceedings of the 2nd {I}nternational {C}onference on {L}earning {R}epresentations ({ICLR})},
 	Date-Added = {2019-01-15 21:39:27 -0800},
-	Date-Modified = {2019-01-15 21:40:26 -0800},
+	Date-Modified = {2019-05-21 21:47:54 -0700},
 	Title = {Auto-Encoding Variational Bayes},
 	Year = {2014}}
 
 @incollection{Sohn:2015aa,
 	Author = {Sohn, Kihyuk and Lee, Honglak and Yan, Xinchen},
-	Booktitle = {Advances in Neural Information Processing Systems 28},
+	Booktitle = {Advances in {N}eural {I}nformation {P}rocessing {S}ystems 28},
 	Date-Added = {2019-01-15 21:36:21 -0800},
-	Date-Modified = {2019-01-15 21:36:33 -0800},
+	Date-Modified = {2019-05-21 21:48:48 -0700},
 	Editor = {C. Cortes and N. D. Lawrence and D. D. Lee and M. Sugiyama and R. Garnett},
 	Pages = {3483--3491},
 	Publisher = {Curran Associates, Inc.},
 	Title = {Learning Structured Output Representation using Deep Conditional Generative Models},
-	Url = {http://papers.nips.cc/paper/5775-learning-structured-output-representation-using-deep-conditional-generative-models.pdf},
 	Year = {2015},
 	Bdsk-Url-1 = {http://papers.nips.cc/paper/5775-learning-structured-output-representation-using-deep-conditional-generative-models.pdf}}
 
-@article{Krebs:2018aa,
+@article{Krebs:2018ab,
 	Archiveprefix = {arXiv},
 	Author = {Julian Krebs and Tommaso Mansi and Boris Mailh{\'{e}} and Nicholas Ayache and Herv{\'{e}} Delingette},
 	Bibsource = {dblp computer science bibliography, https://dblp.org},
 	Biburl = {https://dblp.org/rec/bib/journals/corr/abs-1804-07172},
 	Date-Added = {2019-01-15 18:54:14 -0800},
-	Date-Modified = {2019-01-15 18:54:22 -0800},
+	Date-Modified = {2019-05-21 15:05:37 -0700},
 	Eprint = {1804.07172},
 	Journal = {CoRR},
 	Timestamp = {Mon, 13 Aug 2018 16:47:37 +0200},
@@ -206,24 +231,6 @@
 	Volume = {abs/1804.07172},
 	Year = {2018},
 	Bdsk-Url-1 = {http://arxiv.org/abs/1804.07172}}
-
-@article{Vos:2018aa,
-	Abstract = {Image registration, the process of aligning two or more images, is the core technique of many (semi-)automatic medical image analysis tasks. Recent studies have shown that deep learning methods, notably convolutional neural networks (ConvNets), can be used for image registration. Thus far training of ConvNets for registration was supervised using predefined example registrations. However, obtaining example registrations is not trivial. To circumvent the need for predefined examples, and thereby to increase convenience of training ConvNets for image registration, we propose the Deep Learning Image Registration (DLIR) framework for unsupervised affine and deformable image registration. In the DLIR framework ConvNets are trained for image registration by exploiting image similarity analogous to conventional intensity-based image registration. After a ConvNet has been trained with the DLIR framework, it can be used to register pairs of unseen images in one shot. We propose flexible ConvNets designs for affine image registration and for deformable image registration. By stacking multiple of these ConvNets into a larger architecture, we are able to perform coarse-to-fine image registration. We show for registration of cardiac cine MRI and registration of chest CT that performance of the DLIR framework is comparable to conventional image registration while being several orders of magnitude faster.},
-	Author = {de Vos, Bob D and Berendsen, Floris F and Viergever, Max A and Sokooti, Hessam and Staring, Marius and I{\v s}gum, Ivana},
-	Date-Added = {2019-01-15 17:40:08 -0800},
-	Date-Modified = {2019-01-15 17:40:08 -0800},
-	Doi = {10.1016/j.media.2018.11.010},
-	Journal = {Med Image Anal},
-	Journal-Full = {Medical image analysis},
-	Keywords = {Affine image registration; Cardiac cine MRI; Chest CT; Deep learning; Deformable image registration; Unsupervised learning},
-	Month = {Dec},
-	Pages = {128-143},
-	Pmid = {30579222},
-	Pst = {aheadofprint},
-	Title = {A deep learning framework for unsupervised affine and deformable image registration},
-	Volume = {52},
-	Year = {2018},
-	Bdsk-Url-1 = {https://doi.org/10.1016/j.media.2018.11.010}}
 
 @article{Tustison:2018aa,
 	Abstract = {RATIONALE AND OBJECTIVES: We propose an automated segmentation pipeline based on deep learning for proton lung MRI segmentation and ventilation-based quantification which improves on our previously reported methodologies in terms of computational efficiency while demonstrating accuracy and robustness. The large data requirement for the proposed framework is made possible by a novel template-based data augmentation strategy. Supporting this work is the open-source ANTsRNet-a growing repository of well-known deep learning architectures first introduced here.
@@ -273,12 +280,12 @@ CONCLUSION: The proposed framework yields accurate automated quantification in n
 	Year = {2018},
 	Bdsk-Url-1 = {http://arxiv.org/abs/1809.03443}}
 
-@article{Arsigny:2006aa,
+@inproceedings{Arsigny:2006aa,
 	Abstract = {In this article, we focus on the computation of statistics of invertible geometrical deformations (i.e., diffeomorphisms), based on the generalization to this type of data of the notion of principal logarithm. Remarkably, this logarithm is a simple 3D vector field, and is well-defined for diffeomorphisms close enough to the identity. This allows to perform vectorial statistics on diffeomorphisms, while preserving the invertibility constraint, contrary to Euclidean statistics on displacement fields. We also present here two efficient algorithms to compute logarithms of diffeomorphisms and exponentials of vector fields, whose accuracy is studied on synthetic data. Finally, we apply these tools to compute the mean of a set of diffeomorphisms, in the context of a registration experiment between an atlas an a database of 9 T1 MR images of the human brain.},
 	Author = {Arsigny, Vincent and Commowick, Olivier and Pennec, Xavier and Ayache, Nicholas},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2019-01-03 21:11:08 -0800},
-	Date-Modified = {2019-01-03 21:11:08 -0800},
-	Journal = {Med Image Comput Comput Assist Interv},
+	Date-Modified = {2019-05-21 21:55:06 -0700},
 	Journal-Full = {Medical image computing and computer-assisted intervention : MICCAI ... International Conference on Medical Image Computing and Computer-Assisted Intervention},
 	Mesh = {Algorithms; Artificial Intelligence; Brain; Computer Simulation; Data Interpretation, Statistical; Humans; Image Enhancement; Image Interpretation, Computer-Assisted; Imaging, Three-Dimensional; Magnetic Resonance Imaging; Models, Neurological; Models, Statistical; Pattern Recognition, Automated; Reproducibility of Results; Sensitivity and Specificity; Subtraction Technique},
 	Number = {Pt 1},
@@ -312,24 +319,23 @@ CONCLUSION: The proposed framework yields accurate automated quantification in n
 	Author = {Harri Valpola},
 	Booktitle = {Advances in Independent Component Analysis and Learning Machines},
 	Date-Added = {2019-01-03 19:34:46 -0800},
-	Date-Modified = {2019-01-03 19:34:58 -0800},
+	Date-Modified = {2019-05-21 22:00:55 -0700},
 	Doi = {https://doi.org/10.1016/B978-0-12-802806-3.00008-7},
 	Editor = {Ella Bingham and Samuel Kaski and Jorma Laaksonen and Jouko Lampinen},
 	Isbn = {978-0-12-802806-3},
 	Keywords = {unsupervised learning, deep learning, ladder network, denoising source separation, denoising autoencoder, invariant features},
 	Pages = {143 - 171},
 	Publisher = {Academic Press},
-	Title = {Chapter 8 - From neural PCA to deep unsupervised learning},
-	Url = {http://www.sciencedirect.com/science/article/pii/B9780128028063000087},
+	Title = {Chapter 8 - From neural {PCA} to deep unsupervised learning},
 	Year = {2015},
 	Bdsk-Url-1 = {http://www.sciencedirect.com/science/article/pii/B9780128028063000087},
 	Bdsk-Url-2 = {https://doi.org/10.1016/B978-0-12-802806-3.00008-7}}
 
 @inproceedings{Long:2015aa,
 	Author = {J. Long and E. Shelhamer and T. Darrell},
-	Booktitle = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+	Booktitle = {Proceedings of the {IEEE} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
 	Date-Added = {2019-01-03 18:18:37 -0800},
-	Date-Modified = {2019-01-03 18:18:47 -0800},
+	Date-Modified = {2019-05-21 22:02:37 -0700},
 	Doi = {10.1109/CVPR.2015.7298965},
 	Issn = {1063-6919},
 	Keywords = {image classification;image segmentation;inference mechanisms;learning (artificial intelligence);fully convolutional networks;semantic segmentation;visual models;pixels-to-pixels;inference;learning;contemporary classification networks;PASCAL VOC;NYUDv2;SIFT flow;Semantics;Training;Convolution;Image segmentation;Computer architecture;Deconvolution;Adaptation models},
@@ -397,7 +403,7 @@ CONCLUSION: The proposed framework yields accurate automated quantification in n
 	Abstract = {In this paper we present a new approach for the nonrigid registration of contrast-enhanced breast MRI. A hierarchical transformation model of the motion of the breast has been developed. The global motion of the breast is modeled by an affine transformation while the local breast motion is described by a free-form deformation (FFD) based on B-splines. Normalized mutual information is used as a voxel-based similarity measure which is insensitive to intensity changes as a result of the contrast enhancement. Registration is achieved by minimizing a cost function, which represents a combination of the cost associated with the smoothness of the transformation and the cost associated with the image similarity. The algorithm has been applied to the fully automated registration of three-dimensional (3-D) breast MRI in volunteers and patients. In particular, we have compared the results of the proposed nonrigid registration algorithm to those obtained using rigid and affine registration techniques. The results clearly indicate that the nonrigid registration algorithm is much better able to recover the motion and deformation of the breast than rigid or affine registration algorithms.},
 	Author = {Rueckert, D and Sonoda, L I and Hayes, C and Hill, D L and Leach, M O and Hawkes, D J},
 	Date-Added = {2019-01-01 19:53:49 -0800},
-	Date-Modified = {2019-01-01 19:53:49 -0800},
+	Date-Modified = {2019-05-21 22:10:38 -0700},
 	Doi = {10.1109/42.796284},
 	Journal = {IEEE Trans Med Imaging},
 	Journal-Full = {IEEE transactions on medical imaging},
@@ -407,7 +413,7 @@ CONCLUSION: The proposed framework yields accurate automated quantification in n
 	Pages = {712-21},
 	Pmid = {10534053},
 	Pst = {ppublish},
-	Title = {Nonrigid registration using free-form deformations: application to breast MR images},
+	Title = {Nonrigid registration using free-form deformations: application to breast {MR} images},
 	Volume = {18},
 	Year = {1999},
 	Bdsk-Url-1 = {https://doi.org/10.1109/42.796284}}
@@ -454,7 +460,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Abstract = {The United States National Institutes of Health (NIH) commit significant support to open-source data and software resources in order to foment reproducibility in the biomedical imaging sciences. Here, we report and evaluate a recent product of this commitment: Advanced Neuroimaging Tools (ANTs), which is approaching its 2.0 release. The ANTs open source software library consists of a suite of state-of-the-art image registration, segmentation and template building tools for quantitative morphometric analysis. In this work, we use ANTs to quantify, for the first time, the impact of similarity metrics on the affine and deformable components of a template-based normalization study. We detail the ANTs implementation of three similarity metrics: squared intensity difference, a new and faster cross-correlation, and voxel-wise mutual information. We then use two-fold cross-validation to compare their performance on openly available, manually labeled, T1-weighted MRI brain image data of 40 subjects (UCLA's LPBA40 dataset). We report evaluation results on cortical and whole brain labels for both the affine and deformable components of the registration. Results indicate that the best ANTs methods are competitive with existing brain extraction results (Jaccard=0.958) and cortical labeling approaches. Mutual information affine mapping combined with cross-correlation diffeomorphic mapping gave the best cortical labeling results (Jaccard=0.669$\pm$0.022). Furthermore, our two-fold cross-validation allows us to quantify the similarity of templates derived from different subgroups. Our open code, data and evaluation scripts set performance benchmark parameters for this state-of-the-art toolkit. This is the first study to use a consistent transformation framework to provide a reproducible evaluation of the isolated effect of the similarity metric on optimal template construction and brain labeling.},
 	Author = {Avants, Brian B and Tustison, Nicholas J and Song, Gang and Cook, Philip A and Klein, Arno and Gee, James C},
 	Date-Added = {2019-01-01 19:50:12 -0800},
-	Date-Modified = {2019-01-01 19:50:12 -0800},
+	Date-Modified = {2019-05-21 22:10:09 -0700},
 	Doi = {10.1016/j.neuroimage.2010.09.025},
 	Journal = {Neuroimage},
 	Journal-Full = {NeuroImage},
@@ -465,7 +471,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Pmc = {PMC3065962},
 	Pmid = {20851191},
 	Pst = {ppublish},
-	Title = {A reproducible evaluation of ANTs similarity metric performance in brain image registration},
+	Title = {A reproducible evaluation of {ANTs} similarity metric performance in brain image registration},
 	Volume = {54},
 	Year = {2011},
 	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.09.025}}
@@ -575,9 +581,9 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 
 @inproceedings{Hu:2018ac,
 	Author = {Yipeng Hu and Eli Gibson and Nooshin Ghavami and Ester Bonmati and Caroline M. Moore and Mark Emberton and Tom Vercauteren and J. Alison Noble and Dean C. Barratt},
-	Booktitle = {Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-12-31 11:11:57 -0800},
-	Date-Modified = {2018-12-31 11:13:12 -0800},
+	Date-Modified = {2019-05-21 21:33:19 -0700},
 	Title = {Adversarial Deformation Regularization for Training Image Registration Neural Networks},
 	Year = {2018}}
 
@@ -600,41 +606,41 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 
 @inproceedings{Radford:2016aa,
 	Author = {Alec Radford and Luke Metz and Soumith Chintala},
-	Booktitle = {Proceedings of the International Conference on Learning Representations},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {L}earning {R}epresentations},
 	Date-Added = {2018-12-31 10:48:32 -0800},
-	Date-Modified = {2018-12-31 10:54:10 -0800},
+	Date-Modified = {2019-05-21 21:59:56 -0700},
 	Title = {Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks},
 	Year = {2016}}
 
 @inproceedings{Zhu:2017aa,
 	Author = {Zhu, Jun-Yan and Park, Taesung and Isola, Phillip and Efros, Alexei A},
-	Booktitle = {Computer Vision (ICCV), 2017 IEEE International Conference on},
+	Booktitle = {{IEEE} {I}nternational {C}onference on {C}omputer {V}ision},
 	Date-Added = {2018-12-31 08:41:13 -0800},
-	Date-Modified = {2018-12-31 08:41:53 -0800},
+	Date-Modified = {2019-05-21 21:37:19 -0700},
 	Title = {Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks},
 	Year = {2017}}
 
 @inproceedings{Goodfellow:2014aa,
 	Author = {Ian J. Goodfellow and Jean Pouget-Abadie and Mehdi Mirza and Bing Xu and David Warde-Farley and Sherjil Ozair and Aaron Courville and Yoshua Bengio},
-	Booktitle = {Advances in neural in- formation processing systems},
+	Booktitle = {Advances in neural information processing systems},
 	Date-Added = {2018-12-28 12:54:06 -0800},
-	Date-Modified = {2018-12-28 12:58:10 -0800},
+	Date-Modified = {2019-05-21 22:05:14 -0700},
 	Title = {Generative Adversarial Nets},
 	Year = {2014}}
 
 @inproceedings{Bromley:1994aa,
 	Author = {J. Bromley and I. Guyon and Y. LeCun and E. Sckinger and R. Shah},
-	Booktitle = {NIPS},
+	Booktitle = {{N}eural {I}nformation {P}rocessing {S}ystems},
 	Date-Added = {2018-12-27 13:08:44 -0800},
-	Date-Modified = {2018-12-27 14:01:33 -0800},
-	Title = {Signature verification using a ''siamese'' time delay neural network},
+	Date-Modified = {2019-05-21 22:08:36 -0700},
+	Title = {Signature verification using a ``siamese'' time delay neural network},
 	Year = {1994}}
 
 @article{Lowe2004,
 	Abstract = {This paper presents a method for extracting distinctive invariant features from images that can be used to perform reliable matching between different views of an object or scene. The features are invariant to image scale and rotation, and are shown to provide robust matching across a substantial range of affine distortion, change in 3D viewpoint, addition of noise, and change in illumination. The features are highly distinctive, in the sense that a single feature can be correctly matched with high probability against a large database of features from many images. This paper also describes an approach to using these features for object recognition. The recognition proceeds by matching individual features to a database of features from known objects using a fast nearest-neighbor algorithm, followed by a Hough transform to identify clusters belonging to a single object, and finally performing verification through least-squares solution for consistent pose parameters. This approach to recognition can robustly identify objects among clutter and occlusion while achieving near real-time performance.},
 	Author = {Lowe, David G.},
 	Date-Added = {2018-12-27 13:02:52 -0800},
-	Date-Modified = {2018-12-27 13:02:52 -0800},
+	Date-Modified = {2019-05-21 22:03:24 -0700},
 	Day = {01},
 	Doi = {10.1023/B:VISI.0000029664.99615.94},
 	Issn = {1573-1405},
@@ -643,16 +649,15 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Number = {2},
 	Pages = {91--110},
 	Title = {Distinctive Image Features from Scale-Invariant Keypoints},
-	Url = {https://doi.org/10.1023/B:VISI.0000029664.99615.94},
 	Volume = {60},
 	Year = {2004},
 	Bdsk-Url-1 = {https://doi.org/10.1023/B:VISI.0000029664.99615.94}}
 
 @inproceedings{Zagoruyko:2015aa,
 	Author = {Sergey Zagoruyko and Nikos Komodakis},
-	Booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	Booktitle = {Proceedings of the {IEEE} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
 	Date-Added = {2018-12-27 11:22:01 -0800},
-	Date-Modified = {2018-12-27 11:22:48 -0800},
+	Date-Modified = {2019-05-21 22:03:05 -0700},
 	Title = {Learning to Compare Image Patches via Convolutional Neural Networks},
 	Year = {2015}}
 
@@ -729,8 +734,8 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Author = {Paszke, Adam and Gross, Sam and Chintala, Soumith and Chanan, Gregory and Yang, Edward and DeVito, Zachary and Lin, Zeming and Desmaison, Alban and Antiga, Luca and Lerer, Adam},
 	Booktitle = {NIPS-W},
 	Date-Added = {2018-12-24 13:59:28 -0800},
-	Date-Modified = {2018-12-24 14:00:30 -0800},
-	Title = {Automatic differentiation in PyTorch},
+	Date-Modified = {2019-05-21 21:37:44 -0700},
+	Title = {Automatic differentiation in {PyTorch}},
 	Year = {2017}}
 
 @article{Ashburner:2000aa,
@@ -863,7 +868,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Abstract = {In this paper we report the set-up and results of the Multimodal Brain Tumor Image Segmentation Benchmark (BRATS) organized in conjunction with the MICCAI 2012 and 2013 conferences. Twenty state-of-the-art tumor segmentation algorithms were applied to a set of 65 multi-contrast MR scans of low- and high-grade glioma patients-manually annotated by up to four raters-and to 65 comparable scans generated using tumor image simulation software. Quantitative evaluations revealed considerable disagreement between the human raters in segmenting various tumor sub-regions (Dice scores in the range 74%-85%), illustrating the difficulty of this task. We found that different algorithms worked best for different sub-regions (reaching performance comparable to human inter-rater variability), but that no single algorithm ranked in the top for all sub-regions simultaneously. Fusing several good algorithms using a hierarchical majority vote yielded segmentations that consistently ranked above all individual algorithms, indicating remaining opportunities for further methodological improvements. The BRATS image data and manual annotations continue to be publicly available through an online evaluation system as an ongoing benchmarking resource. },
 	Author = {Menze, Bjoern H and Jakab, Andras and Bauer, Stefan and Kalpathy-Cramer, Jayashree and Farahani, Keyvan and Kirby, Justin and Burren, Yuliya and Porz, Nicole and Slotboom, Johannes and Wiest, Roland and Lanczi, Levente and Gerstner, Elizabeth and Weber, Marc-Andr{\'e} and Arbel, Tal and Avants, Brian B and Ayache, Nicholas and Buendia, Patricia and Collins, D Louis and Cordier, Nicolas and Corso, Jason J and Criminisi, Antonio and Das, Tilak and Delingette, Herv{\'e} and Demiralp, {\c C}a{\u g}atay and Durst, Christopher R and Dojat, Michel and Doyle, Senan and Festa, Joana and Forbes, Florence and Geremia, Ezequiel and Glocker, Ben and Golland, Polina and Guo, Xiaotao and Hamamci, Andac and Iftekharuddin, Khan M and Jena, Raj and John, Nigel M and Konukoglu, Ender and Lashkari, Danial and Mariz, Jos{\'e} Antoni{\'o} and Meier, Raphael and Pereira, S{\'e}rgio and Precup, Doina and Price, Stephen J and Raviv, Tammy Riklin and Reza, Syed M S and Ryan, Michael and Sarikaya, Duygu and Schwartz, Lawrence and Shin, Hoo-Chang and Shotton, Jamie and Silva, Carlos A and Sousa, Nuno and Subbanna, Nagesh K and Szekely, Gabor and Taylor, Thomas J and Thomas, Owen M and Tustison, Nicholas J and Unal, Gozde and Vasseur, Flor and Wintermark, Max and Ye, Dong Hye and Zhao, Liang and Zhao, Binsheng and Zikic, Darko and Prastawa, Marcel and Reyes, Mauricio and Van Leemput, Koen},
 	Date-Added = {2018-12-23 14:24:45 -0800},
-	Date-Modified = {2018-12-23 14:24:45 -0800},
+	Date-Modified = {2019-05-21 22:11:24 -0700},
 	Doi = {10.1109/TMI.2014.2377694},
 	Journal = {IEEE Trans Med Imaging},
 	Journal-Full = {IEEE transactions on medical imaging},
@@ -874,7 +879,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Pmc = {PMC4833122},
 	Pmid = {25494501},
 	Pst = {ppublish},
-	Title = {The Multimodal Brain Tumor Image Segmentation Benchmark (BRATS)},
+	Title = {The Multimodal Brain Tumor Image Segmentation Benchmark ({BRATS})},
 	Volume = {34},
 	Year = {2015},
 	Bdsk-Url-1 = {https://doi.org/10.1109/TMI.2014.2377694}}
@@ -968,9 +973,9 @@ CONCLUSIONS: Although conventional GA is a powerful tool in optimizing classifie
 @article{Mazurowski:2018aa,
 	Author = {Maciej A. Mazurowski and Mateusz Buda and Ashirbani Saha and and Mustafa R. Bashir},
 	Date-Added = {2018-12-22 18:44:09 -0800},
-	Date-Modified = {2018-12-22 18:45:24 -0800},
-	Journal = {Journal of Magnetic Resonance Imaging},
-	Title = {Deep Learning in Radiology: An Overview of the Concepts and a Survey of the State of the Art With Focus on MRI},
+	Date-Modified = {2019-05-21 22:15:46 -0700},
+	Journal = {J Magn Reson Imaging},
+	Title = {Deep Learning in Radiology: An Overview of the Concepts and a Survey of the State of the Art With Focus on {MRI}},
 	Year = {2018}}
 
 @article{Hochreiter:1997aa,
@@ -1023,25 +1028,25 @@ CONCLUSION: Our preliminary results demonstrate the feasibility of the CNN-based
 
 @inproceedings{Chopra:2005aa,
 	Author = {Sumit Chopra and Raia Hadsell and Yann LeCun},
-	Booktitle = {Proceedings of the International Conference of Computer Vision},
+	Booktitle = {Proceedings of the {IEEE} {I}nternational {C}onference on {C}omputer {V}ision},
 	Date-Added = {2018-12-20 11:40:08 -0800},
-	Date-Modified = {2018-12-20 11:41:06 -0800},
+	Date-Modified = {2019-05-21 22:07:08 -0700},
 	Title = {Learning a Similarity Metric Discriminatively, with Application to Face Verification},
 	Year = {2005}}
 
 @inproceedings{Simonovsky:2016aa,
 	Author = {Martin Simonovsky and Benjamın Gutierrez-Becker and Diana Mateus and Nassir Navab and Nikos Komodakis},
-	Booktitle = {Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-12-17 10:29:09 -0800},
-	Date-Modified = {2018-12-17 10:30:22 -0800},
+	Date-Modified = {2019-05-21 21:57:49 -0700},
 	Title = {A Deep Metric for Multimodal Registration},
 	Year = {2016}}
 
 @inproceedings{Mahapatra:2018aa,
 	Author = {Dwarikanath Mahapatra and Bhavna Antony and Suman Sedai and Rahil Garnavi},
-	Booktitle = {Proceedings of IEEE 15th International Symposium on Biomedical Imaging},
+	Booktitle = {Proceedings of {IEEE} 15th {I}nternational {S}ymposium on {B}iomedical {I}maging},
 	Date-Added = {2018-12-16 19:56:17 -0800},
-	Date-Modified = {2018-12-16 19:58:19 -0800},
+	Date-Modified = {2019-05-21 21:36:00 -0700},
 	Title = {Deformable medical image registration using generative adversarial networks},
 	Year = {2018}}
 
@@ -1063,9 +1068,9 @@ CONCLUSION: Our preliminary results demonstrate the feasibility of the CNN-based
 
 @inproceedings{Hu:2018ab,
 	Author = {Yipeng Hu and Marc Modat and Eli Gibson and Nooshin Ghavami and Ester Bonmati and Caroline M. Moore and Mark Emberton and J. Alison Noble and Dean C. Barratt and Tom Vercauteren},
-	Booktitle = {Proceedings of IEEE 15th International Symposium on Biomedical Imaging},
+	Booktitle = {Proceedings of {IEEE} 15th {I}nternational {S}ymposium on {B}iomedical {I}maging},
 	Date-Added = {2018-12-16 13:22:06 -0800},
-	Date-Modified = {2018-12-16 13:25:44 -0800},
+	Date-Modified = {2019-05-21 21:35:19 -0700},
 	Title = {Label-driven weakly-supervised learning for multimodal deformable image registration},
 	Year = {2018}}
 
@@ -1087,9 +1092,9 @@ CONCLUSION: Our preliminary results demonstrate the feasibility of the CNN-based
 
 @inproceedings{Nguyen:2018aa,
 	Author = {Nguyen, Ty and Chen, Steven W and Shivakumar, Shreyas S and Taylor, Camillo J and Kumar, Vijay},
-	Booktitle = {Proceedings of IEEE Robotics and Automation Letters},
+	Booktitle = {Proceedings of {IEEE} {R}obotics and {A}utomation {L}etters},
 	Date-Added = {2018-12-14 16:29:02 -0800},
-	Date-Modified = {2018-12-14 16:31:56 -0800},
+	Date-Modified = {2019-05-21 21:57:09 -0700},
 	Title = {Unsupervised Deep Homography: A Fast and Robust Homography Estimation Model},
 	Year = {2018}}
 
@@ -1107,9 +1112,9 @@ CONCLUSION: Our preliminary results demonstrate the feasibility of the CNN-based
 
 @inproceedings{Fan:2018aa,
 	Author = {Jingfan Fan and Xiaohuan Cao and Zhong Xue and Pew-Thian Yap and Dinggang Shen},
-	Booktitle = {Med Image Comput Comput Assist Interv},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-12-14 16:06:00 -0800},
-	Date-Modified = {2018-12-14 16:08:06 -0800},
+	Date-Modified = {2019-05-21 21:33:35 -0700},
 	Title = {Adversarial Similarity Network for Evaluating Image Alignment in Deep Learning Based Registration},
 	Year = {2018}}
 
@@ -1170,9 +1175,9 @@ CONCLUSION: Our preliminary results demonstrate the feasibility of the CNN-based
 
 @inproceedings{Rocco:2017aa,
 	Author = {I. Rocco and R. Arandjelovi{\'c} and J. Sivic},
-	Booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+	Booktitle = {Proceedings of the {IEEE} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
 	Date-Added = {2018-12-11 13:15:53 -0800},
-	Date-Modified = {2018-12-11 13:18:13 -0800},
+	Date-Modified = {2019-05-21 21:41:16 -0700},
 	Title = {Convolutional neural network architecture for geometric matching},
 	Year = {2017}}
 
@@ -1378,12 +1383,11 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Bibsource = {dblp computer science bibliography, https://dblp.org},
 	Biburl = {https://dblp.org/rec/bib/journals/corr/SimonyanZ14a},
 	Date-Added = {2018-12-08 20:37:09 -0800},
-	Date-Modified = {2018-12-08 20:37:09 -0800},
+	Date-Modified = {2019-05-21 22:13:20 -0700},
 	Eprint = {1409.1556},
 	Journal = {CoRR},
 	Timestamp = {Wed, 07 Jun 2017 14:41:51 +0200},
 	Title = {Very Deep Convolutional Networks for Large-Scale Image Recognition},
-	Url = {http://arxiv.org/abs/1409.1556},
 	Volume = {abs/1409.1556},
 	Year = {2014},
 	Bdsk-Url-1 = {http://arxiv.org/abs/1409.1556}}
@@ -1391,8 +1395,8 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 @article{Russakovsky:2015aa,
 	Author = {Olga Russakovsky and Jia Deng and Hao Su and Jonathan Krause and Sanjeev Satheesh and Sean Ma and Zhiheng Huang and Andrej Karpathy and Aditya Khosla and Michael Bernstein and Alexander C. Berg and Li Fei-Fei},
 	Date-Added = {2018-12-08 20:34:23 -0800},
-	Date-Modified = {2018-12-08 20:34:23 -0800},
-	Journal = {International Journal of Computer Vision},
+	Date-Modified = {2019-05-21 22:14:36 -0700},
+	Journal = {Int J Comput Vis},
 	Month = {December},
 	Number = {3},
 	Pages = {211-252},
@@ -1418,14 +1422,13 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Author = {Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E.},
 	Booktitle = {Proceedings of the 25th {I}nternational {C}onference on {N}eural {I}nformation {P}rocessing {S}ystems},
 	Date-Added = {2018-12-08 20:33:50 -0800},
-	Date-Modified = {2018-12-23 20:11:57 -0800},
+	Date-Modified = {2019-05-21 22:13:38 -0700},
 	Location = {Lake Tahoe, Nevada},
 	Numpages = {9},
 	Pages = {1097--1105},
 	Publisher = {Curran Associates Inc.},
 	Series = {NIPS'12},
 	Title = {ImageNet Classification with Deep Convolutional Neural Networks},
-	Url = {http://dl.acm.org/citation.cfm?id=2999134.2999257},
 	Year = {2012},
 	Bdsk-Url-1 = {http://dl.acm.org/citation.cfm?id=2999134.2999257}}
 
@@ -1503,8 +1506,8 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 @article{Ivakhnenko:1971aa,
 	Author = {A. G. Ivakhnenko},
 	Date-Added = {2018-12-08 18:05:08 -0800},
-	Date-Modified = {2018-12-08 18:08:03 -0800},
-	Journal = {IEEE Transactions on Systems, Man, and Cybernetics},
+	Date-Modified = {2019-05-21 22:19:22 -0700},
+	Journal = {IEEE Trans Syst Man Cybern Syst},
 	Month = {Oct},
 	Number = {4},
 	Pages = {364--378},
@@ -1572,11 +1575,11 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Address = {New York, NY, USA},
 	Author = {Brown, Lisa Gottesfeld},
 	Date-Added = {2018-12-06 21:08:51 -0800},
-	Date-Modified = {2018-12-06 21:09:04 -0800},
+	Date-Modified = {2019-05-21 22:20:16 -0700},
 	Doi = {10.1145/146370.146374},
 	Issn = {0360-0300},
 	Issue_Date = {Dec. 1992},
-	Journal = {ACM Comput. Surv.},
+	Journal = {ACM Comput Surv},
 	Keywords = {image registration, image warping, rectification, template matching},
 	Month = dec,
 	Number = {4},
@@ -1584,7 +1587,6 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Pages = {325--376},
 	Publisher = {ACM},
 	Title = {A Survey of Image Registration Techniques},
-	Url = {http://doi.acm.org/10.1145/146370.146374},
 	Volume = {24},
 	Year = {1992},
 	Bdsk-Url-1 = {http://doi.acm.org/10.1145/146370.146374},
@@ -1829,10 +1831,10 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 @article{Vialard:2012aa,
 	Author = {Fran{\c c}ois-Xavier Vialard and Laurent Risser and Daniel Rueckert and Colin J. Cotter},
 	Date-Added = {2018-11-26 12:55:50 -0800},
-	Date-Modified = {2018-11-26 12:57:08 -0800},
+	Date-Modified = {2019-05-21 21:38:32 -0700},
 	Journal = {Int J Comput Vis},
 	Pages = {229--241},
-	Title = {Diffeomorphic 3D Image Registration via Geodesic Shooting Using an Efficient Adjoint Calculation},
+	Title = {Diffeomorphic {3D} Image Registration via Geodesic Shooting Using an Efficient Adjoint Calculation},
 	Volume = {97},
 	Year = {2012}}
 
@@ -1840,9 +1842,9 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Abstract = {In this paper, we propose an innovative approach for registration based on the deterministic prediction of the parameters from both images instead of the optimization of a energy criteria. The method relies on a fully convolutional network whose architecture consists of contracting layers to detect relevant features and a symmetric expanding path that matches them together and outputs the transformation parametrization. Whereas convolutional networks have seen a widespread expansion and have been already applied to many medical imaging problems such as segmentation and classification, its application to registration has so far faced the challenge of defining ground truth data on which to train the algorithm. Here, we present a novel training strategy to build reference deformations which relies on the registration of segmented regions of interest. We apply this methodology to the problem of inter-patient heart registration and show an important improvement over a state of the art optimization based algorithm. Not only our method is more accurate but it is also faster - registration of two 3D-images taking less than 30 ms second on a GPU - and more robust to outliers.},
 	Address = {Cham},
 	Author = {Roh{\'e}, Marc-Michel and Datar, Manasi and Heimann, Tobias and Sermesant, Maxime and Pennec, Xavier},
-	Booktitle = {Medical Image Computing and Computer Assisted Intervention − MICCAI 2017},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-11-08 14:30:54 -0800},
-	Date-Modified = {2018-11-08 14:31:01 -0800},
+	Date-Modified = {2019-05-21 21:56:33 -0700},
 	Editor = {Descoteaux, Maxime and Maier-Hein, Lena and Franz, Alfred and Jannin, Pierre and Collins, D. Louis and Duchesne, Simon},
 	Isbn = {978-3-319-66182-7},
 	Pages = {266--274},
@@ -1854,9 +1856,9 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Abstract = {In this paper we propose a method to solve nonrigid image registration through a learning approach, instead of via iterative optimization of a predefined dissimilarity metric. We design a Convolutional Neural Network (CNN) architecture that, in contrast to all other work, directly estimates the displacement vector field (DVF) from a pair of input images. The proposed RegNet is trained using a large set of artificially generated DVFs, does not explicitly define a dissimilarity metric, and integrates image content at multiple scales to equip the network with contextual information. At testing time nonrigid registration is performed in a single shot, in contrast to current iterative methods. We tested RegNet on 3D chest CT follow-up data. The results show that the accuracy of RegNet is on par with a conventional B-spline registration, for anatomy within the capture range. Training RegNet with artificially generated DVFs is therefore a promising approach for obtaining good results on real clinical data, thereby greatly simplifying the training problem. Deformable image registration can therefore be successfully casted as a learning problem.},
 	Address = {Cham},
 	Author = {Sokooti, Hessam and de Vos, Bob and Berendsen, Floris and Lelieveldt, Boudewijn P. F. and I{\v{s}}gum, Ivana and Staring, Marius},
-	Booktitle = {Medical Image Computing and Computer Assisted Intervention − MICCAI 2017},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-11-08 14:26:19 -0800},
-	Date-Modified = {2018-11-08 14:26:29 -0800},
+	Date-Modified = {2019-05-21 21:39:26 -0700},
 	Editor = {Descoteaux, Maxime and Maier-Hein, Lena and Franz, Alfred and Jannin, Pierre and Collins, D. Louis and Duchesne, Simon},
 	Isbn = {978-3-319-66182-7},
 	Pages = {232--239},
@@ -1922,9 +1924,9 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 
 @inproceedings{Weinzaepfel:2013aa,
 	Author = {P. Weinzaepfel and J. Revaud and Z. Harchaoui and C. Schmid},
-	Booktitle = {2013 IEEE International Conference on Computer Vision},
+	Booktitle = {Proceedings of the {IEEE} {I}nternational {C}onference on {C}omputer {V}ision},
 	Date-Added = {2018-11-08 14:12:17 -0800},
-	Date-Modified = {2018-11-08 14:12:29 -0800},
+	Date-Modified = {2019-05-21 21:59:21 -0700},
 	Doi = {10.1109/ICCV.2013.175},
 	Issn = {1550-5499},
 	Keywords = {computer vision;convolution;image matching;image motion analysis;image retrieval;image sampling;image sequences;minimisation;smoothing methods;variational techniques;large displacement optical flow;deep matching;optical flow computation;computer vision systems;large displacement handling;DeepFlow algorithm;variational approach;descriptor matching algorithm;multistage architecture;interleaving convolutions;max-pooling;deep convolutional nets;dense sampling;quasidense correspondence retrieval;smoothing effect;energy minimization framework;optical flow estimation;MPI-Sintel dataset;Optical imaging;Integrated optics;Nonlinear optics;Optical filters;Adaptive optics;Estimation;Equations;optical flow;large displacements;dense matching;non-rigid matching;deep convolutional networks},
@@ -1964,26 +1966,26 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 
 @inproceedings{Sloan:2018aa,
 	Author = {J. M. Sloan and K. A. Goatman and J. P. Siebert},
-	Booktitle = {Proceedings of the 11th International Joint Conference on Biomedical Engineering Systems and Technologies (BIOSTEC 2018) - Volume 2: BIOIMAGING},
+	Booktitle = {Proceedings of the 11th {I}nternational {J}oint {C}onference on {B}iomedical {E}ngineering {S}ystems and {T}echnologies ({BIOSTEC} 2018) - Volume 2: Bioimaging},
 	Date-Added = {2018-11-08 14:01:48 -0800},
-	Date-Modified = {2018-11-08 14:12:52 -0800},
+	Date-Modified = {2019-05-21 21:40:27 -0700},
 	Pages = {89--99},
 	Title = {Learning Rigid Image Registration - Utilizing Convolutional Neural Networks for Medical Image Registration},
 	Year = {2018}}
 
 @inproceedings{Sheikhjafari:2018aa,
 	Author = {Ameneh Sheikhjafari and Michelle Noga and Kumaradevan Punithakumar and Nilanjan Ray},
-	Booktitle = {Proceeings of Medical Imaging with Deep Learning},
+	Booktitle = {Proceedings of {M}edical {I}maging with {D}eep {L}earning},
 	Date-Added = {2018-11-08 13:59:52 -0800},
-	Date-Modified = {2018-11-08 14:13:01 -0800},
+	Date-Modified = {2019-05-21 21:29:07 -0700},
 	Title = {Unsupervised Deformable Image Registration with Fully Connected Generative Neural Network},
 	Year = {2018}}
 
 @inproceedings{Sergeev:2012aa,
 	Author = {Sergey Sergeev and Yang Zhao and Marius George Linguraru and Kazunori Okada,},
-	Booktitle = {Proceeings of the SPIE},
+	Booktitle = {Proceedings of the {SPIE}},
 	Date-Added = {2018-11-08 13:57:02 -0800},
-	Date-Modified = {2018-11-08 14:13:07 -0800},
+	Date-Modified = {2019-05-21 14:51:13 -0700},
 	Title = {Medical image registration using machine learning-based interest point detector},
 	Year = {2012}}
 
@@ -1991,7 +1993,7 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Abstract = {In this paper, we present a Convolutional Neural Network (CNN) regression approach to address the two major limitations of existing intensity-based 2-D/3-D registration technology: 1) slow computation and 2) small capture range. Different from optimization-based methods, which iteratively optimize the transformation parameters over a scalar-valued metric function representing the quality of the registration, the proposed method exploits the information embedded in the appearances of the digitally reconstructed radiograph and X-ray images, and employs CNN regressors to directly estimate the transformation parameters. An automatic feature extraction step is introduced to calculate 3-D pose-indexed features that are sensitive to the variables to be regressed while robust to other factors. The CNN regressors are then trained for local zones and applied in a hierarchical manner to break down the complex regression task into multiple simpler sub-tasks that can be learned separately. Weight sharing is furthermore employed in the CNN regression model to reduce the memory footprint. The proposed approach has been quantitatively evaluated on 3 potential clinical applications, demonstrating its significant advantage in providing highly accurate real-time 2-D/3-D registration with a significantly enlarged capture range when compared to intensity-based methods.},
 	Author = {Shun Miao and Wang, Z Jane and Rui Liao},
 	Date-Added = {2018-11-08 13:53:54 -0800},
-	Date-Modified = {2018-11-08 13:53:54 -0800},
+	Date-Modified = {2019-05-21 21:32:00 -0700},
 	Doi = {10.1109/TMI.2016.2521800},
 	Journal = {IEEE Trans Med Imaging},
 	Journal-Full = {IEEE transactions on medical imaging},
@@ -2001,7 +2003,7 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Pages = {1352-1363},
 	Pmid = {26829785},
 	Pst = {ppublish},
-	Title = {A CNN Regression Approach for Real-Time 2D/3D Registration},
+	Title = {A {CNN} Regression Approach for Real-Time {2D/3D} Registration},
 	Volume = {35},
 	Year = {2016},
 	Bdsk-Url-1 = {https://doi.org/10.1109/TMI.2016.2521800}}
@@ -2014,21 +2016,21 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Title = {An Artificial Agent for Robust Image Registration},
 	Year = {2017}}
 
-@conference{Eppenhof:2018aa,
+@inproceedings{Eppenhof:2018aa,
 	Author = {Koen A. J. Eppenhof and Maxime W. Lafarge and Pim Moeskops and Mitko Veta and Josien P. W. Pluim},
-	Booktitle = {Proc. SPIE 10574, Medical Imaging 2018: Image Processing},
+	Booktitle = {Proceedings of the SPIE: Medical Imaging: Image Processing},
 	Date-Added = {2018-11-08 13:49:08 -0800},
-	Date-Modified = {2018-12-14 16:03:57 -0800},
+	Date-Modified = {2019-05-21 21:56:04 -0700},
 	Title = {Deformable image registration using convolutional neural networks},
 	Year = {2018}}
 
-@article{Cao:2017aa,
+@inproceedings{Cao:2017aa,
 	Abstract = {Existing deformable registration methods require exhaustively iterative optimization, along with careful parameter tuning, to estimate the deformation field between images. Although some learning-based methods have been proposed for initiating deformation estimation, they are often template-specific and not flexible in practical use. In this paper, we propose a convolutional neural network (CNN) based regression model to directly learn the complex mapping from the input image pair (i.e., a pair of template and subject) to their corresponding deformation field. Specifically, our CNN architecture is designed in a patch-based manner to learn the complex mapping from the input patch pairs to their respective deformation field. First, the equalized active-points guided sampling strategy is introduced to facilitate accurate CNN model learning upon a limited image dataset. Then, the similarity-steered CNN architecture is designed, where we propose to add the auxiliary contextual cue, i.e., the similarity between input patches, to more directly guide the learning process. Experiments on different brain image datasets demonstrate promising registration performance based on our CNN model. Furthermore, it is found that the trained CNN model from one dataset can be successfully transferred to another dataset, although brain appearances across datasets are quite variable.},
 	Author = {Cao, Xiaohuan and Yang, Jianhua and Zhang, Jun and Nie, Dong and Kim, Min-Jeong and Wang, Qian and Shen, Dinggang},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-11-08 13:47:53 -0800},
-	Date-Modified = {2018-11-08 13:47:53 -0800},
+	Date-Modified = {2019-05-21 21:54:21 -0700},
 	Doi = {10.1007/978-3-319-66182-7_35},
-	Journal = {Med Image Comput Comput Assist Interv},
 	Journal-Full = {Medical image computing and computer-assisted intervention : MICCAI ... International Conference on Medical Image Computing and Computer-Assisted Intervention},
 	Mesh = {Algorithms; Brain; Humans; Machine Learning; Neural Networks (Computer); Neuroimaging; Reproducibility of Results; Sensitivity and Specificity; Young Adult},
 	Month = {Sep},
@@ -2041,11 +2043,11 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Year = {2017},
 	Bdsk-Url-1 = {https://doi.org/10.1007/978-3-319-66182-7_35}}
 
-@conference{Jaderberg:2015aa,
+@inproceedings{Jaderberg:2015aa,
 	Author = {Max Jaderberg and Karen Simonyan and Andrew Zisserman and Koray Kavukcuoglu},
-	Booktitle = {Neural Information Processing Systems 2015},
+	Booktitle = {{N}eural {I}nformation {P}rocessing {S}ystems},
 	Date-Added = {2018-11-08 13:45:45 -0800},
-	Date-Modified = {2018-11-08 13:47:17 -0800},
+	Date-Modified = {2019-05-21 22:06:02 -0700},
 	Title = {Spatial Transformer Networks},
 	Year = {2015}}
 
@@ -2071,9 +2073,9 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Acmid = {2919957},
 	Address = {Washington, DC, USA},
 	Author = {Dosovitskiy, Alexey and Fischery, Philipp and Ilg, Eddy and Hausser, Philip and Hazirbas, Caner and Golkov, Vladimir and Smagt, Patrick van der and Cremers, Daniel and Brox, Thomas},
-	Booktitle = {Proceedings of the 2015 IEEE International Conference on Computer Vision (ICCV)},
+	Booktitle = {Proceedings of the {IEEE} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
 	Date-Added = {2018-11-08 13:44:01 -0800},
-	Date-Modified = {2018-11-08 13:44:08 -0800},
+	Date-Modified = {2019-05-21 21:53:00 -0700},
 	Doi = {10.1109/ICCV.2015.316},
 	Isbn = {978-1-4673-8391-2},
 	Numpages = {9},
@@ -2089,9 +2091,9 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Abstract = {Traditional deformable registration techniques achieve impressive results and offer a rigorous theoretical treatment, but are computationally intensive since they solve an optimization problem for each image pair. Recently, learning-based methods have facilitated fast registration by learning spatial deformation functions. However, these approaches use restricted deformation models, require supervised labels, or do not guarantee a diffeomorphic (topology-preserving) registration. Furthermore, learning-based registration tools have not been derived from a probabilistic framework that can offer uncertainty estimates. In this paper, we present a probabilistic generative model and derive an unsupervised learning-based inference algorithm that makes use of recent developments in convolutional neural networks (CNNs). We demonstrate our method on a 3D brain registration task, and provide an empirical analysis of the algorithm. Our approach results in state of the art accuracy and very fast runtimes, while providing diffeomorphic guarantees and uncertainty estimates. Our implementation is available online at http://voxelmorph.csail.mit.edu.},
 	Address = {Cham},
 	Author = {Dalca, Adrian V. and Balakrishnan, Guha and Guttag, John and Sabuncu, Mert R.},
-	Booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2018},
+	Booktitle = {Proceedings of the {I}nternational {C}onference on {M}edical {I}mage {C}omputing and {C}omputer-{A}ssisted {I}ntervention},
 	Date-Added = {2018-11-08 13:39:10 -0800},
-	Date-Modified = {2018-11-08 13:39:29 -0800},
+	Date-Modified = {2019-05-21 21:50:45 -0700},
 	Editor = {Frangi, Alejandro F. and Schnabel, Julia A. and Davatzikos, Christos and Alberola-L{\'o}pez, Carlos and Fichtinger, Gabor},
 	Isbn = {978-3-030-00928-1},
 	Pages = {729--738},
@@ -2118,10 +2120,10 @@ CONCLUSIONS: The NiftyNet infrastructure enables researchers to rapidly develop 
 	Year = {2018},
 	Bdsk-Url-1 = {https://doi.org/10.1117/12.2293515}}
 
-@conference{Balakrishnan:2018aa,
+@inproceedings{Balakrishnan:2018aa,
 	Author = {Guha Balakrishnan and Amy Zhao and Mert R. Sabuncu and John Guttag and Adrian V. Dalca},
-	Booktitle = {IEEE CVPR: Conf. on Computer Vision and Pattern Recognition},
+	Booktitle = {Proceedings of the {IEEE} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
 	Date-Added = {2018-11-08 13:28:08 -0800},
-	Date-Modified = {2018-11-08 13:36:34 -0800},
+	Date-Modified = {2019-05-21 21:52:48 -0700},
 	Title = {An Unsupervised Learning Model for Deformable Medical Image Registration},
 	Year = {2018}}
